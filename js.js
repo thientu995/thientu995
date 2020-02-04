@@ -25,3 +25,7 @@ $(document).ready(function () {
         }
     });
 });
+
+function PageA4(){
+    $('html').css('width','210mm');
+}

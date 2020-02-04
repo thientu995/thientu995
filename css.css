@@ -2,6 +2,22 @@ html, body, h1, h2, h3, h4, h5, h6 {
   font-family: "Roboto", sans-serif
 }
 
+@page {
+  size: A4;
+  margin: 0;
+}
+
+@media print {
+  html, body {
+    width: 210mm;
+    height: 297mm;
+  }
+}
+
+html {
+  background: #fff;
+}
+
 .bkgFullName {
   width: 100%;
   color: #fff!important;
@@ -33,11 +49,11 @@ html, body, h1, h2, h3, h4, h5, h6 {
   color: #e74c3c!important
 }
 
-ul.timeline{
+ul.timeline {
   list-style-type: none;
 }
 
-ul.timeline li{
+ul.timeline li {
   position: relative;
   margin: 0;
   padding-bottom: 1em;
