@@ -1,0 +1,95 @@
+[
+    {
+        "Category": "Information",
+        "Icon": "",
+        "Data": [
+            {
+                "Icon": "briefcase",
+                "Text": "Software Developer"
+            },
+            {
+                "Icon": "calendar",
+                "Text": "20 Otc 1995"
+            },
+            {
+                "Icon": "home",
+                "Text": "Tân Long, Thanh Bình, Đồng Tháp, Việt Nam"
+            },
+            {
+                "Icon": "envelope",
+                "Text": "thientu@olit.vn"
+            },
+            {
+                "Icon": "phone",
+                "Text": "(+84)35 653 0909"
+            }
+        ]
+    },
+    {
+        "Category": "Skills",
+        "Icon": "asterisk",
+        "Data": [
+            {
+                "Value": "90",
+                "Text": "Photography"
+            },
+            {
+                "Value": "20",
+                "Text": "Adobe Photoshop"
+            }
+        ]
+    },
+    {
+        "Category": "CareerObjective",
+        "Icon": "hashtag",
+        "Data": [
+            {
+                "Text": "Looking for a stable job and fit with position Software Developer, as well as the opportunity to develop skills other"
+            }
+        ]
+    },
+    {
+        "Category": "Education",
+        "Icon": "graduation-cap",
+        "Data": [
+            {
+                "Date": "",
+                "Text": "",
+                "Value": ""
+            }
+        ]
+    },
+    {
+        "Category": "WorkExperience",
+        "Icon": "suitcase",
+        "Data": [
+            {
+                "Date": "",
+                "Text": "",
+                "Value": ""
+            }
+        ]
+    },
+    {
+        "Category": "IndividualProjects",
+        "Icon": "code-fork",
+        "Data": [
+            {
+                "Date": "",
+                "Text": "",
+                "Value": ""
+            }
+        ]
+    },
+    {
+        "Category": "Certificate",
+        "Icon": "certificate",
+        "Data": [
+            {
+                "Date": "",
+                "Text": "",
+                "Value": ""
+            }
+        ]
+    }
+]

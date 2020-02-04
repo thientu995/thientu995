@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<title>NGUYỄN THIÊN TỨ CV </title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<body class="w3-light-grey">
+
+  <!-- Page Container -->
+  <div class="w3-content w3-margin-top" style="max-width:100vw;">
+
+    <!-- The Grid -->
+    <div class="w3-row-padding">
+
+      <!-- Left Column -->
+      <div class="w3-third">
+
+        <div class="w3-white w3-text-grey w3-card-4">
+          <div class="w3-display-container w3-center">
+            <img src="images/avatar.jpg" class="" style="width:100%" alt="Avatar">
+            <div class="w3-display-bottommiddle w3-container w3-text-black bkgFullName">
+              <h2>NGUYỄN THIÊN TỨ</h2>
+            </div>
+          </div>
+          <div class="w3-container">
+            <div id="Information" data-attr="Icon,Text">
+              <p><i class="fa fa-{{Icon}} fa-fw w3-margin-right w3-large color-icon"></i>{{Text}}</p>
+            </div>
+            <hr>
+
+            <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right color-icon"></i>Skills</b></p>
+            <div id="Skills" data-attr="Value,Text">
+              <p>{{Text}}</p>
+              <div class="w3-light-grey w3-round-xlarge w3-small">
+                <div class="w3-container w3-center w3-round-xlarge color-bkg" style="width:{{Value}}%">{{Value}}%</div>
+              </div>
+            </div>
+            <br>
+            <br>
+          </div>
+        </div><br>
+
+        <!-- End Left Column -->
+      </div>
+
+      <!-- Right Column -->
+      <div class="w3-twothird">
+          <div class="w3-container w3-card w3-white w3-margin-bottom">
+              <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-hashtag fa-fw w3-margin-right w3-xxlarge color-icon"></i>Career Objective</h2>
+              <div id="CareerObjective" data-attr="Text">
+                <div class="w3-container">
+                  <p>{{Text}}</p>
+                </div>
+              </div>
+            </div>
+
+        <div class="w3-container w3-card w3-white w3-margin-bottom">
+          <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-graduation-cap fa-fw w3-margin-right w3-xxlarge color-icon"></i>Education</h2>
+          <div id="Education" data-attr="Value,Text,Date">
+            <div class="w3-container">
+              <h5 class="w3-opacity"><b>{{Text}}</b></h5>
+              <h6 class="color-datetime"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{Date}}</h6>
+              <p>{{Value}}</p>
+              <hr>
+            </div>
+          </div>
+        </div>
+
+        <div class="w3-container w3-card w3-white w3-margin-bottom">
+          <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge color-icon"></i>Work
+            Experience</h2>
+          <div id="WorkExperience" data-attr="Value,Text,Date">
+            <div class="w3-container">
+              <h5 class="w3-opacity"><b>{{Text}}</b></h5>
+              <h6 class="color-datetime"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{Date}}</h6>
+              <p>{{Value}}</p>
+              <hr>
+            </div>
+          </div>
+        </div>
+
+        <div class="w3-container w3-card w3-white w3-margin-bottom">
+          <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-code-fork fa-fw w3-margin-right w3-xxlarge color-icon"></i>Individual Projects</h2>
+          <div id="IndividualProjects" data-attr="Value,Text,Date">
+            <div class="w3-container">
+              <h5 class="w3-opacity"><b>{{Text}}</b></h5>
+              <h6 class="color-datetime"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{Date}}</h6>
+              <p>{{Value}}</p>
+              <hr>
+            </div>
+          </div>
+        </div>
+
+        <div class="w3-container w3-card w3-white w3-margin-bottom">
+            <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge color-icon"></i>Certificate</h2>
+            <div id="Certificate" data-attr="Value,Text,Date">
+              <div class="w3-container">
+                <h5 class="w3-opacity"><b>{{Text}}</b></h5>
+                <h6 class="color-datetime"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{Date}}</h6>
+                <p>{{Value}}</p>
+                <hr>
+              </div>
+            </div>
+          </div>
+        <!-- End Right Column -->
+      </div>
+
+      <!-- End Grid -->
+    </div>
+
+    <!-- End Page Container -->
+  </div>
+
+  <!-- <footer class="w3-container color-bkg w3-center w3-margin-top">
+    <p>Find me on social media.</p>
+    <i class="fa fa-facebook-official w3-hover-opacity"></i>
+    <i class="fa fa-instagram w3-hover-opacity"></i>
+    <i class="fa fa-snapchat w3-hover-opacity"></i>
+    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+    <i class="fa fa-twitter w3-hover-opacity"></i>
+    <i class="fa fa-linkedin w3-hover-opacity"></i>
+  </footer> -->
+
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css.css">
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="js.js"></script>
+</body>
+
+</html>
