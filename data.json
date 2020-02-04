@@ -26,16 +26,50 @@
         ]
     },
     {
-        "Category": "Skills",
+        "Category": "PersonalSkills",
         "Icon": "asterisk",
         "Data": [
             {
-                "Value": "90",
+                "Value": "80",
                 "Text": "Photography"
             },
             {
                 "Value": "20",
                 "Text": "Adobe Photoshop"
+            },
+            {
+                "Value": "30",
+                "Text": "SEO Website"
+            },
+            {
+                "Value": "40",
+                "Text": "Windows Server/IIS"
+            },
+            {
+                "Value": "85",
+                "Text": "Web Control Panel (Plesk/SolidCP/DirectAdmin/cPanel)"
+            },
+            {
+                "Value": "97",
+                "Text": "Team work"
+            }
+        ]
+    },
+    {
+        "Category": "ProgrommingSkills",
+        "Icon": "code",
+        "Data": [
+            {
+                "Value": "95",
+                "Text": "ASP.NET MVC/Core"
+            },
+            {
+                "Value": "90",
+                "Text": "Javascript/jQuery"
+            },
+            {
+                "Value": "90",
+                "Text": "SQL (MS SQL Server)"
             }
         ]
     },
