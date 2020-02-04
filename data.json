@@ -5,7 +5,7 @@
         "Data": [
             {
                 "Icon": "briefcase",
-                "Text": "Software Developer"
+                "Text": ".NET Developer"
             },
             {
                 "Icon": "calendar",
@@ -13,7 +13,7 @@
             },
             {
                 "Icon": "home",
-                "Text": "Tân Long, Thanh Bình, Đồng Tháp, Việt Nam"
+                "Text": "Binh Tan Dist., Ho Chi Minh City, Vietnam"
             },
             {
                 "Icon": "envelope",
@@ -38,16 +38,12 @@
                 "Text": "Adobe Photoshop"
             },
             {
-                "Value": "30",
-                "Text": "SEO Website"
+                "Value": "85",
+                "Text": "Web Control Panel (Plesk/SolidCP/DirectAdmin/cPanel)"
             },
             {
                 "Value": "40",
                 "Text": "Windows Server/IIS"
-            },
-            {
-                "Value": "85",
-                "Text": "Web Control Panel (Plesk/SolidCP/DirectAdmin/cPanel)"
             },
             {
                 "Value": "97",
@@ -68,8 +64,16 @@
                 "Text": "Javascript/jQuery"
             },
             {
-                "Value": "90",
+                "Value": "85",
                 "Text": "SQL (MS SQL Server)"
+            },
+            {
+                "Value": "85",
+                "Text": "Github/Gitlab/SVN"
+            },
+            {
+                "Value": "30",
+                "Text": "SEO Onpage"
             }
         ]
     },
@@ -78,7 +82,7 @@
         "Icon": "hashtag",
         "Data": [
             {
-                "Text": "Looking for a stable job and fit with position Software Developer, as well as the opportunity to develop skills other"
+                "Text": "Looking for a stable job and fit with position .NET Developer, as well as the opportunity to develop skills other."
             }
         ]
     },
@@ -87,8 +91,22 @@
         "Icon": "graduation-cap",
         "Data": [
             {
-                "Date": "",
-                "Text": "",
+                "Date": "Nov 2012",
+                "Text": "Prize C, the Fifth Dong Thap Province Children and Youth Creativity Contest",
+                "Value": "<b>DP v1.0 - Dictionary Pascal</b> while student in grades 11A1 of Thanh Binh 2 High School with Windows Form Application C# in Visual Studio 2010"
+            },
+            {
+                "Date": "Sept 2013 - Sept 2017",
+                "Text": "Specialize in IT of Tay Do University in Can Tho City",
+                "Value": [
+                    "<ul class='timeline'>",
+                    "<li><span class='color-datetime'>Nov - Dec 2015</span>: <b>T4Cafe</b> software for cafe management, Windows Form Application C# and database MS Sql Server. Product has been sold to a cafe in Can Tho City.</li>",
+                    "</ul>"
+                ]
+            },
+            {
+                "Date": "July 2015",
+                "Text": "KIV - Korea IT Volunnter",
                 "Value": ""
             }
         ]
@@ -120,9 +138,19 @@
         "Icon": "certificate",
         "Data": [
             {
-                "Date": "",
-                "Text": "",
-                "Value": ""
+                "Date": "Aug 2016",
+                "Text": "SoloLearn Online",
+                "Value": "Level 7 with 2086 XP"
+            },
+            {
+                "Date": "Aug 2016",
+                "Text": "Udemy Online",
+                "Value": "Complete learn: HTML 5, Algorithms and Data Structures C++"
+            },
+            {
+                "Date": "Apr 2017",
+                "Text": "MOS - Microsoft Office Specialist",
+                "Value": "Microsoft Office PowerPoint"
             }
         ]
     }

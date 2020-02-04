@@ -3,7 +3,6 @@ $(document).ready(function () {
         url: 'data.json',
         async: true,
         success: function (res) {
-            console.log(res)
             res.forEach(group => {
                 let objGroup = $('#' + group.Category);
                 let contentHtml = objGroup.html();
@@ -14,11 +13,15 @@ $(document).ready(function () {
                     let htmlObj = contentHtml;
                     valueAttr.forEach(attr => {
                         let re = new RegExp('{{' + attr + '}}', 'g');
+                        if (Array.isArray(data[attr])) {
+                            data[attr] = data[attr].join('');
+                        }
                         htmlObj = htmlObj.replace(re, data[attr]);
                     });
                     objGroup.append(htmlObj);
                 });
             });
+            $('body').fadeIn(1500);
         }
     });
 });
