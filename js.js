@@ -26,6 +26,12 @@ $(document).ready(function () {
     });
 });
 
-function PageA4(){
-    $('html').css('width','210mm');
+function Print(size) {
+    size = size || 210;
+    $('footer').hide();
+    $('html').css('width', size + 'mm');
+}
+
+function PageA4() {
+    Print(210);
 }
