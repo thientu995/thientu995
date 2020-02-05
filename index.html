@@ -22,40 +22,51 @@
               <h2>NGUYỄN THIÊN TỨ</h2>
             </div>
           </div>
-          <div class="w3-container">
-            <div id="Information" data-attr="Icon,Text">
-              <p><i class="fa fa-{{Icon}} fa-fw w3-margin-right w3-large color-icon"></i>{{Text}}</p>
-            </div>
-            <hr>
-
-            <p class="w3-large"><b><i class="fa fa-code fa-fw w3-margin-right color-icon"></i>Skills</b></p>
-            <div id="ProgrommingSkills" data-attr="Value,Text">
-              <div class="w3-tag w3-round w3-margin color-bkg-sub" style="padding:5px">
-                <div class="w3-tag w3-round color-bkg w3-border w3-border-white w3-padding-small">
-                  {{Text}}
-                </div>
-              </div>
-            </div>
-            <hr>
-
-            <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right color-icon"></i>Soft Skills</b></p>
-            <div id="PersonalSkills" data-attr="Value,Text">
-              <p>{{Text}}</p>
-              <div class="color-bkg-sub w3-round-xlarge w3-small">
-                <div class="w3-container w3-center w3-round-xlarge color-bkg" style="width:{{Value}}%">&nbsp;</div>
+          <div class="w3-container contentLeft">
+            <div id="Information">
+              <div data-content="Icon,Text">
+                <p><i class="fa fa-{{Icon}} fa-fw w3-margin-right w3-large color-icon"></i>{{Text}}</p>
               </div>
             </div>
 
-            <p class="w3-large"><b><i class="fa fa-google fa-fw w3-margin-right color-icon"></i>Google</b></p>
-            <div id="GoogleSkills" data-attr="Value,Text">
-              <div class="w3-tag w3-round w3-margin color-bkg-sub" style="padding:5px">
-                <div class="w3-tag w3-round color-bkg w3-border w3-border-white w3-padding-small">
-                  {{Text}}
+            <div id="ProgrommingSkills">
+              <div data-attr="Header">
+                <p class="w3-large"><b><i class="fa fa-{{Icon}} fa-fw w3-margin-right color-icon"></i>{{Text}}</b></p>
+              </div>
+              <div data-content="Value,Text">
+                <div class="w3-tag w3-round w3-margin color-bkg-sub" style="padding:5px">
+                  <div class="w3-tag w3-round color-bkg w3-border w3-border-white w3-padding-small">
+                    {{Text}}
+                  </div>
                 </div>
               </div>
             </div>
 
-            <br>
+            <div id="PersonalSkills">
+              <div data-attr="Header">
+                <p class="w3-large"><b><i class="fa fa-{{Icon}} fa-fw w3-margin-right color-icon"></i>{{Text}}</b></p>
+              </div>
+              <div data-content="Value,Text">
+                <p>{{Text}}</p>
+                <div class="color-bkg-sub w3-round-xlarge w3-small">
+                  <div class="w3-container w3-center w3-round-xlarge color-bkg" style="width:{{Value}}%">&nbsp;</div>
+                </div>
+                <br>
+              </div>
+            </div>
+
+            <div id="GoogleSkills">
+              <div data-attr="Header">
+                <p class="w3-large"><b><i class="fa fa-{{Icon}} fa-fw w3-margin-right color-icon"></i>{{Text}}</b></p>
+              </div>
+              <div data-content="Value,Text">
+                <div class="w3-tag w3-round w3-margin color-bkg-sub" style="padding:5px">
+                  <div class="w3-tag w3-round color-bkg w3-border w3-border-white w3-padding-small">
+                    {{Text}}
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div><br>
 
@@ -65,19 +76,20 @@
       <!-- Right Column -->
       <div class="w3-twothird">
 
-        <div class="w3-container w3-margin-bottom" id="CareerObjective" data-attr="Text">
+        <div class="w3-container w3-margin-bottom" id="CareerObjective">
           <div class="w3-panel">
             <p>
-              <h2><i class="fa fa-quote-right w3-xxlarge color-icon"></i> Career Objective</h2>
-              <i class="w3-serif w3-xlarge">{{Text}}</i>
+              <h2 data-attr="Header"><i class="fa fa-{{Icon}} w3-xxlarge color-icon"></i> {{Text}}</h2>
+              <span data-content="Text"><i class="w3-serif w3-xlarge">{{Text}}</i></span>
             </p>
           </div>
         </div>
 
-        <div class="w3-container w3-card w3-white w3-margin-bottom">
-          <h2 class="w3-text-grey w3-padding-16"><i
-              class="fa fa-graduation-cap fa-fw w3-margin-right w3-xxlarge color-icon"></i>Education</h2>
-          <div id="Education" data-attr="Value,Text,Date">
+        <div id="Education" class="w3-container w3-card w3-white w3-margin-bottom">
+          <h2 data-attr="Header" class="w3-text-grey w3-padding-16">
+            <i class="fa fa-{{Icon}} fa-fw w3-margin-right w3-xxlarge color-icon"></i>{{Text}}
+          </h2>
+          <div class="contentRight" data-content="Value,Text,Date">
             <div class="w3-container">
               <div class="w3-row">
                 <h5 class="w3-col s6 w3-opacity"><b>{{Text}}</b></h5>
@@ -86,16 +98,15 @@
                 </h6>
               </div>
               <p>{{Value}}</p>
-              <hr>
             </div>
           </div>
         </div>
 
-        <div class="w3-container w3-card w3-white w3-margin-bottom">
-          <h2 class="w3-text-grey w3-padding-16"><i
-              class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge color-icon"></i>Work
-            Experience</h2>
-          <div id="WorkExperience" data-attr="Value,Text,Date">
+        <div id="WorkExperience" class="w3-container w3-card w3-white w3-margin-bottom">
+          <h2 data-attr="Header" class="w3-text-grey w3-padding-16">
+            <i class="fa fa-{{Icon}} fa-fw w3-margin-right w3-xxlarge color-icon"></i>{{Text}}
+          </h2>
+          <div class="contentRight" data-content="Value,Text,Date">
             <div class="w3-container">
               <div class="w3-row">
                 <h5 class="w3-col s6 w3-opacity"><b>{{Text}}</b></h5>
@@ -104,16 +115,15 @@
                 </h6>
               </div>
               <p>{{Value}}</p>
-              <hr>
             </div>
           </div>
         </div>
 
-        <div class="w3-container w3-card w3-white w3-margin-bottom">
-          <h2 class="w3-text-grey w3-padding-16"><i
-              class="fa fa-code-fork fa-fw w3-margin-right w3-xxlarge color-icon"></i>Individual
-            Projects</h2>
-          <div id="IndividualProjects" data-attr="Value,Text,Date">
+        <div id="IndividualProjects" class="w3-container w3-card w3-white w3-margin-bottom">
+          <h2 data-attr="Header" class="w3-text-grey w3-padding-16">
+            <i class="fa fa-{{Icon}} fa-fw w3-margin-right w3-xxlarge color-icon"></i>{{Text}}
+          </h2>
+          <div class="contentRight" data-content="Value,Text,Date">
             <div class="w3-container">
               <div class="w3-row">
                 <h5 class="w3-col s6 w3-opacity"><b>{{Text}}</b></h5>
@@ -122,15 +132,15 @@
                 </h6>
               </div>
               <p>{{Value}}</p>
-              <hr>
             </div>
           </div>
         </div>
 
-        <div class="w3-container w3-card w3-white w3-margin-bottom">
-          <h2 class="w3-text-grey w3-padding-16"><i
-              class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge color-icon"></i>Certificate</h2>
-          <div id="Certificate" data-attr="Value,Text,Date">
+        <div id="Certificate" class="w3-container w3-card w3-white w3-margin-bottom">
+          <h2 data-attr="Header" class="w3-text-grey w3-padding-16">
+            <i class="fa fa-{{Icon}} fa-fw w3-margin-right w3-xxlarge color-icon"></i>{{Text}}
+          </h2>
+          <div class="contentRight" data-content="Value,Text,Date">
             <div class="w3-container">
               <div class="w3-row">
                 <h5 class="w3-col s6 w3-opacity"><b>{{Text}}</b></h5>
@@ -139,7 +149,6 @@
                 </h6>
               </div>
               <p>{{Value}}</p>
-              <hr>
             </div>
           </div>
         </div>

@@ -27,6 +27,7 @@
     },
     {
         "Category": "PersonalSkills",
+        "Text": "Soft Skills",
         "Icon": "asterisk",
         "Data": [
             {
@@ -53,7 +54,8 @@
     },
     {
         "Category": "GoogleSkills",
-        "Icon": "asterisk",
+        "Text": "Google",
+        "Icon": "google",
         "Data": [
             {
                 "Value": "20",
@@ -83,6 +85,7 @@
     },
     {
         "Category": "ProgrommingSkills",
+        "Text": "Skills",
         "Icon": "code",
         "Data": [
             {
@@ -113,7 +116,8 @@
     },
     {
         "Category": "CareerObjective",
-        "Icon": "hashtag",
+        "Text": "Career Objective",
+        "Icon": "quote-right",
         "Data": [
             {
                 "Text": "Looking for a stable job and fit with position .NET Developer, as well as the opportunity to develop skills other."
@@ -122,6 +126,7 @@
     },
     {
         "Category": "Education",
+        "Text": "Education",
         "Icon": "graduation-cap",
         "Data": [
             {
@@ -161,6 +166,7 @@
     },
     {
         "Category": "WorkExperience",
+        "Text": "Work Experience",
         "Icon": "suitcase",
         "Data": [
             {
@@ -181,6 +187,7 @@
     },
     {
         "Category": "IndividualProjects",
+        "Text": "Individual Projects",
         "Icon": "code-fork",
         "Data": [
             {
@@ -238,6 +245,7 @@
     },
     {
         "Category": "Certificate",
+        "Text": "Certificate",
         "Icon": "certificate",
         "Data": [
             {

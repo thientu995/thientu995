@@ -90,3 +90,19 @@ ul.timeline>li:after {
   height: 15px;
   width: 15px;
 }
+
+.contentLeft>div {
+  border-bottom: 1px dotted #000;
+}
+
+.contentLeft>div:last-child {
+  border-bottom: none;
+}
+
+.contentRight>div {
+  border-bottom: 1px dotted #000;
+}
+
+.contentRight>div:last-child {
+  border-bottom: none;
+}
