@@ -234,6 +234,7 @@
                 "Date": "Dec 2019 – Jan 2020",
                 "Text": "Deploy package on nuget.org",
                 "Value": [
+                    "Nuget Gallery:",
                     "<ul class='timeline'>",
                     "<li><span class='color-datetime'>Dec 2019</span>: <b>CipherSharp.Core (.NETStandard 2.0)</b> library supports fastest coding, decoding just once “using”.</li>",
                     "<li><span class='color-datetime'>Dec 2019</span>: <b>SendMailFast (.NETStandard 2.0)</b> library supports send mail. Users do not need to set up too much with traditional Microsoft library.</li>",

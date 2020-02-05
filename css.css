@@ -68,7 +68,7 @@ ul.timeline>li {
   position: relative;
   margin: 0;
   padding-bottom: 1em;
-  padding-left: 20px;
+  padding-left: 15px;
 }
 
 ul.timeline>li:before {
@@ -92,15 +92,20 @@ ul.timeline>li:after {
 }
 
 .contentLeft>div {
-  border-bottom: 1px dotted #000;
+  border-bottom: 1px dashed #7C4DFF;
 }
 
 .contentLeft>div:last-child {
   border-bottom: none;
 }
 
+.contentRight>.w3-container>p {
+  padding-left: 10px;
+  margin-top: 0;
+}
+
 .contentRight>div {
-  border-bottom: 1px dotted #000;
+  border-bottom: 1px dashed #7C4DFF;
 }
 
 .contentRight>div:last-child {
