@@ -19,7 +19,7 @@
           <div class="w3-display-container w3-center">
             <img src="images/avatar.jpg" class="" style="width:100%" alt="Avatar">
             <div class="w3-display-bottommiddle w3-container w3-text-black bkgFullName">
-              <h2 style="font-size:100%!important">NGUYỄN THIÊN TỨ</h2>
+              <h2>NGUYỄN THIÊN TỨ</h2>
             </div>
           </div>
           <div class="w3-container">
@@ -29,8 +29,8 @@
             <hr>
 
             <p class="w3-large"><b><i class="fa fa-code fa-fw w3-margin-right color-icon"></i>Skills</b></p>
-            <div id="ProgrommingSkills" data-attr="Value,Text" class="w3-center">
-              <div class="w3-tag w3-round w3-margin color-bkg" style="padding:5px">
+            <div id="ProgrommingSkills" data-attr="Value,Text">
+              <div class="w3-tag w3-round w3-margin color-bkg-sub" style="padding:5px">
                 <div class="w3-tag w3-round color-bkg w3-border w3-border-white w3-padding-small">
                   {{Text}}
                 </div>
@@ -41,8 +41,17 @@
             <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right color-icon"></i>Soft Skills</b></p>
             <div id="PersonalSkills" data-attr="Value,Text">
               <p>{{Text}}</p>
-              <div class="w3-light-grey w3-round-xlarge w3-small">
+              <div class="color-bkg-sub w3-round-xlarge w3-small">
                 <div class="w3-container w3-center w3-round-xlarge color-bkg" style="width:{{Value}}%">&nbsp;</div>
+              </div>
+            </div>
+
+            <p class="w3-large"><b><i class="fa fa-google fa-fw w3-margin-right color-icon"></i>Google</b></p>
+            <div id="GoogleSkills" data-attr="Value,Text">
+              <div class="w3-tag w3-round w3-margin color-bkg-sub" style="padding:5px">
+                <div class="w3-tag w3-round color-bkg w3-border w3-border-white w3-padding-small">
+                  {{Text}}
+                </div>
               </div>
             </div>
 
@@ -66,11 +75,16 @@
         </div>
 
         <div class="w3-container w3-card w3-white w3-margin-bottom">
-          <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-graduation-cap fa-fw w3-margin-right w3-xxlarge color-icon"></i>Education</h2>
+          <h2 class="w3-text-grey w3-padding-16"><i
+              class="fa fa-graduation-cap fa-fw w3-margin-right w3-xxlarge color-icon"></i>Education</h2>
           <div id="Education" data-attr="Value,Text,Date">
             <div class="w3-container">
-              <h5 class="w3-opacity"><b>{{Text}}</b></h5>
-              <h6 class="color-datetime"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{Date}}</h6>
+              <div class="w3-row">
+                <h5 class="w3-col s6 w3-opacity"><b>{{Text}}</b></h5>
+                <h6 class="w3-col s6 w3-right-align color-datetime">
+                  <i class="fa fa-calendar fa-fw w3-margin-right"></i>{{Date}}
+                </h6>
+              </div>
               <p>{{Value}}</p>
               <hr>
             </div>
@@ -78,12 +92,17 @@
         </div>
 
         <div class="w3-container w3-card w3-white w3-margin-bottom">
-          <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge color-icon"></i>Work
+          <h2 class="w3-text-grey w3-padding-16"><i
+              class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge color-icon"></i>Work
             Experience</h2>
           <div id="WorkExperience" data-attr="Value,Text,Date">
             <div class="w3-container">
-              <h5 class="w3-opacity"><b>{{Text}}</b></h5>
-              <h6 class="color-datetime"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{Date}}</h6>
+              <div class="w3-row">
+                <h5 class="w3-col s6 w3-opacity"><b>{{Text}}</b></h5>
+                <h6 class="w3-col s6 w3-right-align color-datetime">
+                  <i class="fa fa-calendar fa-fw w3-margin-right"></i>{{Date}}
+                </h6>
+              </div>
               <p>{{Value}}</p>
               <hr>
             </div>
@@ -91,12 +110,17 @@
         </div>
 
         <div class="w3-container w3-card w3-white w3-margin-bottom">
-          <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-code-fork fa-fw w3-margin-right w3-xxlarge color-icon"></i>Individual
+          <h2 class="w3-text-grey w3-padding-16"><i
+              class="fa fa-code-fork fa-fw w3-margin-right w3-xxlarge color-icon"></i>Individual
             Projects</h2>
           <div id="IndividualProjects" data-attr="Value,Text,Date">
             <div class="w3-container">
-              <h5 class="w3-opacity"><b>{{Text}}</b></h5>
-              <h6 class="color-datetime"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{Date}}</h6>
+              <div class="w3-row">
+                <h5 class="w3-col s6 w3-opacity"><b>{{Text}}</b></h5>
+                <h6 class="w3-col s6 w3-right-align color-datetime">
+                  <i class="fa fa-calendar fa-fw w3-margin-right"></i>{{Date}}
+                </h6>
+              </div>
               <p>{{Value}}</p>
               <hr>
             </div>
@@ -104,11 +128,16 @@
         </div>
 
         <div class="w3-container w3-card w3-white w3-margin-bottom">
-          <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge color-icon"></i>Certificate</h2>
+          <h2 class="w3-text-grey w3-padding-16"><i
+              class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge color-icon"></i>Certificate</h2>
           <div id="Certificate" data-attr="Value,Text,Date">
             <div class="w3-container">
-              <h5 class="w3-opacity"><b>{{Text}}</b></h5>
-              <h6 class="color-datetime"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{Date}}</h6>
+              <div class="w3-row">
+                <h5 class="w3-col s6 w3-opacity"><b>{{Text}}</b></h5>
+                <h6 class="w3-col s6 w3-right-align color-datetime">
+                  <i class="fa fa-calendar fa-fw w3-margin-right"></i>{{Date}}
+                </h6>
+              </div>
               <p>{{Value}}</p>
               <hr>
             </div>

@@ -30,7 +30,7 @@
         "Icon": "asterisk",
         "Data": [
             {
-                "Value": "80",
+                "Value": "56",
                 "Text": "Photography"
             },
             {
@@ -52,6 +52,36 @@
         ]
     },
     {
+        "Category": "GoogleSkills",
+        "Icon": "asterisk",
+        "Data": [
+            {
+                "Value": "20",
+                "Text": "Google Analytics"
+            },
+            {
+                "Value": "15",
+                "Text": "Google Adsense"
+            },
+            {
+                "Value": "10",
+                "Text": "Google API"
+            },
+            {
+                "Value": "10",
+                "Text": "Google Chart"
+            },
+            {
+                "Value": "30",
+                "Text": "Google Play Console"
+            },
+            {
+                "Value": "30",
+                "Text": "G Suite"
+            }
+        ]
+    },
+    {
         "Category": "ProgrommingSkills",
         "Icon": "code",
         "Data": [
@@ -62,6 +92,10 @@
             {
                 "Value": "90",
                 "Text": "Javascript/jQuery"
+            },
+            {
+                "Value": "90",
+                "Text": "Bootstrap/W3.CSS"
             },
             {
                 "Value": "85",
@@ -92,7 +126,7 @@
         "Data": [
             {
                 "Date": "Nov 2012",
-                "Text": "Prize C, the Fifth Dong Thap Province Children and Youth Creativity Contest",
+                "Text": "Third place winner, the Fifth Dong Thap Province Children and Youth Creativity Contest",
                 "Value": "<b>DP v1.0 - Dictionary Pascal</b> while student in grades 11A1 of Thanh Binh 2 High School with Windows Form Application C# in Visual Studio 2010"
             },
             {
@@ -101,14 +135,27 @@
                 "Value": [
                     "<ul class='timeline'>",
                     "<li><span class='color-datetime'>Nov - Dec 2015</span>: <b>T4Cafe</b> software for cafe management, Windows Form Application C# and database MS Sql Server. Product has been sold to a cafe in Can Tho City.</li>",
-                    "<li><span class='color-datetime'>Nov - Dec 2015</span>: <b>T4Cafe</b> software for cafe management, Windows Form Application C# and database MS Sql Server. Product has been sold to a cafe in Can Tho City.</li>",
+                    "<li><span class='color-datetime'>Sept – Dev 2016</span>: group homework Calculator Basic (CalculatorTTH) Android (Java) with 3 people (Tứ, Tiến and Hòa).</li>",
+                    "<li><span class='color-datetime'>Jan 2017</span>: develop <b>Restaurant Management</b> Software Windows Form Application c# and SQL Server with 2 people (Tứ and Đức).</li>",
+                    "<li><span class='color-datetime'>Jan – May 2017</span>: graduation thesis <b>T4Travel DongThap</b> - Dong Thap province tourism lookup application.",
+                    "<ol>",
+                    "<li>Dashboard and API: ASP.NET MVC, Entity Framework, Linq, MS Sql Server, Bootstrap 3.</li>",
+                    "<li>Web: HTML, CSS, JS + Jquery without using framework template, ASP.NET MVC.</li>",
+                    "<li>Android: PhoneGap Framework (Apache Cordova). Available on Google Play.</li>",
+                    "</ol>",
+                    "</li>",
                     "</ul>"
                 ]
             },
             {
                 "Date": "July 2015",
-                "Text": "KIV - Korea IT Volunnter",
-                "Value": ""
+                "Text": "Join the program KIV – Korea IT Volunteer in Tay Do University",
+                "Value": "Study C# and Linq Basic"
+            },
+            {
+                "Date": "Feb – Apr 2017",
+                "Text": "Interns Mekong Data Co., Ltd in Can Tho City",
+                "Value": "Web JSP with Liferay CMS"
             }
         ]
     },
@@ -117,9 +164,18 @@
         "Icon": "suitcase",
         "Data": [
             {
-                "Date": "",
-                "Text": "",
-                "Value": ""
+                "Date": "Sept 2017 – <span class='w3-tag color-bkg w3-round'>Current</span>",
+                "Text": "VACS Technology Co., Ltd in Ho Chi Minh City",
+                "Value": [
+                    "Using: jQuery, jqGrid, DHTMLX (Grid, Gantt Chart, Scheduler), Google Chart, Highcharts, ARKit, SignalR, THREE.JS",
+                    "<ul class='timeline'>",
+                    "<li><span class='color-datetime'>Sept 2017</span>: position Developer: Web ASP.NET MVC with project AMS, RPS, OSM, AAS, AR of iOS.</li>",
+                    "<li><span class='color-datetime'>Nov 2018 to Current</span>: position Developer and Team Leader project 3D.",
+                    "<ol><li>Web 3DCIS with ASP.NET MVC, THREE.JS, Xbim: Demonstration of 3D models.</li>",
+                    "<li>Software VacsCad with C++ and Python: create 3D CAD modeler and a building information modeling.</li></ol>",
+                    "</li>",
+                    "</ul>"
+                ]
             }
         ]
     },
@@ -128,9 +184,55 @@
         "Icon": "code-fork",
         "Data": [
             {
-                "Date": "",
-                "Text": "",
-                "Value": ""
+                "Date": "Dec 2014",
+                "Text": "Transfer Image to Icon",
+                "Value": "Windows Form Application C#, tool converts all image formats to .icon format."
+            },
+            {
+                "Date": "Feb 2015",
+                "Text": "t4vn.com - Personal website",
+                "Value": "Build personal website with PHP and Database Firebase."
+            },
+            {
+                "Date": "Jan 2016",
+                "Text": "IrrVer – Irregular Verbs",
+                "Value": "Web (PHP and XML), Windows Form Application C#, mobile Android with PhoneGap (Apache Cordova)."
+            },
+            {
+                "Date": "Nov 2018",
+                "Text": "Game mobile Android: Fly to The End",
+                "Value": "Apache Cordova and library THREE.JS. Available on Google Play."
+            },
+            {
+                "Date": "Jan 2019",
+                "Text": "siteaudit.olitvn.com – Site Audit",
+                "Value": [
+                    "<ol>",
+                    "<li>Web and Web API: ASP.NET MVC. Get info WHOIS, check Security Header, analytics SEO and check Page Speed.</li>",
+                    "<li>Windows Service Application C#. Run in background on Windows Server 2019, send mail if the list sites is set up to find problems.</li>",
+                    "</ol>"
+                ]
+            },
+            {
+                "Date": "Mar 2019",
+                "Text": "image.olitvn.com – Compress Image",
+                "Value": "Web ASP.NET MVC. Resize image, change extension file image, no quality degrade when compress image."
+            },
+            {
+                "Date": "Apr 2019",
+                "Text": "Rebuild site Faculty of Library and Information Science – Hanoi University Of Culture",
+                "Value": "Web ASP.NET Core 2.0 with template using library W3CSS and database MS Sql Server."
+            },
+            {
+                "Date": "Dec 2019 – Jan 2020",
+                "Text": "Deploy package on nuget.org",
+                "Value": [
+                    "<ul class='timeline'>",
+                    "<li><span class='color-datetime'>Dec 2019</span>: <b>CipherSharp.Core (.NETStandard 2.0)</b> library supports fastest coding, decoding just once “using”.</li>",
+                    "<li><span class='color-datetime'>Dec 2019</span>: <b>SendMailFast (.NETStandard 2.0)</b> library supports send mail. Users do not need to set up too much with traditional Microsoft library.</li>",
+                    "<li><span class='color-datetime'>Jan 2020</span>: <b>T4Query.SqlServer (.NETStandard 2.0)</b> provides developers with a single class to query SQL Server with the query.</li>",
+                    "</ul>"
+                ]
             }
         ]
     },
