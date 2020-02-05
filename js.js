@@ -12,6 +12,9 @@ $(document).ready(function () {
                 SetValueHeader(group);
                 SetValueContent(group);
             });
+            setTimeout(function () {
+                new SimpleBar(document.getElementById('body'), { autoHide: true, height: 'auto' })
+            });
             $('body').fadeIn(1500);
         }
     });

@@ -107,3 +107,27 @@ ul.timeline>li:after {
 .headerRight .w3-col {
   margin-bottom: 0;
 }
+
+.simplebar-scrollbar {
+  width: 15px;
+}
+
+.simplebar-scrollbar:after {
+  content: ' ';
+  top: -100vh;
+  right: -6px;
+  width: 3px;
+  display: table;
+  background:#D1C4E9;
+  position: relative;
+  z-index: -10;
+  height: 200vh;
+}
+
+.simplebar-scrollbar:before {
+  background: #D1C4E9;
+}
+
+.simplebar-track .simplebar-scrollbar.simplebar-visible:before {
+  opacity: 1;
+}
