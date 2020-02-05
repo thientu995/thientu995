@@ -39,11 +39,11 @@
             },
             {
                 "Value": "85",
-                "Text": "Web Control Panel (Plesk/SolidCP/DirectAdmin/cPanel)"
+                "Text": "Web Control Panel (Plesk / SolidCP / DirectAdmin / cPanel)"
             },
             {
                 "Value": "40",
-                "Text": "Windows Server/IIS"
+                "Text": "Windows Server / IIS"
             },
             {
                 "Value": "97",
@@ -87,15 +87,15 @@
         "Data": [
             {
                 "Value": "95",
-                "Text": "ASP.NET MVC/Core"
+                "Text": "ASP.NET MVC / Core"
             },
             {
                 "Value": "90",
-                "Text": "Javascript/jQuery"
+                "Text": "Javascript / jQuery"
             },
             {
                 "Value": "90",
-                "Text": "Bootstrap/W3.CSS"
+                "Text": "Bootstrap / W3.CSS"
             },
             {
                 "Value": "85",
@@ -103,7 +103,7 @@
             },
             {
                 "Value": "85",
-                "Text": "Github/Gitlab/SVN"
+                "Text": "Github / Gitlab / SVN"
             },
             {
                 "Value": "30",
