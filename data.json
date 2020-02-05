@@ -140,8 +140,9 @@
                 "Value": [
                     "Projects was made:",
                     "<ul class='timeline'>",
-                    "<li><span class='color-datetime'>Nov - Dec 2015</span>: <b>T4Cafe</b> software for cafe management, Windows Form Application C# and database MS Sql Server. Product has been sold to a cafe in Can Tho City.</li>",
-                    "<li><span class='color-datetime'>Sept – Dev 2016</span>: group homework Calculator Basic (CalculatorTTH) Android (Java) with 3 people (Tứ, Tiến and Hòa).</li>",
+                    "<li><span class='color-datetime'>Feb 2015</span>: essay compare the 2 matrix between the conventional method and Strassen algorithm. Windows Form Application C#.</li>",
+                    "<li><span class='color-datetime'>Nov - Dec 2015</span>: essay <b>T4Cafe</b> software for cafe management, Windows Form Application C# and database MS Sql Server. Product has been sold to a cafe in Can Tho City.</li>",
+                    "<li><span class='color-datetime'>Sept – Dev 2016</span>: teamwork develop Calculator Basic (CalculatorTTH) Android (Java) with 3 people (Tứ, Tiến and Hòa).</li>",
                     "<li><span class='color-datetime'>Jan 2017</span>: develop <b>Restaurant Management</b> Software Windows Form Application c# and SQL Server with 2 people (Tứ and Đức).</li>",
                     "<li><span class='color-datetime'>Jan – May 2017</span>: graduation thesis <b>T4Travel DongThap</b> - Dong Thap province tourism lookup application.",
                     "<ol>",
