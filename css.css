@@ -105,18 +105,22 @@ ul.timeline>li:before {
     position: absolute;
     bottom: 0;
     top: 0;
-    left: 6px;
+    left: 5px;
     width: 3px;
 }
 
 ul.timeline>li:after {
     content: '';
-    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' aria-hidden='true' viewBox='0 0 32 32' focusable='false'><circle stroke='none' fill='%23D1C4E9' cx='16' cy='16' r='10'></circle></svg>");
+    background-color: #D1C4E9;
+    border-radius: 100%;
+    height: 12px;
+    width: 12px;
+    /* background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' aria-hidden='true' viewBox='0 0 32 32' focusable='false'><circle stroke='none' fill='%23D1C4E9' cx='16' cy='16' r='10'></circle></svg>");
+    height: 15px;
+    width: 15px; */
     position: absolute;
     top: 3px;
     left: 0;
-    height: 15px;
-    width: 15px;
 }
 
 .contentRight>.w3-container>p {
