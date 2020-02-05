@@ -91,23 +91,19 @@ ul.timeline>li:after {
   width: 15px;
 }
 
-.contentLeft>div {
-  border-bottom: 1px dashed #7C4DFF;
-}
-
-.contentLeft>div:last-child {
-  border-bottom: none;
-}
-
 .contentRight>.w3-container>p {
   padding-left: 10px;
   margin-top: 0;
 }
 
-.contentRight>div {
-  border-bottom: 1px dashed #7C4DFF;
+.contentLeft>div, .contentRight>div {
+  border-bottom: 1px dashed #D1C4E9;
 }
 
-.contentRight>div:last-child {
+.contentLeft>div:last-child, .contentRight>div:last-child {
   border-bottom: none;
+}
+
+.headerRight .w3-col {
+  margin-bottom: 0;
 }
