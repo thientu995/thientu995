@@ -65,9 +65,12 @@ class Init {
 
     Print(size) {
         this.isPrint = true;
-        size = size || $(document).width();
         $('footer,header').hide();
-        $('html').css('width', size + 'mm');
+        if(size != null){
+            $('html').css('width', size + 'mm');
+        }
+        else 
+            $('html').css('width', '100vw');
     }
 }
 
