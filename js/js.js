@@ -71,6 +71,6 @@ class Init {
     }
 }
 
-$(functioon(){
+$(function(){
   new Init();
 });
