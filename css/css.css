@@ -10,10 +10,8 @@ h6 {
 }
 
 .loader {
-    border: 16px solid #f3f3f3;
-    /* Light grey */
-    border-top: 16px solid #3498db;
-    /* Blue */
+    border: 16px solid #D1C4E9;
+    border-top: 16px solid #7C4DFF;
     border-radius: 50%;
     width: 120px;
     height: 120px;
