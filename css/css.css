@@ -142,11 +142,11 @@ ul.timeline>li:after {
     margin-bottom: 0;
 }
 
-.simplebar-scrollbar {
+.simplebar-visible.simplebar-scrollbar {
     width: 15px;
 }
 
-.simplebar-scrollbar:after {
+.simplebar-visible.simplebar-scrollbar:after {
     content: ' ';
     top: -100vh;
     right: -6px;
@@ -158,10 +158,7 @@ ul.timeline>li:after {
     height: 200vh;
 }
 
-.simplebar-scrollbar:before {
+.simplebar-visible.simplebar-scrollbar:before {
     background: #D1C4E9;
-}
-
-.simplebar-track .simplebar-scrollbar.simplebar-visible:before {
     opacity: 1;
 }
