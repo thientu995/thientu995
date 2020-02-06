@@ -146,6 +146,10 @@ ul.timeline>li:after {
     width: 15px;
 }
 
+.simplebar-scrollbar:before, .simplebar-scrollbar:after{
+    background:none;
+}
+
 .simplebar-visible.simplebar-scrollbar:after {
     content: ' ';
     top: -100vh;
