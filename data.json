@@ -247,6 +247,7 @@
                     "<li><span class='color-datetime'>Dec 2019</span>: <b>CipherSharp.Core (.NETStandard 2.0)</b> library supports fastest coding, decoding just once “using”.</li>",
                     "<li><span class='color-datetime'>Dec 2019</span>: <b>SendMailFast (.NETStandard 2.0)</b> library supports send mail. Users do not need to set up too much with traditional Microsoft library.</li>",
                     "<li><span class='color-datetime'>Jan 2020</span>: <b>T4Query.SqlServer (.NETStandard 2.0)</b> provides developers with a single class to query SQL Server with the query.</li>",
+                    "<li><span class='color-datetime'>Feb 2020</span>: <b>T4Image (.NETStandard 2.0)</b> library compress image. Using core SkiaSharp</li>",
                     "</ul>"
                 ]
             }
