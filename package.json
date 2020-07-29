@@ -1,0 +1,14 @@
+{
+    "main": "./index.js",
+    "scripts": {
+        "start": "node ./"
+    },
+    "engines": {
+        "node": "10"
+    },
+    "dependencies": {
+        "express": "^4.17.1",
+        "request": "^2.88.2",
+        "rimraf": "^3.0.2"
+    }
+}

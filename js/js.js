@@ -67,10 +67,12 @@ class Init {
         this.isPrint = true;
         $('footer,header').hide();
         if(size != null){
-            $('html').css('width', size + 'mm');
+            $('body').css('max-width', size + 'mm');
+            // $('body').css('height', '100vh');
         }
         else 
-            $('html').css('width', '100vw');
+            $('body').css('max-width', 'auto');
+            // $('body').css('height', '100vh');
     }
 }
 

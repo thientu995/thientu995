@@ -90,6 +90,10 @@
                 "Text": "Google Blogger"
             },
             {
+                "Value": "90",
+                "Text": "Google Firebase"
+            },
+            {
                 "Value": "30",
                 "Text": "G Suite"
             }
@@ -126,7 +130,7 @@
             },
             {
                 "Value": "90",
-                "Text": "Javascript / jQuery"
+                "Text": "Javascript / jQuery / AngularJS"
             },
             {
                 "Value": "90",
@@ -134,7 +138,7 @@
             },
             {
                 "Value": "80",
-                "Text": "Phonegap / Apache Cordova"
+                "Text": "Node.js / Apache Cordova / ElectronJS"
             }
         ]
     },
@@ -159,7 +163,7 @@
                 "Value": "<b>DP v1.0 - Dictionary Pascal</b> while student in grades 11A1 of Thanh Binh 2 High School with Windows Form Application C# in Visual Studio 2010."
             },
             {
-                "Date": "Sept 2013 - Sept 2017",
+                "Date": "Sep 2013 - Sep 2017",
                 "Text": "Specialize in IT of Tay Do University in Can Tho City",
                 "Value": [
                     "Projects was made:",
@@ -172,14 +176,14 @@
                     "</ol>",
                     "</li>",
                     "<li><span class='color-datetime'>Jan 2017</span>: develop <b>Restaurant Management</b> Software Windows Form Application c# and SQL Server with 2 people (Tứ and Đức).</li>",
-                    "<li><span class='color-datetime'>Sept – Dev 2016</span>: teamwork develop Calculator Basic (CalculatorTTH) Android (Java) with 3 people (Tứ, Tiến and Hòa).</li>",
+                    "<li><span class='color-datetime'>Sep – Dev 2016</span>: teamwork develop Calculator Basic (CalculatorTTH) Android (Java) with 3 people (Tứ, Tiến and Hòa).</li>",
                     "<li><span class='color-datetime'>Nov - Dec 2015</span>: essay <b>T4Cafe</b> software for cafe management, Windows Form Application C# and database MS Sql Server. Product has been sold to a cafe in Can Tho City.</li>",
                     "<li><span class='color-datetime'>Feb 2015</span>: essay compare the 2 matrix between the conventional method and Strassen algorithm. Windows Form Application C#.</li>",
                     "</ul>"
                 ]
             },
             {
-                "Date": "July 2015",
+                "Date": "Jul 2015",
                 "Text": "Join the program KIV – Korea IT Volunteer in Tay Do University",
                 "Value": "Study C# and Linq Basic."
             },
@@ -196,16 +200,20 @@
         "Icon": "suitcase",
         "Data": [
             {
-                "Date": "Sept 2017 – <span class='w3-tag color-bkg w3-round'>Current</span>",
+                "Date": "Sep 2017 – <span class='w3-tag color-bkg w3-round'>Current</span>",
                 "Text": "VACS Technology Co., Ltd in Ho Chi Minh City",
                 "Value": [
                     "Using: jQuery, jqGrid, DHTMLX (Grid, Gantt Chart, Scheduler), Google Chart, Highcharts, ARKit, SignalR, THREE.JS.",
                     "<ul class='timeline'>",
-                    "<li><span class='color-datetime'>Nov 2018 - Current</span>: position Developer and Team Leader project 3D.",
+                    "<li><span class='color-datetime'>May 2020 - <span class='w3-tag color-bkg w3-round'>Current</span></span>: position Developer project WKMS - Workflow System",
+                    "<ol><li>Web: ASP.NET MVC + API.</li>",
+                    "<li>Software Windows and MacOS: ElectronJS + NodeJS + AngularJS.</li></ol>",
+                    "</li>",
+                    "<li><span class='color-datetime'>Nov 2018 - Mar 2020</span>: position Developer and Team Leader project 3D.",
                     "<ol><li>Web 3DCIS with ASP.NET MVC, THREE.JS, Xbim: Demonstration of 3D models.</li>",
                     "<li>Software VacsCad with C++ and Python: create 3D CAD modeler and a building information modeling.</li></ol>",
                     "</li>",
-                    "<li><span class='color-datetime'>Sept 2017</span>: position Developer: Web ASP.NET MVC with project AMS, RPS, OSM, AAS, AR of iOS.</li>",
+                    "<li><span class='color-datetime'>Sep 2017</span>: position Developer: Web ASP.NET MVC with project AMS, RPS, OSM, AAS, AR of iOS.</li>",
                     "</ul>"
                 ]
             }
@@ -217,7 +225,12 @@
         "Icon": "code-fork",
         "Data": [
             {
-                "Date": "Dec 2019 – Jan 2020",
+                "Date": "Jul 2020",
+                "Text": "Build site ourlife.t4vn.com",
+                "Value": "Node.JS 10 + Bootstrap + AngularJS + Google Firebase."
+            },
+            {
+                "Date": "Dec 2019 – Feb 2020",
                 "Text": "Deploy package on nuget.org",
                 "Value": [
                     "Nuget Gallery:",
@@ -283,6 +296,11 @@
         "Icon": "certificate",
         "Data": [
             {
+                "Date": "Jun 2020",
+                "Text": "Udemy Online",
+                "Value": "Master Electron: Desktop Apps using HTML, JavaScript & CSS."
+            },
+            {
                 "Date": "Apr 2017",
                 "Text": "MOS - Microsoft Office Specialist",
                 "Value": "Microsoft Office PowerPoint."
@@ -290,7 +308,7 @@
             {
                 "Date": "Aug 2016",
                 "Text": "Udemy Online",
-                "Value": "Complete learn: HTML 5, Algorithms and Data Structures C++."
+                "Value": "HTML 5, Algorithms and Data Structures C++."
             },
             {
                 "Date": "Aug 2016",
