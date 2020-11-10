@@ -1,0 +1,307 @@
+    {
+        "Information": {
+            "Icon": "",
+            "Data": [
+                {
+                    "Icon": "briefcase",
+                    "Text": ".NET Developer"
+                },
+                {
+                    "Icon": "calendar",
+                    "Text": "20 Oct 1995"
+                },
+                {
+                    "Icon": "home",
+                    "Text": "Binh Tan Dist., Ho Chi Minh City, Vietnam"
+                },
+                {
+                    "Icon": "envelope",
+                    "Text": "thientu@olit.vn"
+                },
+                {
+                    "Icon": "phone",
+                    "Text": "(+84)35 653 0909"
+                },
+                {
+                    "Icon": "github",
+                    "Text": "github.com/thientu995"
+                }
+            ]
+        },
+        "PersonalSkills": {
+            "Text": "Other Skills",
+            "Icon": "asterisk",
+            "Data": [
+                {
+                    "Value": "85",
+                    "Text": "Web Control Panel (Plesk / SolidCP / DirectAdmin / cPanel)"
+                },
+                {
+                    "Value": "40",
+                    "Text": "Windows Server / IIS"
+                },
+                {
+                    "Value": "85",
+                    "Text": "Github / Gitlab / SVN"
+                },
+                {
+                    "Value": "56",
+                    "Text": "Photography"
+                },
+                {
+                    "Value": "20",
+                    "Text": "Adobe Photoshop/Lightroom"
+                },
+                {
+                    "Value": "95",
+                    "Text": "Team work"
+                }
+            ]
+        },
+        "GoogleSkills": {
+            "Text": "Google",
+            "Icon": "google",
+            "Data": [
+                {
+                    "Value": "20",
+                    "Text": "Google Analytics"
+                },
+                {
+                    "Value": "15",
+                    "Text": "Google Adsense"
+                },
+                {
+                    "Value": "10",
+                    "Text": "Google API (Map, Analytics)"
+                },
+                {
+                    "Value": "10",
+                    "Text": "Google Chart"
+                },
+                {
+                    "Value": "30",
+                    "Text": "Google Play Console"
+                },
+                {
+                    "Value": "90",
+                    "Text": "Google Blogger"
+                },
+                {
+                    "Value": "90",
+                    "Text": "Google Firebase"
+                },
+                {
+                    "Value": "30",
+                    "Text": "G Suite"
+                }
+            ]
+        },
+        "ProgrommingSkills": {
+            "Text": "Technical Skills",
+            "Icon": "code",
+            "Data": [
+                {
+                    "Value": "95",
+                    "Text": "ASP.NET MVC / API / Core"
+                },
+                {
+                    "Value": "80",
+                    "Text": "Windows App (Form, Serivce)"
+                },
+                {
+                    "Value": "85",
+                    "Text": "ADO.NET / EF / Dataset"
+                },
+                {
+                    "Value": "85",
+                    "Text": "SQL (MS SQL Server)"
+                },
+                {
+                    "Value": "85",
+                    "Text": "LINQ"
+                },
+                {
+                    "Value": "90",
+                    "Text": "HTML 5 / SEO Onpage"
+                },
+                {
+                    "Value": "90",
+                    "Text": "Javascript / jQuery / AngularJS"
+                },
+                {
+                    "Value": "90",
+                    "Text": "Bootstrap / W3.CSS"
+                },
+                {
+                    "Value": "80",
+                    "Text": "Node.js / Apache Cordova / ElectronJS"
+                }
+            ]
+        },
+        "CareerObjective": {
+            "Text": "Career Objective",
+            "Icon": "quote-right",
+            "Data": "Looking for a stable job and fit with position dotNET Developer, as well as the opportunity to develop other skills."
+        },
+        "Education": {
+            "Text": "Education",
+            "Icon": "graduation-cap",
+            "Data": [
+                {
+                    "Date": "Nov 2012",
+                    "Text": "3rd place, the Fifth Dong Thap Province Children and Youth Creativity Contest",
+                    "Value": ["<b>DP v1.0 - Dictionary Pascal</b> while student in grades 11A1 of Thanh Binh 2 High School with Windows Form Application C# in Visual Studio 2010."]
+                },
+                {
+                    "Date": "Sep 2013 - Sep 2017",
+                    "Text": "Specialize in IT of Tay Do University in Can Tho City",
+                    "Value": [
+                        "Projects was made:",
+                        "<ul class='timeline'>",
+                        "<li><span class='color-datetime'>Jan – May 2017</span>: graduation thesis <b>T4Travel DongThap</b> - Dong Thap province tourism lookup application.",
+                        "<ol>",
+                        "<li>Dashboard and API: ASP.NET MVC, Entity Framework, Linq, MS Sql Server, Bootstrap 3.</li>",
+                        "<li>Web: HTML, CSS, JS + Jquery without using framework template, ASP.NET MVC.</li>",
+                        "<li>Android: PhoneGap Framework (Apache Cordova). Available on Google Play.</li>",
+                        "</ol>",
+                        "</li>",
+                        "<li><span class='color-datetime'>Jan 2017</span>: develop <b>Restaurant Management</b> Software Windows Form Application c# and SQL Server with 2 people (Tứ and Đức).</li>",
+                        "<li><span class='color-datetime'>Sep – Dev 2016</span>: teamwork develop Calculator Basic (CalculatorTTH) Android (Java) with 3 people (Tứ, Tiến and Hòa).</li>",
+                        "<li><span class='color-datetime'>Nov - Dec 2015</span>: essay <b>T4Cafe</b> software for cafe management, Windows Form Application C# and database MS Sql Server. Product has been sold to a cafe in Can Tho City.</li>",
+                        "<li><span class='color-datetime'>Feb 2015</span>: essay compare the 2 matrix between the conventional method and Strassen algorithm. Windows Form Application C#.</li>",
+                        "</ul>"
+                    ]
+                },
+                {
+                    "Date": "Jul 2015",
+                    "Text": "Join the program KIV – Korea IT Volunteer in Tay Do University",
+                    "Value": ["Study C# and Linq Basic."]
+                },
+                {
+                    "Date": "Feb – Apr 2017",
+                    "Text": "Interns Mekong Data Co., Ltd in Can Tho City",
+                    "Value": ["Web JSP with Liferay CMS."]
+                }
+            ]
+        },
+        "WorkExperience": {
+            "Text": "Work Experience",
+            "Icon": "suitcase",
+            "Data": [
+                {
+                    "Date": "Sep 2017 – <span class='w3-tag color-bkg w3-round'>Current</span>",
+                    "Text": "VACS Technology Co., Ltd in Ho Chi Minh City",
+                    "Value": [
+                        "Using: jQuery, jqGrid, DHTMLX (Grid, Gantt Chart, Scheduler), Google Chart, Highcharts, ARKit, SignalR, THREE.JS.",
+                        "<ul class='timeline'>",
+                        "<li><span class='color-datetime'>May 2020 - <span class='w3-tag color-bkg w3-round'>Current</span></span>: position Developer project WKMS - Workflow System",
+                        "<ol><li>Web: ASP.NET MVC + API.</li>",
+                        "<li>Software Windows and MacOS: ElectronJS + NodeJS + AngularJS.</li></ol>",
+                        "</li>",
+                        "<li><span class='color-datetime'>Nov 2018 - Mar 2020</span>: position Developer and Team Leader project 3D.",
+                        "<ol><li>Web 3DCIS with ASP.NET MVC, THREE.JS, Xbim: Demonstration of 3D models.</li>",
+                        "<li>Software VacsCad with C++ and Python: create 3D CAD modeler and a building information modeling.</li></ol>",
+                        "</li>",
+                        "<li><span class='color-datetime'>Sep 2017</span>: position Developer: Web ASP.NET MVC with project AMS, RPS, OSM, AAS, AR of iOS.</li>",
+                        "</ul>"
+                    ]
+                }
+            ]
+        },
+        "IndividualProjects": {
+            "Text": "Individual Projects",
+            "Icon": "code-fork",
+            "Data": [
+                {
+                    "Date": "Jul 2020",
+                    "Text": "Build site ourlife.t4vn.com",
+                    "Value": ["Node.JS 10 + Bootstrap + AngularJS + Google Firebase."]
+                },
+                {
+                    "Date": "Dec 2019 – Feb 2020",
+                    "Text": "Deploy package on nuget.org",
+                    "Value": [
+                        "Nuget Gallery:",
+                        "<ul class='timeline'>",
+                        "<li><span class='color-datetime'>Feb 2020</span>: <b>T4Image (.NETStandard 2.0)</b> library compress image. Using core SkiaSharp</li>",
+                        "<li><span class='color-datetime'>Jan 2020</span>: <b>T4Query.SqlServer (.NETStandard 2.0)</b> provides developers with a single class to query SQL Server with the query.</li>",
+                        "<li><span class='color-datetime'>Dec 2019</span>: <b>SendMailFast (.NETStandard 2.0)</b> library supports send mail. Users do not need to set up too much with traditional Microsoft library.</li>",
+                        "<li><span class='color-datetime'>Dec 2019</span>: <b>CipherSharp.Core (.NETStandard 2.0)</b> library supports fastest coding, decoding just once “using”.</li>",
+                        "</ul>"
+                    ]
+                },
+                {
+                    "Date": "Apr 2019",
+                    "Text": "Rebuild site Faculty of Library and Information Science – Hanoi University Of Culture",
+                    "Value": ["Web ASP.NET Core 2.0 with template using library W3CSS and database MS Sql Server."]
+                },
+                {
+                    "Date": "Mar 2019",
+                    "Text": "Compress Image image.olitvn.com",
+                    "Value": ["Web ASP.NET MVC. Resize image, change extension file image, no quality degrade when compress image."]
+                },
+                {
+                    "Date": "Jan 2019",
+                    "Text": "Site Audit siteaudit.olitvn.com",
+                    "Value": [
+                        "<ol>",
+                        "<li>Web and Web API: ASP.NET MVC. Get info WHOIS, check Security Header, analytics SEO and check Page Speed.</li>",
+                        "<li>Windows Service Application C#. Run in background on Windows Server 2019, send mail if the list sites is set up to find problems.</li>",
+                        "</ol>"
+                    ]
+                },
+                {
+                    "Date": "Nov 2018",
+                    "Text": "Fly to The End",
+                    "Value": ["Game mobile Android, Apache Cordova and library THREE.JS. Available on Google Play."]
+                },
+                {
+                    "Date": "Jan 2016",
+                    "Text": "IrrVer – Irregular Verbs",
+                    "Value": [
+                        "<ol>",
+                        "<li>Web PHP and XML.</li>",
+                        "<li>Windows Form Application C# with API from Web.</li>",
+                        "<li>Android Apache Cordova with API from Web.</li>",
+                        "</ol>"
+                    ]
+                },
+                {
+                    "Date": "Feb 2015",
+                    "Text": "Personal website t4vn.com",
+                    "Value": ["Build personal website with PHP and Database Firebase."]
+                },
+                {
+                    "Date": "Dec 2014",
+                    "Text": "Transfer Image to Icon",
+                    "Value": ["Windows Form Application C#, tool converts all image formats to .icon format."]
+                }
+            ]
+        },
+        "Certificate": {
+            "Text": "Certificate",
+            "Icon": "certificate",
+            "Data": [
+                {
+                    "Date": "Jun 2020",
+                    "Text": "Udemy Online",
+                    "Value": ["Master Electron: Desktop Apps using HTML, JavaScript & CSS."]
+                },
+                {
+                    "Date": "Apr 2017",
+                    "Text": "MOS - Microsoft Office Specialist",
+                    "Value": ["Microsoft Office PowerPoint."]
+                },
+                {
+                    "Date": "Aug 2016",
+                    "Text": "Udemy Online",
+                    "Value": ["HTML 5, Algorithms and Data Structures C++."]
+                },
+                {
+                    "Date": "Aug 2016",
+                    "Text": "SoloLearn Online",
+                    "Value": ["Level 7 with 2086 XP."]
+                }
+            ]
+        }
+    }
