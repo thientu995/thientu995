@@ -43,6 +43,9 @@ export class AppComponent {
 
   PrintPage() {
     this.proPrint(true, null).then(() => {
+      if (!this.isPrint) {
+        return;
+      }
       setTimeout(() => {
         window.print();
         this.proPrint(false);
@@ -52,6 +55,9 @@ export class AppComponent {
 
   PrintImage() {
     this.proPrint(true, 'png').then(() => {
+      if (!this.isPrint) {
+        return;
+      }
       setTimeout(() => {
         this.GetCanvas().then(canvas => {
           let imgData = canvas.toDataURL('image/png', 1);
@@ -65,7 +71,9 @@ export class AppComponent {
 
   PrintPdf() {
     this.proPrint(true, 'pdf').then(() => {
-      ;
+      if (!this.isPrint) {
+        return;
+      }
       let pdf = new jsPDF.jsPDF('p', 'mm', 'a4');
       var options = {
         pagesplit: true
