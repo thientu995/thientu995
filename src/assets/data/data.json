@@ -12,7 +12,7 @@
                 },
                 {
                     "Icon": "home",
-                    "Text": "Binh Tan Dist., Ho Chi Minh City, Vietnam"
+                    "Text": "Tan Phu Dist., Ho Chi Minh City, Vietnam"
                 },
                 {
                     "Icon": "envelope",
@@ -25,7 +25,11 @@
                 {
                     "Icon": "github",
                     "Text": "github.com/thientu995"
-                }
+                },
+                {
+                    "Icon": "internet-explorer",
+                    "Text": "t4vn.com"
+                },
             ]
         },
         "PersonalSkills": {
