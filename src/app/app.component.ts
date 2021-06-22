@@ -27,7 +27,7 @@ export class AppComponent {
   constructor(
     private http: HttpClient
     , private sanitizer: DomSanitizer) {
-    http.get(this.pathUrlFile + 'data.json').subscribe(data => {
+    http.get(this.pathUrlFile + 'dataInfo.json').subscribe(data => {
       this.dataCV = data;
     });
   }

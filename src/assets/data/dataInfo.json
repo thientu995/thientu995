@@ -12,7 +12,7 @@
                 },
                 {
                     "Icon": "home",
-                    "Text": "Tan Phu Dist., Ho Chi Minh City, Vietnam"
+                    "Text": "Ho Chi Minh City, Vietnam"
                 },
                 {
                     "Icon": "envelope",
@@ -28,8 +28,8 @@
                 },
                 {
                     "Icon": "internet-explorer",
-                    "Text": "t4vn.com"
-                },
+                    "Text": "www.t4vn.com"
+                }
             ]
         },
         "PersonalSkills": {
@@ -38,7 +38,7 @@
             "Data": [
                 {
                     "Value": "85",
-                    "Text": "Web Control Panel (Plesk / SolidCP / DirectAdmin / cPanel)"
+                    "Text": "Web Control Panel (Plesk / SolidCP)"
                 },
                 {
                     "Value": "40",
@@ -54,7 +54,7 @@
                 },
                 {
                     "Value": "20",
-                    "Text": "Adobe Photoshop/Lightroom"
+                    "Text": "Adobe Photoshop / Lightroom"
                 },
                 {
                     "Value": "95",
@@ -133,8 +133,12 @@
                     "Text": "Javascript / jQuery / AngularJS"
                 },
                 {
+                    "Value": "70",
+                    "Text": "Typescript / Angular"
+                },
+                {
                     "Value": "90",
-                    "Text": "Bootstrap / W3.CSS"
+                    "Text": "Bootstrap / W3.CSS / UIkit"
                 },
                 {
                     "Value": "80",
