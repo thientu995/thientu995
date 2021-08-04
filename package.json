@@ -9,7 +9,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "dev:ssr": "ng run ClientApp:serve-ssr",
-    "serve:ssr": "node dist/ClientApp/server/main.js",
+    "serve:ssr": "node docs/ClientApp/server/main.js",
     "build:ssr": "ng build --prod && ng run ClientApp:server:production",
     "prerender": "ng run ClientApp:prerender"
   },
