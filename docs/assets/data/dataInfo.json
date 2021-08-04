@@ -16,19 +16,19 @@
                 },
                 {
                     "Icon": "envelope",
-                    "Text": "thientu@t4vn.com"
+                    "Text": "<a target='_blank' href='mailto:thientu@t4vn.com'>thientu@t4vn.com</a>"
                 },
                 {
                     "Icon": "phone",
-                    "Text": "(+84)35 653 0909"
+                    "Text": "<a target='_blank' href='tel:(+84)35 653 0909'>(+84)35 653 0909</a>"
                 },
                 {
                     "Icon": "github",
-                    "Text": "github.com/thientu995"
+                    "Text": "<a target='_blank' href='https://github.com/thientu995'>github.com/thientu995</a>"
                 },
                 {
                     "Icon": "internet-explorer",
-                    "Text": "www.t4vn.com"
+                    "Text": "<a target='_blank' href='https://www.t4vn.com'>www.t4vn.com</a>"
                 }
             ]
         },
@@ -118,7 +118,7 @@
                 },
                 {
                     "Value": "85",
-                    "Text": "SQL (MS SQL Server)"
+                    "Text": "MS SQL Server"
                 },
                 {
                     "Value": "85",
@@ -158,7 +158,9 @@
                 {
                     "Date": "Nov 2012",
                     "Text": "3rd place, the Fifth Dong Thap Province Children and Youth Creativity Contest",
-                    "Value": ["<b>DP v1.0 - Dictionary Pascal</b> while student in grades 11A1 of Thanh Binh 2 High School with Windows Form Application C# in Visual Studio 2010."]
+                    "Value": [
+                        "<b>DP v1.0 - Dictionary Pascal</b> while student in grades 11A1 of Thanh Binh 2 High School with Windows Form Application C# in Visual Studio 2010."
+                    ]
                 },
                 {
                     "Date": "Sep 2013 - Sep 2017",
@@ -173,9 +175,13 @@
                         "<li>Android: PhoneGap Framework (Apache Cordova). Available on Google Play.</li>",
                         "</ol>",
                         "</li>",
-                        "<li><span class='color-datetime'>Jan 2017</span>: develop <b>Restaurant Management</b> Software Windows Form Application c# and SQL Server with 2 people (Tứ and Đức).</li>",
+                        "<li><span class='color-datetime'>Jan 2017</span>: develop <b>Restaurant Management</b> Software Windows Form Application c# and SQL Server with 2 people (Tứ and Đức).",
+                        "<br>DEMO: <a target='_blank' href='https://www.youtube.com/watch?v=YLBrmdrvnEc'>youtube.com/watch?v=YLBrmdrvnEc</a>",
+                        "</li>",
                         "<li><span class='color-datetime'>Sep – Dev 2016</span>: teamwork develop Calculator Basic (CalculatorTTH) Android (Java) with 3 people (Tứ, Tiến and Hòa).</li>",
-                        "<li><span class='color-datetime'>Nov - Dec 2015</span>: essay <b>T4Cafe</b> software for cafe management, Windows Form Application C# and database MS Sql Server. Product has been sold to a cafe in Can Tho City.</li>",
+                        "<li><span class='color-datetime'>Nov - Dec 2015</span>: essay <b>T4Cafe</b> software for cafe management, Windows Form Application C# and database MS Sql Server. Product has been sold to a cafe in Can Tho City.",
+                        "<br>DEMO: <a target='_blank' href='https://www.youtube.com/watch?v=TqxEWtukKhY&list=PLMXQDgG0AMXrxiqJUxThs7SKnEv154VOg'>youtube.com/watch?v=TqxEWtukKhY&list=PLMXQDgG0AMXrxiqJUxThs7SKnEv154VOg</a>",
+                        "</li>",
                         "<li><span class='color-datetime'>Feb 2015</span>: essay compare the 2 matrix between the conventional method and Strassen algorithm. Windows Form Application C#.</li>",
                         "</ul>"
                     ]
@@ -183,12 +189,16 @@
                 {
                     "Date": "Jul 2015",
                     "Text": "Join the program KIV – Korea IT Volunteer in Tay Do University",
-                    "Value": ["Study C# and Linq Basic."]
+                    "Value": [
+                        "Study C# and Linq Basic."
+                    ]
                 },
                 {
                     "Date": "Feb – Apr 2017",
                     "Text": "Interns Mekong Data Co., Ltd in Can Tho City",
-                    "Value": ["Web JSP with Liferay CMS."]
+                    "Value": [
+                        "Web JSP with Liferay CMS."
+                    ]
                 }
             ]
         },
@@ -203,14 +213,21 @@
                         "Using: jQuery, jqGrid, DHTMLX (Grid, Gantt Chart, Scheduler), Google Chart, Highcharts, ARKit, SignalR, THREE.JS.",
                         "<ul class='timeline'>",
                         "<li><span class='color-datetime'>May 2020 - <span class='w3-tag color-bkg w3-round'>Current</span></span>: position Developer project WKMS - Workflow System",
+                        "<br>URL: <a target='_blank' href='http://wkms.v-acs.vn'>wkms.v-acs.vn</a>",
                         "<ol><li>Web: ASP.NET MVC + API.</li>",
                         "<li>Software Windows and MacOS: ElectronJS + NodeJS + AngularJS.</li></ol>",
                         "</li>",
                         "<li><span class='color-datetime'>Nov 2018 - Mar 2020</span>: position Developer and Team Leader project 3D.",
+                        "<br>URL: <a target='_blank' href='http://3ds.v-acs.vn'>3ds.v-acs.vn</a>",
                         "<ol><li>Web 3DCIS with ASP.NET MVC, THREE.JS, Xbim: Demonstration of 3D models.</li>",
                         "<li>Software VacsCad with C++ and Python: create 3D CAD modeler and a building information modeling.</li></ol>",
                         "</li>",
-                        "<li><span class='color-datetime'>Sep 2017</span>: position Developer: Web ASP.NET MVC with project AMS, RPS, OSM, AAS, AR of iOS.</li>",
+                        "<li><span class='color-datetime'>Sep 2017</span>: position Developer: Web ASP.NET MVC with project AMS, RPS, OSM, AAS, app AR of iOS.",
+                        "<br>URL: <a target='_blank' href='http://ams.v-acs.vn'>ams.v-acs.vn</a>",
+                        "<br>URL: <a target='_blank' href='http://rps.v-acs.vn'>rps.v-acs.vn</a>",
+                        "<br>URL: <a target='_blank' href='http://osm.v-acs.vn'>osm.v-acs.vn</a>",
+                        "<br>URL: <a target='_blank' href='http://aas.v-acs.vn'>aas.v-acs.vn</a>",
+                        "</li>",
                         "</ul>"
                     ]
                 }
@@ -222,36 +239,49 @@
             "Data": [
                 {
                     "Date": "Jul 2020",
-                    "Text": "Build site ourlife.t4vn.com",
-                    "Value": ["Node.JS 10 + Bootstrap + AngularJS + Google Firebase."]
+                    "Text": "Build site tuvyjourney.t4vn.com",
+                    "Value": [
+                        "URL: <a target='_blank' href='https://tuvyjourney.t4vn.com/'>tuvyjourney.t4vn.com</a>",
+                        "<br>Node.JS + UIKit + Angular (SSR) + Google Firebase + ASP.NET CORE."
+                    ]
                 },
                 {
                     "Date": "Dec 2019 – Feb 2020",
                     "Text": "Deploy package on nuget.org",
                     "Value": [
-                        "Nuget Gallery:",
+                        "Nuget Gallery: URL <a target='_blank' href='https://www.nuget.org/profiles/thientu'>nuget.org/profiles/thientu</a>",
                         "<ul class='timeline'>",
-                        "<li><span class='color-datetime'>Feb 2020</span>: <b>T4Image (.NETStandard 2.0)</b> library compress image. Using core SkiaSharp</li>",
-                        "<li><span class='color-datetime'>Jan 2020</span>: <b>T4Query.SqlServer (.NETStandard 2.0)</b> provides developers with a single class to query SQL Server with the query.</li>",
-                        "<li><span class='color-datetime'>Dec 2019</span>: <b>SendMailFast (.NETStandard 2.0)</b> library supports send mail. Users do not need to set up too much with traditional Microsoft library.</li>",
-                        "<li><span class='color-datetime'>Dec 2019</span>: <b>CipherSharp.Core (.NETStandard 2.0)</b> library supports fastest coding, decoding just once “using”.</li>",
+                        "<li><span class='color-datetime'>Feb 2020</span>: <b>T4Image (.NETStandard 2.0)</b> library compress image. Using core SkiaSharp",
+                        "</li>",
+                        "<li><span class='color-datetime'>Jan 2020</span>: <b>T4Query.SqlServer (.NETStandard 2.0)</b> provides developers with a single class to query SQL Server with the query.",
+                        "</li>",
+                        "<li><span class='color-datetime'>Dec 2019</span>: <b>SendMailFast (.NETStandard 2.0)</b> library supports send mail. Users do not need to set up too much with traditional Microsoft library.",
+                        "</li>",
+                        "<li><span class='color-datetime'>Dec 2019</span>: <b>CipherSharp.Core (.NETStandard 2.0)</b> library supports fastest coding, decoding just once “using”.",
+                        "</li>",
                         "</ul>"
                     ]
                 },
                 {
                     "Date": "Apr 2019",
                     "Text": "Rebuild site Faculty of Library and Information Science – Hanoi University Of Culture",
-                    "Value": ["Web ASP.NET Core 2.0 with template using library W3CSS and database MS Sql Server."]
+                    "Value": [
+                        "Web ASP.NET Core 2.0 with template using library W3CSS and database MS Sql Server."
+                    ]
                 },
                 {
                     "Date": "Mar 2019",
-                    "Text": "Compress Image image.olitvn.com",
-                    "Value": ["Web ASP.NET MVC. Resize image, change extension file image, no quality degrade when compress image."]
+                    "Text": "Compress Image image.t4vn.com",
+                    "Value": [
+                        "URL: <a target='_blank' href='https://image.t4vn.com/'>image.t4vn.com</a>",
+                        "<br>Web ASP.NET MVC. Resize image, change extension file image, no quality degrade when compress image."
+                    ]
                 },
                 {
                     "Date": "Jan 2019",
-                    "Text": "Site Audit siteaudit.olitvn.com",
+                    "Text": "Site Audit siteaudit.t4vn.com",
                     "Value": [
+                        "URL: <a target='_blank' href='https://siteaudit.t4vn.com/'>siteaudit.t4vn.com</a>",
                         "<ol>",
                         "<li>Web and Web API: ASP.NET MVC. Get info WHOIS, check Security Header, analytics SEO and check Page Speed.</li>",
                         "<li>Windows Service Application C#. Run in background on Windows Server 2019, send mail if the list sites is set up to find problems.</li>",
@@ -261,7 +291,9 @@
                 {
                     "Date": "Nov 2018",
                     "Text": "Fly to The End",
-                    "Value": ["Game mobile Android, Apache Cordova and library THREE.JS. Available on Google Play."]
+                    "Value": [
+                        "Game mobile Android, Apache Cordova and library THREE.JS. Available on Google Play."
+                    ]
                 },
                 {
                     "Date": "Jan 2016",
@@ -277,12 +309,17 @@
                 {
                     "Date": "Feb 2015",
                     "Text": "Personal website t4vn.com",
-                    "Value": ["Build personal website with PHP and Database Firebase."]
+                    "Value": [
+                        "URL: <a target='_blank' href='https://t4vn.com/'>t4vn.com</a>",
+                        "<br>Build personal website with ASP.NET and Database SQL Server."
+                    ]
                 },
                 {
                     "Date": "Dec 2014",
                     "Text": "Transfer Image to Icon",
-                    "Value": ["Windows Form Application C#, tool converts all image formats to .icon format."]
+                    "Value": [
+                        "Windows Form Application C#, tool converts all image formats to .icon format."
+                    ]
                 }
             ]
         },
@@ -293,22 +330,30 @@
                 {
                     "Date": "Jun 2020",
                     "Text": "Udemy Online",
-                    "Value": ["Master Electron: Desktop Apps using HTML, JavaScript & CSS."]
+                    "Value": [
+                        "Master Electron: Desktop Apps using HTML, JavaScript & CSS."
+                    ]
                 },
                 {
                     "Date": "Apr 2017",
                     "Text": "MOS - Microsoft Office Specialist",
-                    "Value": ["Microsoft Office PowerPoint."]
+                    "Value": [
+                        "Microsoft Office PowerPoint."
+                    ]
                 },
                 {
                     "Date": "Aug 2016",
                     "Text": "Udemy Online",
-                    "Value": ["HTML 5, Algorithms and Data Structures C++."]
+                    "Value": [
+                        "HTML 5, Algorithms and Data Structures C++."
+                    ]
                 },
                 {
                     "Date": "Aug 2016",
                     "Text": "SoloLearn Online",
-                    "Value": ["Level 7 with 2086 XP."]
+                    "Value": [
+                        "Level 7 with 2086 XP."
+                    ]
                 }
             ]
         }
