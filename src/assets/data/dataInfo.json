@@ -242,7 +242,21 @@
                     "Text": "Development eCommerce",
                     "Value": [
                         "URL: <i>Developing</i>",
-                        "<br>ASP.NET MVC with Dependency Injection (Singleton), Bootstrap, Entiy Framework"
+                        "<br>ASP.NET MVC with Dependency Injection (Singleton), Bootstrap, Entiy Framework Code First",
+                        "<ul class='timeline'>",
+                        "<li>Default MS Sql Server, other database providers (MySql, PostgreSQL, SQLLite...)",
+                        "</li>",
+                        "<li>Support Search Engine Optimization",
+                        "</li>",
+                        "<li>Option single/multi Language",
+                        "<li>Multi-Payment method (Paypal, Visa, Mastercad,...)",
+                        "</li>",
+                        "</li>",
+                        "<li>Social logins (Facebook, Google, Microsoft, Github,...)",
+                        "</li>",
+                        "<li>Along with some other functions...",
+                        "</li>",
+                        "</ul>"
                     ]
                 },
                 {
@@ -285,7 +299,7 @@
                         "</li>",
                         "<li>Build Windows server for customers",
                         "</li>",
-                        "<li>Along with some other functions....",
+                        "<li>Along with some other functions...",
                         "</li>",
                         "</ul>"
                     ]
