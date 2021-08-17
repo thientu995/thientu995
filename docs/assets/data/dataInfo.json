@@ -238,11 +238,19 @@
             "Icon": "code-fork",
             "Data": [
                 {
+                    "Date": "Jun 2021",
+                    "Text": "Development eCommerce",
+                    "Value": [
+                        "URL: <i>Developing</i>",
+                        "<br>ASP.NET MVC with Dependency Injection (Singleton), Bootstrap, Entiy Framework"
+                    ]
+                },
+                {
                     "Date": "Jul 2020",
                     "Text": "Build site tuvyjourney.t4vn.com",
                     "Value": [
                         "URL: <a target='_blank' href='https://tuvyjourney.t4vn.com/'>tuvyjourney.t4vn.com</a>",
-                        "<br>Node.JS + UIKit + Angular (SSR) + Google Firebase + ASP.NET CORE."
+                        "<br>ASP.NET CORE 2.1 + Angular 9 (SSR) + UIKit + Google Firebase."
                     ]
                 },
                 {
@@ -258,6 +266,26 @@
                         "<li><span class='color-datetime'>Dec 2019</span>: <b>SendMailFast (.NETStandard 2.0)</b> library supports send mail. Users do not need to set up too much with traditional Microsoft library.",
                         "</li>",
                         "<li><span class='color-datetime'>Dec 2019</span>: <b>CipherSharp.Core (.NETStandard 2.0)</b> library supports fastest coding, decoding just once “using”.",
+                        "</li>",
+                        "<li>See more: <a target='_blank' href='https://www.nuget.org/profiles/thientu'>nuget.org/profiles/thientu</a>",
+                        "</li>",
+                        "</ul>"
+                    ]
+                },
+                {
+                    "Date": "Aug 2019",
+                    "Text": "New feature Development for Store Manager on site mng.gili.vn",
+                    "Value": [
+                        "Url: <a target='_blank' href='http://mng.gili.vn'>mng.gili.vn</a>",
+                        "<br>Web using ASP.NET MVC, AngularJS, Bootstrap, SQL Server. Built before from pholo.vn",
+                        "<ul class='timeline'>",
+                        "<li>Directly print Barcode and QRCode of Product from the website",
+                        "</li>",
+                        "<li>Redesign UI according to customer requirements",
+                        "</li>",
+                        "<li>Build Windows server for customers",
+                        "</li>",
+                        "<li>Along with some other functions....",
                         "</li>",
                         "</ul>"
                     ]
