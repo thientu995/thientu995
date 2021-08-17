@@ -23,6 +23,10 @@
                     "Text": "<a target='_blank' href='tel:(+84)35 653 0909'>(+84)35 653 0909</a>"
                 },
                 {
+                    "Icon": "skype",
+                    "Text": "<a target='_blank' href='skype:thientu995?chat'>thientu995</a>"
+                },
+                {
                     "Icon": "github",
                     "Text": "<a target='_blank' href='https://github.com/thientu995'>github.com/thientu995</a>"
                 },

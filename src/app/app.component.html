@@ -31,7 +31,7 @@
             <div id="Information">
               <p *ngFor="let item of dataCV?.Information?.Data">
                 <i class="fa fa-{{item.Icon}} fa-fw w3-margin-right w3-large
-                                        color-icon"></i><span [innerHTML]="item.Text"></span>
+                                        color-icon"></i><span [innerHTML]="item.Text | safeHtml"></span>
               </p>
             </div>
 
