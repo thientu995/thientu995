@@ -224,7 +224,7 @@
                         "</li>",
                         "<li><span class='color-datetime'>Nov 2018 - Mar 2020</span>: position Team Leader and Developer.",
                         "<br>URL: <a target='_blank' href='http://3ds.v-acs.vn'>3ds.v-acs.vn</a> - <b>3DCIS (VACS 5D BIM)</b>",
-                        "<ol><li>Web 3DCIS with ASP.NET MVC, THREE.JS, Xbim: Demonstration of 3D models. <i>(Similar Product: <a target='_blank' href='http://docs.xbim.net/downloads/xbimxplorer.html'>Xbim Xplorer</a>)</i>",
+                        "<ol><li>Web 3DCIS with ASP.NET MVC, THREE.JS, DHTMLX (Gantt Chart and Grid), Xbim: Demonstration of 3D models. <i>(Similar Product: <a target='_blank' href='http://docs.xbim.net/downloads/xbimxplorer.html'>Xbim Xplorer</a>)</i>",
                         "<li>Software VacsCad with C++ and Python: create 3D CAD modeler and a building information modeling. <i>(Similar Product: <a target='_blank' href='http://autodesk.com'>Revit Software</a>)</i>",
                         "</li></ol>",
                         "<li><span class='color-datetime'>Sep 2017</span>: position Developer.",
@@ -241,7 +241,7 @@
                         "URL: <a target='_blank' href='http://aas.v-acs.vn'>aas.v-acs.vn</a> - <b>Access Analytics System</b>",
                         "<br>&emsp;<i>(Similar Product: <a target='_blank' href='http://analytics.google.com'>Google Analytics</a>)</i>",
                         "<ul><li>Web: ASP.NET MVC.</li>",
-                        "<li>jQuery, jqGrid, SignalR, Google Chart, DHTMLX (Gantt Chart and Grid)</li></ul>",
+                        "<li>jQuery, jqGrid, SignalR, Google Chart</li></ul>",
                         "</li>",
                         "</ul>"
                     ]
