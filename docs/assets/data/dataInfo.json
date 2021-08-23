@@ -4,7 +4,7 @@
             "Data": [
                 {
                     "Icon": "briefcase",
-                    "Text": ".NET Developer"
+                    "Text": "Fullstack .NET Developer"
                 },
                 {
                     "Icon": "calendar",
@@ -12,7 +12,7 @@
                 },
                 {
                     "Icon": "home",
-                    "Text": "Ho Chi Minh City, Vietnam"
+                    "Text": "Ho Chi Minh City"
                 },
                 {
                     "Icon": "envelope",
@@ -191,7 +191,7 @@
                     ]
                 },
                 {
-                    "Date": "Jul 2015",
+                    "Date": "Jul 2015 - Aug 2015",
                     "Text": "Join the program KIV – Korea IT Volunteer in Tay Do University",
                     "Value": [
                         "Study C# and Linq Basic."
@@ -211,7 +211,7 @@
             "Icon": "suitcase",
             "Data": [
                 {
-                    "Date": "Sep 2017 – 15 Sep 2021 <span class='w3-tag color-bkg w3-round'>Expected</span>",
+                    "Date": "Jun 2017 – 15 Sep 2021 <span class='w3-tag color-bkg w3-round'>Expected</span>",
                     "Text": "VACS Technology Co., Ltd",
                     "Icon": "/assets/images/vacs.ico",
                     "Value": [
@@ -297,7 +297,7 @@
                     ]
                 },
                 {
-                    "Date": "Dec 2019 – Feb 2020",
+                    "Date": "Dec 2019",
                     "Text": "Deploy package on nuget.org",
                     "Value": [
                         "URL <a target='_blank' href='https://www.nuget.org/profiles/thientu'>nuget.org/profiles/thientu</a> <i>(Nuget Gallery)</i>",
@@ -325,6 +325,8 @@
                         "<li>Directly print Barcode and QRCode of Product from the website",
                         "</li>",
                         "<li>Redesign UI according to customer requirements",
+                        "</li>",
+                        "<li>POS",
                         "</li>",
                         "<li>Build Windows server for customers",
                         "</li>",

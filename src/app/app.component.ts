@@ -15,7 +15,7 @@ export class AppComponent {
   @Output()
   dataCV = null;
   @Output()
-  isPrint = false;
+  isPrint = true;
   @Output()
   sizePager = 210;
   @Output()
@@ -38,7 +38,7 @@ export class AppComponent {
       this.sizePager = Number(params.get('print'));
     }
     this.height = Number(document.querySelector('header').clientHeight);
-    this.proPrint(false);
+    this.proPrint(this.isPrint);
   }
 
   PrintPage() {
