@@ -15,7 +15,7 @@ export class AppComponent {
   @Output()
   dataCV = null;
   @Output()
-  isPrint = true;
+  isPrint = false;
   @Output()
   sizePager = 210;
   @Output()
