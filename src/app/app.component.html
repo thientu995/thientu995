@@ -24,10 +24,10 @@
 
         <div class="w3-white w3-text-grey w3-card-4">
           <div class="w3-display-container w3-center">
-            <img src="/assets/images/avatar.jpg" class="" style="width:100%" alt="Avatar">
+            <img src="https://avatars.githubusercontent.com/thientu995" style="width:100%" alt="Avatar">
             <div class="w3-display-bottommiddle w3-container
                             w3-text-black bkgFullName">
-              <h2>NGUYỄN THIÊN TỨ</h2>
+              <h2>{{dataCV?.Information?.Text}}</h2>
             </div>
           </div>
           <div class="w3-container contentLeft">
@@ -105,7 +105,7 @@
 
         <div class="w3-container" id="CareerObjective">
           <h2>
-            <i class="fa fa-{{dataCV?.CareerObjective?.Icon}} w3-xxlarge color-icon"></i>
+            <i class="fa fa-{{dataCV?.CareerObjective?.Icon}} w3-xxlarge color-icon w3-margin-right"></i>
             <span [innerHTML]="dataCV?.CareerObjective?.Text | safeHtml"></span>
           </h2>
           <span data-content="Text">
