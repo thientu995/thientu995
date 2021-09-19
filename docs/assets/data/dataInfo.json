@@ -11,7 +11,7 @@
                     "Text": "20 Oct 1995"
                 },
                 {
-                    "Icon": "home",
+                    "Icon": "map-marker",
                     "Text": "Ho Chi Minh City"
                 },
                 {
@@ -109,43 +109,43 @@
             "Icon": "code",
             "Data": [
                 {
-                    "Value": "95",
+                    "Value": "2017",
                     "Text": "ASP.NET MVC / API / Core"
                 },
                 {
-                    "Value": "80",
+                    "Value": "2017",
                     "Text": "Windows App (Form, Serivce)"
                 },
                 {
-                    "Value": "85",
+                    "Value": "2017",
                     "Text": "ADO.NET / EF / Dataset"
                 },
                 {
-                    "Value": "85",
+                    "Value": "2017",
                     "Text": "MS SQL Server"
                 },
                 {
-                    "Value": "85",
+                    "Value": "2017",
                     "Text": "LINQ"
                 },
                 {
-                    "Value": "90",
+                    "Value": "2017",
                     "Text": "HTML 5 / SEO Onpage"
                 },
                 {
-                    "Value": "90",
+                    "Value": "2017",
                     "Text": "Javascript / jQuery / AngularJS"
                 },
                 {
-                    "Value": "70",
+                    "Value": "2020",
                     "Text": "Typescript / Angular"
                 },
                 {
-                    "Value": "90",
+                    "Value": "2017",
                     "Text": "Bootstrap / W3.CSS / UIkit"
                 },
                 {
-                    "Value": "80",
+                    "Value": "2019",
                     "Text": "Node.js / Apache Cordova / ElectronJS"
                 }
             ]
@@ -160,15 +160,15 @@
             "Icon": "graduation-cap",
             "Data": [
                 {
-                    "Date": "Nov 2012",
+                    "Date": "Nov 2012<br><i class='fa fa-map-marker'></i> Dong Thap Province",
                     "Text": "3rd place, the Fifth Dong Thap Province Children and Youth Creativity Contest",
                     "Value": [
                         "<b>DP v1.0 - Dictionary Pascal</b> while student in grades 11A1 of Thanh Binh 2 High School with Windows Form Application C# in Visual Studio 2010."
                     ]
                 },
                 {
-                    "Date": "Sep 2013 - Sep 2017",
-                    "Text": "Specialize in IT of Tay Do University in Can Tho City",
+                    "Date": "Sep 2013 - Sep 2017<br><i class='fa fa-map-marker'></i> Can Tho City",
+                    "Text": "Engineer's degree in IT of Tay Do University",
                     "Value": [
                         "Projects was made:",
                         "<ul class='timeline'>",
@@ -191,15 +191,15 @@
                     ]
                 },
                 {
-                    "Date": "Jul 2015 - Aug 2015",
+                    "Date": "Jul 2015 - Aug 2015<br><i class='fa fa-map-marker'></i> Can Tho City",
                     "Text": "Join the program KIV – Korea IT Volunteer in Tay Do University",
                     "Value": [
                         "Study C# and Linq Basic."
                     ]
                 },
                 {
-                    "Date": "Feb – Apr 2017",
-                    "Text": "Interns Mekong Data Co., Ltd in Can Tho City",
+                    "Date": "Feb – Apr 2017<br><i class='fa fa-map-marker'></i> Can Tho City",
+                    "Text": "Interns Mekong Data Co., Ltd",
                     "Value": [
                         "Web JSP with Liferay CMS."
                     ]
@@ -211,12 +211,12 @@
             "Icon": "suitcase",
             "Data": [
                 {
-                    "Date": "Jun 2017 – 15 Sep 2021 <span class='w3-tag color-bkg w3-round'>Expected</span>",
+                    "Date": "17 Jun 2017 – 15 Sep 2021<br><i class='fa fa-map-marker'></i> Ho Chi Minh City",
                     "Text": "VACS Technology Co., Ltd",
                     "Icon": "/assets/images/vacs.ico",
                     "Value": [
                         "<ul class='timeline'>",
-                        "<li><span class='color-datetime'>May 2020 - <span class='w3-tag color-bkg w3-round'>Current</span></span>: position Team Leader and Developer",
+                        "<li><span class='color-datetime'>May 2020 - Sep 2021</span>: position Team Leader and Developer",
                         "<br>URL: <a target='_blank' href='http://wkm.v-acs.vn'>wkm.v-acs.vn</a> - <b>Workflow Management System</b>",
                         "<br>&emsp;<i>(Similar Product: <a target='_blank' href='http://fchair-plus.jp'>F-Chair+</a>)</i>",
                         "<ol><li>Web: ASP.NET MVC + API, jQuery</li>",

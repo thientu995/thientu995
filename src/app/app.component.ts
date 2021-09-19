@@ -22,6 +22,7 @@ export class AppComponent {
   stylePrint = null;
   height = 0;
 
+  readonly currentYear = (new Date()).getFullYear();
   readonly timeoutPrint = 500;
   readonly pathUrlFile = '/assets/data/';
   constructor(
