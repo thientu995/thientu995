@@ -154,7 +154,7 @@
         "CareerObjective": {
             "Text": "Career Objective",
             "Icon": "quote-right",
-            "Data": "Looking for a stable job and fit with position dotNET Developer, as well as the opportunity to develop other skills."
+            "Data": "Looking for a stable job and fit with dotNET Developer, as well as the opportunity to develop other skills."
         },
         "Education": {
             "Text": "Education",
@@ -200,7 +200,7 @@
                 },
                 {
                     "Date": "Feb – Apr 2017<br><i class='fa fa-map-marker'></i> Can Tho City",
-                    "Text": "Interns Mekong Data Co., Ltd",
+                    "Text": "Intern: Mekong Data Co., Ltd",
                     "Value": [
                         "Web JSP with Liferay CMS."
                     ]
@@ -212,42 +212,57 @@
             "Icon": "suitcase",
             "Data": [
                 {
+                    "Date": "15 Jun 2021 – <span class='w3-tag color-bkg w3-round'>Current</span><br><i class='fa fa-map-marker'></i> Ho Chi Minh City",
+                    "Text": "Sutrix Solutions",
+                    "Icon": "/assets/images/sutrix.ico",
+                    "Value": [
+                        "<ul class='timeline'>",
+                        "<li><span class='color-datetime'>Otc 2021</span>: Developer - Backend Sitecore",
+                        "<ol>",
+                        "<li>Tecom: <a target='_blank' href='http://dic.ae'>dic.ae</a> - Sitecore 9</li>",
+                        "<li>DPAM: <a target='_blank' href='http://dubaiam.ae'>dubaiam.ae</a> - Sitecore 10</li>",
+                        "</ol>",
+                        "</li>",
+                        "</ul>"
+                    ]
+                },
+                {
                     "Date": "17 Jun 2017 – 15 Sep 2021<br><i class='fa fa-map-marker'></i> Ho Chi Minh City",
                     "Text": "VACS Technology Co., Ltd",
                     "Icon": "/assets/images/vacs.ico",
                     "Value": [
                         "<ul class='timeline'>",
-                        "<li><span class='color-datetime'>May 2020 - Sep 2021</span>: position Team Leader and Developer",
+                        "<li><span class='color-datetime'>May 2020</span>: Team Leader and Developer",
                         "<br>URL: <a target='_blank' href='http://wkm.v-acs.vn'>wkm.v-acs.vn</a> - <b>Workflow Management System</b>",
                         "<br>&emsp;<i>(Similar Product: <a target='_blank' href='http://fchair-plus.jp'>F-Chair+</a>)</i>",
                         "<ol><li>Web: ASP.NET MVC + API, jQuery</li>",
                         "<li>Software Windows and MacOS: ElectronJS + NodeJS + AngularJS.</li></ol>",
                         "</li>",
-                        "<li><span class='color-datetime'>Apr 2020</span>: position Team Leader and Developer.",
+                        "<li><span class='color-datetime'>Apr 2020</span>: Team Leader and Developer.",
                         "<br>Develop <b>plugin open file VacsCad in Revit</b> (develop from Revit API)",
                         "<ul><li>C#</li>",
                         "</ul>",
                         "</li>",
-                        "<li><span class='color-datetime'>Mar 2020</span>: position Team Leader and Developer.",
+                        "<li><span class='color-datetime'>Mar 2020</span>: Team Leader and Developer.",
                         "<br>&emsp;<i>(Similar Product: <a target='_blank' href='http://autodesk.com'>Revit Software</a>)</i>",
                         "<br>Software VacsCad (develop from <b><a target='_blank' href='http://www.freecadweb.org'>FreeCAD</a></b> open source) create 3D CAD modeler and a building information modeling.",
                         "<ul><li>C++ and Python</li>",
                         "<li>Cmake, Qt</li>",
                         "</ul>",
                         "</li>",
-                        "<li><span class='color-datetime'>Feb 2019</span>: position Team Leader and Developer.",
+                        "<li><span class='color-datetime'>Feb 2019</span>: Team Leader and Developer.",
                         "<br>URL: <a target='_blank' href='http://3ds.v-acs.vn'>3ds.v-acs.vn</a> - <b>3DCIS (5D BIM) - Demonstration of 3D models</b>",
                         "<br>&emsp;<i>(Similar Product: <a target='_blank' href='http://docs.xbim.net/downloads/xbimxplorer.html'>Xbim Xplorer</a>)</i>",
                         "<ul><li>ASP.NET MVC, Xbim</li>",
                         "<li>THREE.JS, DHTMLX (Gantt Chart and Grid)</li>",
                         "</ul>",
-                        "<li><span class='color-datetime'>Dec 2018</span>: position Developer.",
+                        "<li><span class='color-datetime'>Dec 2018</span>: Developer.",
                         "<br>URL: <a target='_blank' href='http://aas.v-acs.vn'>aas.v-acs.vn</a> - <b>Access Analytics System</b>",
                         "<br>&emsp;<i>(Similar Product: <a target='_blank' href='http://analytics.google.com'>Google Analytics</a>)</i>",
                         "<ul><li>ASP.NET MVC</li>",
                         "<li>jQuery, jqGrid, SignalR, Google Chart</li></ul>",
                         "</li>",
-                        "<li><span class='color-datetime'>Sep 2017</span>: position Developer.",
+                        "<li><span class='color-datetime'>Sep 2017</span>: Developer.",
                         "<br>URL: <a target='_blank' href='http://ams.v-acs.vn'>ams.v-acs.vn</a> - <b>Accounting System</b>",
                         "<br>&emsp;<i>(Similar Product: <a target='_blank' href='http://sorimachi.co.jp'>Sorimachi Pro</a>)</i>",
                         "<ul><li>ASP.NET MVC</li>",
