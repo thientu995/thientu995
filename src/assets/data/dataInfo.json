@@ -148,6 +148,18 @@
                 {
                     "Value": "2019",
                     "Text": "Node.js / Apache Cordova / ElectronJS"
+                },
+                {
+                    "Value": "2021",
+                    "Text": "Solr / Elasticsearch / Lucene"
+                },
+                {
+                    "Value": "2021",
+                    "Text": "Sonar"
+                },
+                {
+                    "Value": "2021",
+                    "Text": "Jenkins"
                 }
             ]
         },
@@ -216,13 +228,45 @@
                     "Text": "Sutrix Solutions",
                     "Icon": "/assets/images/sutrix.ico",
                     "Value": [
-                        "<ul class='timeline'>",
-                        "<li><span class='color-datetime'>Otc 2021</span>: Developer - Backend Sitecore",
+                        "Backend outsource developer with skill:",
                         "<ol>",
-                        "<li>Tecom: <a target='_blank' href='http://dic.ae'>dic.ae</a> - Sitecore 9</li>",
+                        "<li>CMS: Sitecore (Habitat), Kentico and Umbraco</li>",
+                        "<li>Search: Solr, Elasticsearch, Lucene, Examine and Azure Search</li>",
+                        "<li>Database: Sql Server, Entity framework, Salesforce</li>",
+                        "<li>Powershell: Write script auto for Sitecore (import/export data, backup content)</li>",
+                        "<li>Auto scan file upload with Windows Defender</li>",
+                        "</ol>",
+
+                        "<ul class='timeline'>",
+
+                        "<li><span class='color-datetime'>Sitecore</span>",
+                        "<ol>",
+                        "<li>Outsource for Publicis Groupe (<a target='_blank' href='http://publicisgroupe.net'>publicisgroupe.net</a>)",
+                        "<ul>",
+                        "<li>MAF: <a target='_blank' href='http://alzahia.ae'>alzahia.ae</a> - Sitecore 9 + Unicorn</li>",
+                        "<li>Tecom: <a target='_blank' href='http://tecomgroup.ae'>tecomgroup.ae</a> - Sitecore 9 + SXA</li>",
                         "<li>DPAM: <a target='_blank' href='http://dubaiam.ae'>dubaiam.ae</a> - Sitecore 10</li>",
+                        "<li>Meraas: <a target='_blank' href='http://meraas.com'>meraas.com</a> - Sitecore 10 + SXA</li>",
+                        "<li>Mubadala: <a target='_blank' href='http://mubadala.com'>mubadala.com</a> - Sitecore 10 + SXA</li>",
+                        "</ul>",
+                        "</li>",
+                        "<li>Philippine Airlines: <a target='_blank' href='http://philippineairlines.com'>philippineairlines.com</a> - Sitecore 10 + Unicorn</li>",
                         "</ol>",
                         "</li>",
+
+                        "<li><span class='color-datetime'>Kentico</span>",
+                        "<ol>",
+                        "<li>Maxis: <a target='_blank' href='http://ycf.org.my'>ycf.org.my</a> - Kentico 12</li>",
+                        "</ol>",
+                        "</li>",
+
+                        "<li><span class='color-datetime'>Umbraco</span>",
+                        "<ol>",
+                        "<li>Orifarm: <a target='_blank' href='http://orifarm.com'>orifarm.com</a> - Umbraco 9 / Umbraco Cloud</li>",
+                        "<li>Sparnordfonden: <a target='_blank' href='http://sparnordfonden.dk'>sparnordfonden.dk</a> - Umbraco 8</li>",
+                        "</ol>",
+                        "</li>",
+
                         "</ul>"
                     ]
                 },
@@ -283,23 +327,17 @@
             "Icon": "code-fork",
             "Data": [
                 {
-                    "Date": "Jun 2021",
-                    "Text": "Development web eCommerce",
+                    "Date": "Jul 2022",
+                    "Text": "Development web client thanhkhanh-celadoncity.com",
                     "Value": [
-                        "URL: <i>Developing</i>",
-                        "<br>ASP.NET MVC with Dependency Injection, Bootstrap, Entiy Framework Core",
+                        "URL: <a target='_blank' href='http://thanhkhanh-celadoncity.com'>thanhkhanh-celadoncity.com</a> ",
+                        "<br>Develop Umbraco 10 with .NET 6, SQL Server, Lucene search and Bootstrap 5",
                         "<ul class='timeline'>",
                         "<li>Default MS Sql Server, other database providers (MySql, PostgreSQL, SQLLite...)",
                         "</li>",
                         "<li>Support Search Engine Optimization",
                         "</li>",
                         "<li>Option single/multi Language",
-                        "<li>Multi-Payment method (Paypal, Visa, Mastercad,...)",
-                        "</li>",
-                        "</li>",
-                        "<li>SSO and Social logins (Facebook, Google, Microsoft, Github,...)",
-                        "</li>",
-                        "<li>Along with some other functions...",
                         "</li>",
                         "</ul>"
                     ]
