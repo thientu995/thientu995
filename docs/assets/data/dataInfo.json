@@ -224,7 +224,7 @@
             "Icon": "suitcase",
             "Data": [
                 {
-                    "Date": "15 Jun 2021 – <span class='w3-tag color-bkg w3-round'>Current</span><br><i class='fa fa-map-marker'></i> Ho Chi Minh City",
+                    "Date": "15 Sep 2021 – <span class='w3-tag color-bkg w3-round'>Current</span><br><i class='fa fa-map-marker'></i> Ho Chi Minh City",
                     "Text": "Sutrix Solutions",
                     "Icon": "/assets/images/sutrix.ico",
                     "Value": [
@@ -454,6 +454,13 @@
             "Text": "Certificate",
             "Icon": "certificate",
             "Data": [
+                {
+                    "Date": "Oct 2022",
+                    "Text": "Sitecore Certification",
+                    "Value": [
+                        "Sitecore 10 .NET Developer Certification Exam"
+                    ]
+                },
                 {
                     "Date": "Jun 2020",
                     "Text": "Udemy Online",
