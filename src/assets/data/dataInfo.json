@@ -224,7 +224,20 @@
             "Icon": "suitcase",
             "Data": [
                 {
-                    "Date": "15 Sep 2021 – <span class='w3-tag color-bkg w3-round'>Current</span><br><i class='fa fa-map-marker'></i> Ho Chi Minh City",
+                    "Date": "03 Apr 2023 - <span class='w3-tag color-bkg w3-round'>Current</span><br><i class='fa fa-map-marker'></i> Ho Chi Minh City",
+                    "Text": "Step Media",
+                    "Icon": "/assets/images/stepmedia.ico",
+                    "Value": [
+                        "Fullstack developer with skill:",
+                        "<ol>",
+                        "<li>Updating</li>",
+                        "</ol>",
+                        "<ul class='timeline'>",
+                        "</ul>"
+                    ]
+                },
+                {
+                    "Date": "15 Sep 2021 – 31 Mar 2023<span class='w3-tag color-bkg w3-round'>Current</span><br><i class='fa fa-map-marker'></i> Ho Chi Minh City",
                     "Text": "Sutrix Solutions",
                     "Icon": "/assets/images/sutrix.ico",
                     "Value": [
@@ -237,9 +250,7 @@
                         "<li>Auto scan file upload with Windows Defender</li>",
                         "<li>Sitecore 10 .NET Developer Certification Exam</li>",
                         "</ol>",
-
                         "<ul class='timeline'>",
-
                         "<li><span class='color-datetime'>Sitecore</span>",
                         "<ol>",
                         "<li>Outsource for Publicis Groupe (<a target='_blank' href='http://publicisgroupe.net'>publicisgroupe.net</a>)",
@@ -254,20 +265,17 @@
                         "<li>Philippine Airlines: <a target='_blank' href='http://philippineairlines.com'>philippineairlines.com</a> - Sitecore 10 + Unicorn</li>",
                         "</ol>",
                         "</li>",
-
                         "<li><span class='color-datetime'>Kentico</span>",
                         "<ol>",
                         "<li>Maxis: <a target='_blank' href='http://ycf.org.my'>ycf.org.my</a> - Kentico 12</li>",
                         "</ol>",
                         "</li>",
-
                         "<li><span class='color-datetime'>Umbraco</span>",
                         "<ol>",
                         "<li>Orifarm: <a target='_blank' href='http://orifarm.com'>orifarm.com</a> - Umbraco 9 / Umbraco Cloud</li>",
                         "<li>Sparnordfonden: <a target='_blank' href='http://sparnordfonden.dk'>sparnordfonden.dk</a> - Umbraco 8</li>",
                         "</ol>",
                         "</li>",
-
                         "</ul>"
                     ]
                 },
