@@ -1,9 +1,9 @@
-<div class="group-loader" [hidden]="dataCV != null">
+<div class="group-loader" *ngIf="staticIsLoad">
   <div class="loader">
     <div class="loading"></div>
   </div>
 </div>
-<div [hidden]="dataCV == null" [ngSwitch]="staticTypeComponent">
+<div *ngIf="!staticIsLoad" [ngSwitch]="staticTypeComponent">
   <app-cv [dataCV]="dataCV" *ngSwitchCase="'app-cv'"></app-cv>
   <app-resume [dataCV]="dataCV" *ngSwitchDefault></app-resume>
 </div>

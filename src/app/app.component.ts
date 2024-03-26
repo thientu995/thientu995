@@ -17,6 +17,9 @@ export class AppComponent {
   dataCV = null;
 
   @Input()
+  static isLoad = true;
+
+  @Input()
   static typeComponent = null;
 
   readonly pathUrlFile = '/assets/data/';
@@ -25,7 +28,12 @@ export class AppComponent {
     , private sanitizer: DomSanitizer) {
     http.get(this.pathUrlFile + 'dataInfo.json').subscribe(data => {
       this.dataCV = data;
+      AppComponent.isLoad = false;
     });
+  }
+
+  get staticIsLoad() {
+    return AppComponent.isLoad;
   }
 
   get staticTypeComponent() {

@@ -43,7 +43,7 @@ export class ResumeComponent implements OnInit {
           this.skillsAnimation();
           this.heroEffect();
           this.RegisterEvent();
-        }, 500);
+        }, 1000);
       }
     });
   }
