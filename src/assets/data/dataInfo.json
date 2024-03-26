@@ -229,9 +229,6 @@
                 "Icon": "/assets/images/stepmedia.ico",
                 "Value": [
                     "Fullstack developer with skill:",
-                    "<ol>",
-                    "<li>Auvenir</li>",
-                    "</ol>",
                     "<ul class='timeline'>",
                     "<li><span class='color-datetime'>Auvenir</span>",
                     "</li>",
@@ -239,9 +236,6 @@
                     "</li>",
                     "<li><span class='color-datetime'>SourceVietnam.com</span>",
                     "</li>",
-                    "<ol>",
-                    "<li></li>",
-                    "</ol>",
                     "</ul>"
                 ]
             },
