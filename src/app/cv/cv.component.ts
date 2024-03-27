@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import html2canvas from "html2canvas";
 import * as jsPDF from 'jspdf';
 import { AppComponent } from '../app.component';
+import { AppConstants } from '../app.constants';
 
 @Component({
   selector: 'app-cv',
@@ -13,6 +14,8 @@ import { AppComponent } from '../app.component';
 })
 @Injectable()
 export class CvComponent implements OnInit {
+  @Input()
+  AppConstants;
   // title = 'ClientApp';
   @Input()
   dataCV = null;
@@ -30,11 +33,11 @@ export class CvComponent implements OnInit {
 
   readonly currentYear = (new Date()).getFullYear();
   readonly timeoutPrint = 500;
-  readonly pathUrlFile = '/assets/data/';
   constructor(
     private http: HttpClient
     , private sanitizer: DomSanitizer) {
-  }
+      this.AppConstants = AppConstants;
+    }
 
   ngOnInit(): void {
     const params = new URL(location.href).searchParams;
@@ -126,7 +129,7 @@ export class CvComponent implements OnInit {
 
   private async proPrint(isPrint, extensionFile = null) {
     if (extensionFile && isPrint) {
-      let urlFile = this.pathUrlFile + 'cv.' + extensionFile;
+      let urlFile = AppConstants.pathUrlFile + 'cv.' + extensionFile;
       await this.http.head(urlFile, { observe: 'response' }).subscribe(
         resp => {
           window.open(urlFile);

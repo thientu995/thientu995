@@ -19,9 +19,10 @@
 </header><!-- End Header -->
 
 <!-- ======= Hero Section ======= -->
-<section id="hero" class="d-flex flex-column justify-content-center">
+<section id="hero" class="d-flex flex-column justify-content-center"
+  [style.background-image]="'url(\'' + AppConstants.imgHeroFile + '\')'">
   <div class="container" data-aos="zoom-in" data-aos-delay="100">
-    <h1>Nguyễn Thiên Tứ</h1>
+    <h1>{{dataCV?.Information?.Text}} <button (click)="GoCv()">CV</button></h1>
     <p>I'm <span class="typed" data-typed-items="Developer, Freelancer"></span></p>
     <div class="social-links">
       <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
@@ -48,10 +49,10 @@
 
       <div class="row">
         <div class="col-lg-4">
-          <img src="assets/img/profile-img.jpg" class="img-fluid" alt="">
+          <img [src]="AppConstants.imgAvatarProfile" class="img-fluid" alt="">
         </div>
         <div class="col-lg-8 pt-4 pt-lg-0 content">
-          <h3>Fullstack .NET Developer</h3>
+          <h3>{{dataCV?.Information?.Data[0].Text}}</h3>
           <p class="fst-italic">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
             dolore

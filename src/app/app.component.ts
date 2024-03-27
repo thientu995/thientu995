@@ -1,8 +1,7 @@
 import { Component, Injectable, Output, Input, ViewEncapsulation } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser'
 import { HttpClient } from '@angular/common/http';
-import html2canvas from "html2canvas";
-import * as jsPDF from 'jspdf';
+import { AppConstants } from './app.constants';
 
 @Component({
   selector: 'app-root',
@@ -22,18 +21,14 @@ export class AppComponent {
   @Input()
   static typeComponent = null;
 
-  readonly pathUrlFile = '/assets/data/';
+
   constructor(
     private http: HttpClient
     , private sanitizer: DomSanitizer) {
-    http.get(this.pathUrlFile + 'dataInfo.json').subscribe(data => {
-      this.dataCV = data;
-      AppComponent.isLoad = false;
-    });
   }
 
   get staticIsLoad() {
-    return AppComponent.isLoad;
+    return this.dataCV != null && AppComponent.isLoad;
   }
 
   get staticTypeComponent() {
@@ -41,5 +36,9 @@ export class AppComponent {
   }
 
   ngOnInit(): void {
+    this.http.get(AppConstants.pathUrlFileInfo).subscribe(data => {
+      this.dataCV = data;
+      AppComponent.isLoad = false;
+    });
   }
 }

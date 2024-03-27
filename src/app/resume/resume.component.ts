@@ -1,11 +1,12 @@
 import { Component, HostListener, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { AppComponent } from '../app.component';
+import { AppConstants } from '../app.constants';
+declare var PureCounter: any;
+declare var AOS: any;
+declare var Isotope: any;
+declare var Swiper: any;
 declare var Typed: any;
 declare var Waypoint: any;
-declare var Isotope: any;
-declare var AOS: any;
-declare var Swiper: any;
-declare var PureCounter: any;
 
 @Component({
   selector: 'app-resume',
@@ -14,6 +15,8 @@ declare var PureCounter: any;
   encapsulation: ViewEncapsulation.None
 })
 export class ResumeComponent implements OnInit {
+  @Input()
+  AppConstants;
 
   @Input()
   dataCV = null;
@@ -22,7 +25,7 @@ export class ResumeComponent implements OnInit {
     "/assets/vendor/purecounter/purecounter_vanilla.js",
     "/assets/vendor/aos/aos.js",
     "/assets/vendor/bootstrap/js/bootstrap.bundle.min.js",
-    "/assets/vendor/glightbox/js/glightbox.min.js",
+    // "/assets/vendor/glightbox/js/glightbox.min.js",
     "/assets/vendor/isotope-layout/isotope.pkgd.min.js",
     "/assets/vendor/swiper/swiper-bundle.min.js",
     "/assets/vendor/typed.js/typed.umd.js",
@@ -31,21 +34,41 @@ export class ResumeComponent implements OnInit {
   ];
 
   constructor() {
+    this.AppConstants = AppConstants;
+    AppComponent.isLoad = true;
   }
 
   ngAfterViewInit(): void {
     this.linkScript.forEach((element, index) => {
       this.AppendJS(element);
-      if (index == this.linkScript.length - 1) {
-        setTimeout(() => {
-          this.navbarlinksActive();
-          this.toggleBacktotop();
-          this.skillsAnimation();
-          this.heroEffect();
-          this.RegisterEvent();
-        }, 1000);
-      }
     });
+    this.callRegisterEven();
+  }
+
+  callRegisterEven() {
+    if (
+      typeof PureCounter !== 'undefined'
+      && typeof AOS !== 'undefined'
+      && typeof Isotope !== 'undefined'
+      && typeof Swiper !== 'undefined'
+      && typeof Typed !== 'undefined'
+      && typeof Waypoint !== 'undefined'
+    ) {
+      this.navbarlinksActive();
+      this.toggleBacktotop();
+      this.skillsAnimation();
+      this.heroEffect();
+      this.RegisterEvent();
+      AppComponent.isLoad
+      AppComponent.isLoad = false;
+      return;
+    }
+    else {
+      setTimeout(() => {
+        this.callRegisterEven();
+      }, 100);
+      return;
+    }
   }
 
   ngOnInit(): void {
@@ -63,10 +86,13 @@ export class ResumeComponent implements OnInit {
    * Append JS
    */
   AppendJS(url) {
-    const script = document.createElement('script');
-    script.async = true;
-    script.src = url;
-    document.body.appendChild(script);
+    const scriptExsist = this.select(`script[src="${url}"]`);
+    if (scriptExsist === null) {
+      const script = document.createElement('script');
+      script.async = true;
+      script.src = url;
+      document.body.appendChild(script);
+    }
   }
 
   RegisterEvent() {

@@ -270,7 +270,8 @@ body {
   #hero {
     width: 100%;
     height: 100vh;
-    background: url("/assets/images/hero-bg.jpg") top right no-repeat;
+    background-repeat: no-repeat;
+    background-position: top right;
     background-size: cover;
     position: relative;
   }

@@ -6,58 +6,62 @@
   <button class="w3-button w3-round w3-margin-right w3-green" (click)="PrintPage()"><i class="fa fa-print"></i>
     Print</button>
 </header>
-<h6 [hidden]="!isPrint" class="w3-center w3-text-red">
-  <b><img src="/assets/images/qr-code.svg" height="80px"> CV Online:
-    <a href='https://cv.t4vn.com'>https://cv.t4vn.com</a></b>
-</h6>
+<div class="w3-light-grey">
+  <h6 [hidden]="!isPrint" class="w3-center w3-text-red">
+    <b>
+      <img [src]="AppConstants.imgQrCode" height="80px">
+      &nbsp;CV Online:&nbsp;
+      <a [href]='AppConstants.SiteMain'>{{AppConstants.SiteMain}}</a>
+    </b>
+  </h6>
 
-<span [innerHTML]="stylePrint"></span>
-<!-- Page Container -->
-<div class="w3-light-grey" id="ContentCV">
-  <div class="w3-content w3-light-grey content">
-    <!-- The Grid -->
-    <div class="w3-row-padding" [hidden]="dataCV == null">
-      <!-- Left Column -->
-      <div class="w3-third">
+  <span [innerHTML]="stylePrint"></span>
+  <!-- Page Container -->
+  <div class="w3-light-grey" id="ContentCV">
+    <div class="w3-content w3-light-grey content">
+      <!-- The Grid -->
+      <div class="w3-row-padding" [hidden]="dataCV == null">
+        <!-- Left Column -->
+        <div class="w3-third">
 
-        <div class="w3-white w3-text-grey w3-card-4">
-          <div class="w3-display-container w3-center">
-            <img src="https://avatars.githubusercontent.com/thientu995" style="width:100%" alt="Avatar">
-            <div class="w3-display-bottommiddle w3-container
+          <div class="w3-white w3-text-grey w3-card-4">
+            <div class="w3-display-container w3-center">
+              <img [src]="AppConstants.imgAvatarCV" style="width:100%" alt="Avatar">
+              <div class="w3-display-bottommiddle w3-container
                                   w3-text-black bkgFullName">
-              <h2>{{dataCV?.Information?.Text}}</h2>
-            </div>
-          </div>
-          <div class="w3-container contentLeft">
-            <div id="Information">
-              <p *ngFor="let item of dataCV?.Information?.Data">
-                <i class="fa fa-{{item.Icon}} fa-fw w3-margin-right w3-large
-                                              color-icon"></i>
-                <span [innerHTML]="item.Text | safeHtml"></span>
-              </p>
-            </div>
-
-            <div id="ProgrommingSkills">
-              <p class="w3-large">
-                <b>
-                  <i class="fa fa-{{dataCV?.ProgrommingSkills?.Icon}} fa-fw w3-margin-right color-icon"></i>
-                  <span [innerHTML]="dataCV?.ProgrommingSkills?.Text | safeHtml"></span>
-                </b>
-              </p>
-              <div *ngFor="let item of dataCV?.ProgrommingSkills?.Data" style="width: 100%;">
-                <span [innerHTML]="item.Text | safeHtml"></span>
-                <div class="w3-small">
-                  <div class="w3-container w3-center w3-round-xlarge color-bkg-sub" style="padding: 5px;"
-                    [ngStyle]="{'width':100+'%'}">
-                    <div class="color-bkg w3-round-xlarge"><b>{{currentYear - item.Value}}</b> years <i
-                        class="fa fa-long-arrow-up"></i></div>
-                  </div>
-                </div>
-                <br>
+                <h2>{{dataCV?.Information?.Text}}</h2>
               </div>
             </div>
+            <div class="w3-container contentLeft">
+              <div id="Information">
+                <p *ngFor="let item of dataCV?.Information?.Data">
+                  <i class="fa fa-{{item.Icon}} fa-fw w3-margin-right w3-large
+                                              color-icon"></i>
+                  <span [innerHTML]="item.Text | safeHtml"></span>
+                </p>
+              </div>
 
-            <!-- <div id="GoogleSkills">
+              <div id="ProgrommingSkills">
+                <p class="w3-large">
+                  <b>
+                    <i class="fa fa-{{dataCV?.ProgrommingSkills?.Icon}} fa-fw w3-margin-right color-icon"></i>
+                    <span [innerHTML]="dataCV?.ProgrommingSkills?.Text | safeHtml"></span>
+                  </b>
+                </p>
+                <div *ngFor="let item of dataCV?.ProgrommingSkills?.Data" style="width: 100%;">
+                  <span [innerHTML]="item.Text | safeHtml"></span>
+                  <div class="w3-small">
+                    <div class="w3-container w3-center w3-round-xlarge color-bkg-sub" style="padding: 5px;"
+                      [ngStyle]="{'width':100+'%'}">
+                      <div class="color-bkg w3-round-xlarge"><b>{{currentYear - item.Value}}</b> years <i
+                          class="fa fa-long-arrow-up"></i></div>
+                    </div>
+                  </div>
+                  <br>
+                </div>
+              </div>
+
+              <!-- <div id="GoogleSkills">
                                       <p class="w3-large">
                                           <b>
                                               <i
@@ -76,149 +80,153 @@
                                       </div>
                                   </div> -->
 
-            <div id="PersonalSkills">
-              <p class="w3-large">
-                <b>
-                  <i class="fa fa-{{dataCV?.PersonalSkills?.Icon}} fa-fw w3-margin-right color-icon"></i>
-                  <span [innerHTML]="dataCV?.PersonalSkills?.Text | safeHtml"></span>
-                </b>
-              </p>
-              <div *ngFor="let item of dataCV?.PersonalSkills?.Data" style="width: 100%;display:inline-block">
-                <div class="w3-tag w3-round w3-margin
+              <div id="PersonalSkills">
+                <p class="w3-large">
+                  <b>
+                    <i class="fa fa-{{dataCV?.PersonalSkills?.Icon}} fa-fw w3-margin-right color-icon"></i>
+                    <span [innerHTML]="dataCV?.PersonalSkills?.Text | safeHtml"></span>
+                  </b>
+                </p>
+                <div *ngFor="let item of dataCV?.PersonalSkills?.Data" style="width: 100%;display:inline-block">
+                  <div class="w3-tag w3-round w3-margin
                                           color-bkg-sub" style="padding:5px;display: block;">
-                  <div class="w3-tag w3-round color-bkg
+                    <div class="w3-tag w3-round color-bkg
                                               w3-border w3-border-white
                                               w3-padding-small" style="display: block;"
-                    [innerHTML]="item.Text | safeHtml">
+                      [innerHTML]="item.Text | safeHtml">
+                    </div>
                   </div>
                 </div>
               </div>
+
             </div>
+          </div><br>
 
-          </div>
-        </div><br>
-
-        <!-- End Left Column -->
-      </div>
-
-      <!-- Right Column -->
-      <div class="w3-twothird">
-
-        <div class="w3-container" id="CareerObjective">
-          <h2>
-            <i class="fa fa-{{dataCV?.CareerObjective?.Icon}} w3-xxlarge color-icon w3-margin-right"></i>
-            <span [innerHTML]="dataCV?.CareerObjective?.Text | safeHtml"></span>
-          </h2>
-          <span data-content="Text">
-            <i class="w3-serif w3-xlarge" [innerHTML]="dataCV?.CareerObjective?.Data | safeHtml"></i>
-          </span>
+          <!-- End Left Column -->
         </div>
 
-        <div id="WorkExperience" class="w3-container w3-card
+        <!-- Right Column -->
+        <div class="w3-twothird">
+
+          <div class="w3-container" id="CareerObjective">
+            <h2>
+              <i class="fa fa-{{dataCV?.CareerObjective?.Icon}} w3-xxlarge color-icon w3-margin-right"></i>
+              <span [innerHTML]="dataCV?.CareerObjective?.Text | safeHtml"></span>
+            </h2>
+            <span data-content="Text">
+              <i class="w3-serif w3-xlarge" [innerHTML]="dataCV?.CareerObjective?.Data | safeHtml"></i>
+            </span>
+          </div>
+
+          <div id="WorkExperience" class="w3-container w3-card
                           w3-white w3-margin-bottom">
-          <h2 class="w3-text-grey
+            <h2 class="w3-text-grey
                               w3-padding-16">
-            <i class="fa fa-{{dataCV?.WorkExperience?.Icon}} fa-fw w3-margin-right
+              <i class="fa fa-{{dataCV?.WorkExperience?.Icon}} fa-fw w3-margin-right
                                   w3-xxlarge color-icon"></i>
-            <span [innerHTML]="dataCV?.WorkExperience?.Text | safeHtml"></span>
-          </h2>
-          <div class="contentRight">
-            <div class="w3-container" *ngFor="let item of dataCV?.WorkExperience?.Data">
-              <div class="w3-row headerRight">
-                <h5 class="w3-col s6">
-                  <b>
-                    <img [src]="item.Icon" width="32" height="32" />&nbsp;<span
-                      [innerHTML]="item.Text | safeHtml"></span>
-                  </b>
-                </h5>
-                <h6 class="w3-col s6 w3-right-align
+              <span [innerHTML]="dataCV?.WorkExperience?.Text | safeHtml"></span>
+            </h2>
+            <div class="contentRight">
+              <div class="w3-container" *ngFor="let item of dataCV?.WorkExperience?.Data">
+                <div class="w3-row headerRight">
+                  <h5 class="w3-col s6">
+                    <b>
+                      <img [src]="item.Icon" width="32" height="32" />&nbsp;<span
+                        [innerHTML]="item.Text | safeHtml"></span>
+                    </b>
+                  </h5>
+                  <h6 class="w3-col s6 w3-right-align
                                           color-datetime">
-                  <i class="fa fa-calendar fa-fw"></i>&nbsp;<span [innerHTML]="item.Date"></span>
-                </h6>
-              </div>
-              <div class="w3-text-grey">
-                <p [innerHTML]="item.Value.join('')"></p>
+                    <i class="fa fa-calendar fa-fw"></i>&nbsp;<span [innerHTML]="item.Date"></span>
+                  </h6>
+                </div>
+                <div class="w3-text-grey">
+                  <p [innerHTML]="item.Value.join('')"></p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <div id="IndividualProjects" class="w3-container w3-card
+          <div id="IndividualProjects" class="w3-container w3-card
                           w3-white w3-margin-bottom">
-          <h2 class="w3-text-grey
+            <h2 class="w3-text-grey
                               w3-padding-16">
-            <i class="fa fa-{{dataCV?.IndividualProjects?.Icon}} fa-fw w3-margin-right
+              <i class="fa fa-{{dataCV?.IndividualProjects?.Icon}} fa-fw w3-margin-right
                                   w3-xxlarge color-icon"></i>
-            <span [innerHTML]="dataCV?.IndividualProjects?.Text | safeHtml"></span>
-          </h2>
-          <div class="contentRight">
-            <div class="w3-container" *ngFor="let item of dataCV?.IndividualProjects?.Data">
-              <div class="w3-row headerRight">
-                <h5 class="w3-col s6"><b [innerHTML]="item.Text | safeHtml"></b></h5>
-                <h6 class="w3-col s6 w3-right-align
+              <span [innerHTML]="dataCV?.IndividualProjects?.Text | safeHtml"></span>
+            </h2>
+            <div class="contentRight">
+              <div class="w3-container" *ngFor="let item of dataCV?.IndividualProjects?.Data">
+                <div class="w3-row headerRight">
+                  <h5 class="w3-col s6"><b [innerHTML]="item.Text | safeHtml"></b></h5>
+                  <h6 class="w3-col s6 w3-right-align
                                           color-datetime">
-                  <i class="fa fa-calendar fa-fw"></i>&nbsp;<span [innerHTML]="item.Date"></span>
-                </h6>
-              </div>
-              <div class="w3-text-grey">
-                <p [innerHTML]="item.Value.join('')"></p>
+                    <i class="fa fa-calendar fa-fw"></i>
+                    &nbsp;<span [innerHTML]="item.Date"></span>
+                  </h6>
+                </div>
+                <div class="w3-text-grey">
+                  <p [innerHTML]="item.Value.join('')"></p>
+                </div>
               </div>
             </div>
           </div>
+
+          <div id="Education" class="w3-container w3-card w3-white
+                          w3-margin-bottom">
+            <h2 class="w3-text-grey
+                              w3-padding-16">
+              <i class="fa fa-{{dataCV?.Education?.Icon}} fa-fw w3-margin-right
+                                  w3-xxlarge color-icon"></i>
+              <span [innerHTML]="dataCV?.Education?.Text | safeHtml"></span>
+            </h2>
+            <div class="contentRight">
+              <div class="w3-container" *ngFor="let item of dataCV?.Education?.Data">
+                <div class="w3-row headerRight">
+                  <h5 class="w3-col s6"><b [innerHTML]="item.Text | safeHtml"></b></h5>
+                  <h6 class="w3-col s6 w3-right-align
+                                          color-datetime">
+                    <i class="fa fa-calendar fa-fw"></i>
+                    &nbsp;<span [innerHTML]="item.Date"></span>
+                  </h6>
+                </div>
+                <div class="w3-text-grey">
+                  <p [innerHTML]="item.Value.join('')"></p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="Certificate" class="w3-container w3-card w3-white
+                          w3-margin-bottom">
+            <h2 class="w3-text-grey
+                              w3-padding-16">
+              <i class="fa fa-{{dataCV?.Certificate?.Icon}} fa-fw w3-margin-right
+                                  w3-xxlarge color-icon"></i>
+              <span [innerHTML]="dataCV?.Certificate?.Text | safeHtml"></span>
+            </h2>
+            <div class="contentRight">
+              <div class="w3-container" *ngFor="let item of dataCV?.Certificate?.Data">
+                <div class="w3-row headerRight">
+                  <h5 class="w3-col s6"><b [innerHTML]="item.Text | safeHtml"></b></h5>
+                  <h6 class="w3-col s6 w3-right-align
+                                          color-datetime">
+                    <i class="fa fa-calendar fa-fw"></i>
+                    &nbsp;<span [innerHTML]="item.Date"></span>
+                  </h6>
+                </div>
+                <div class="w3-text-grey">
+                  <p [innerHTML]="item.Value.join('')"></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End Right Column -->
         </div>
 
-        <div id="Education" class="w3-container w3-card w3-white
-                          w3-margin-bottom">
-          <h2 class="w3-text-grey
-                              w3-padding-16">
-            <i class="fa fa-{{dataCV?.Education?.Icon}} fa-fw w3-margin-right
-                                  w3-xxlarge color-icon"></i>
-            <span [innerHTML]="dataCV?.Education?.Text | safeHtml"></span>
-          </h2>
-          <div class="contentRight">
-            <div class="w3-container" *ngFor="let item of dataCV?.Education?.Data">
-              <div class="w3-row headerRight">
-                <h5 class="w3-col s6"><b [innerHTML]="item.Text | safeHtml"></b></h5>
-                <h6 class="w3-col s6 w3-right-align
-                                          color-datetime">
-                  <i class="fa fa-calendar fa-fw"></i>&nbsp;<span [innerHTML]="item.Date"></span>
-                </h6>
-              </div>
-              <div class="w3-text-grey">
-                <p [innerHTML]="item.Value.join('')"></p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div id="Certificate" class="w3-container w3-card w3-white
-                          w3-margin-bottom">
-          <h2 class="w3-text-grey
-                              w3-padding-16">
-            <i class="fa fa-{{dataCV?.Certificate?.Icon}} fa-fw w3-margin-right
-                                  w3-xxlarge color-icon"></i>
-            <span [innerHTML]="dataCV?.Certificate?.Text | safeHtml"></span>
-          </h2>
-          <div class="contentRight">
-            <div class="w3-container" *ngFor="let item of dataCV?.Certificate?.Data">
-              <div class="w3-row headerRight">
-                <h5 class="w3-col s6"><b [innerHTML]="item.Text | safeHtml"></b></h5>
-                <h6 class="w3-col s6 w3-right-align
-                                          color-datetime">
-                  <i class="fa fa-calendar fa-fw"></i>&nbsp;<span [innerHTML]="item.Date"></span>
-                </h6>
-              </div>
-              <div class="w3-text-grey">
-                <p [innerHTML]="item.Value.join('')"></p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- End Right Column -->
+        <!-- End Grid -->
       </div>
-
-      <!-- End Grid -->
+      <!-- End Page Container -->
     </div>
-    <!-- End Page Container -->
   </div>
 </div>
