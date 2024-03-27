@@ -1,16 +1,5 @@
 @import '../../assets/css/w3.scss';
-
-html,
-body,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: "Roboto", sans-serif;
-}
-
+@import '../../assets/css/style.scss';
 
 @page {
   size: A4;
@@ -54,7 +43,7 @@ body {
 
 .bkgFullName {
   width: 100%;
-  color: #fff !important;
+  color: $colorWhite !important;
 }
 
 .bkgFullName:after {
@@ -64,7 +53,7 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: #7c4dff !important;
+  background-color: $colorMain !important;
   opacity: 0.5;
   position: absolute;
   z-index: -1;
@@ -77,20 +66,20 @@ body {
 }
 
 .color-bkg {
-  color: #fff;
-  background-color: #7c4dff !important;
+  color: $colorWhite;
+  background-color: $colorMain !important;
 }
 
 .color-bkg-sub {
-  background-color: #d1c4e9 !important;
+  background-color: $colorSecondary !important;
 }
 
 .color-icon {
-  color: #d1c4e9 !important;
+  color: $colorSecondary !important;
 }
 
 .color-datetime {
-  color: #7c4dff !important;
+  color: $colorMain !important;
 }
 
 ul.timeline {
@@ -106,7 +95,7 @@ ul.timeline>li {
 
 ul.timeline>li:before {
   content: "";
-  background-color: #d1c4e9;
+  background-color: $colorSecondary;
   position: absolute;
   bottom: 0;
   top: 0;
@@ -116,7 +105,7 @@ ul.timeline>li:before {
 
 ul.timeline>li:after {
   content: "";
-  background-color: #d1c4e9;
+  background-color: $colorSecondary;
   border-radius: 100%;
   height: 12px;
   width: 12px;
@@ -151,7 +140,7 @@ header button>* {
 
 .contentLeft>div,
 .contentRight>div {
-  border-bottom: 1px dashed #d1c4e9;
+  border-bottom: 1px dashed $colorSecondary;
 }
 
 .contentLeft>div:last-child,
@@ -160,7 +149,7 @@ header button>* {
 }
 
 .contentRight a {
-  color: #7c4dff !important;
+  color: $colorMain !important;
   font-weight: bold;
   font-style: italic;
 }
@@ -189,13 +178,13 @@ ngx-simplebar {
   right: -6px;
   width: 3px;
   display: table;
-  background: #d1c4e9;
+  background: $colorSecondary;
   position: relative;
   z-index: -10;
   height: 200vh;
 }
 
 .simplebar-visible.simplebar-scrollbar:before {
-  background: #d1c4e9;
+  background: $colorSecondary;
   opacity: 1;
 }
