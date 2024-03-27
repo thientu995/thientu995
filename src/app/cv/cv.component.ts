@@ -31,7 +31,6 @@ export class CvComponent implements OnInit {
   stylePrint = null;
   height = 0;
 
-  readonly currentYear = (new Date()).getFullYear();
   readonly timeoutPrint = 500;
   constructor(
     private http: HttpClient

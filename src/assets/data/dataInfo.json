@@ -2,54 +2,64 @@
     "Information": {
         "FullName": "Nguyễn Thiên Tứ",
         "Slogan": "All Beacause of The Passion",
+        "Degree": "Engineer's",
         "Icon": "",
         "Data": [
             {
                 "Icon": "briefcase",
                 "Text": "Fullstack .NET Developer",
                 "TextHref": "",
+                "TextRaw": "Fullstack .NET Developer",
                 "Type": "title"
             },
             {
                 "Icon": "calendar",
                 "Text": "20 Oct 1995",
                 "TextHref": "",
+                "TextRaw": "20 Oct 1995",
+                "Year": "1995",
                 "Type": "birthday"
             },
             {
                 "Icon": "map-marker",
                 "Text": "Ho Chi Minh City",
                 "TextHref": "",
+                "TextRaw": "Ho Chi Minh City",
                 "Type": "location"
             },
             {
                 "Icon": "envelope",
                 "Text": "<a target='_blank' href='mailto:thientu@t4vn.com'>thientu@t4vn.com</a>",
                 "TextHref": "mailto:thientu@t4vn.com",
+                "TextRaw": "thientu@t4vn.com",
                 "Type": "email"
             },
             {
                 "Icon": "phone",
                 "Text": "<a target='_blank' href='tel:(+84)35 653 0909'>(+84)35 653 0909</a>",
                 "TextHref": "tel:(+84)35 653 0909",
+                "TextRaw": "(+84)35 653 0909",
                 "Type": "phone"
             },
             {
                 "Icon": "skype",
                 "Text": "<a target='_blank' href='skype:thientu995?chat'>thientu995</a>",
                 "TextHref": "skype:thientu995?chat",
+                "TextRaw": "thientu995",
                 "Type": "skype"
             },
             {
                 "Icon": "github",
                 "Text": "<a target='_blank' href='https://github.com/thientu995'>github.com/thientu995</a>",
                 "TextHref": "https://github.com/thientu995",
+                "TextRaw": "thientu995",
                 "Type": "github"
             },
             {
                 "Icon": "internet-explorer",
                 "Text": "<a target='_blank' href='https://www.t4vn.com'>www.t4vn.com</a>",
                 "TextHref": "https://www.t4vn.com",
+                "TextRaw": "www.t4vn.com",
                 "Type": "website"
             }
         ]

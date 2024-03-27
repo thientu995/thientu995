@@ -21,6 +21,9 @@ export class ResumeComponent implements OnInit {
   @Input()
   dataCV = null;
 
+  @Input()
+  lstContact = ['Location', 'Email', 'Phone'];
+
   linkScript = [
     "/assets/vendor/purecounter/purecounter_vanilla.js",
     "/assets/vendor/aos/aos.js",
@@ -39,10 +42,6 @@ export class ResumeComponent implements OnInit {
   }
 
   ngAfterViewInit(): void {
-    this.linkScript.forEach((element, index) => {
-      this.AppendJS(element);
-    });
-    this.callRegisterEven();
   }
 
   callRegisterEven() {
@@ -53,6 +52,7 @@ export class ResumeComponent implements OnInit {
       && typeof Swiper !== 'undefined'
       && typeof Typed !== 'undefined'
       && typeof Waypoint !== 'undefined'
+      && typeof this.dataCV !== 'undefined'
     ) {
       this.navbarlinksActive();
       this.toggleBacktotop();
@@ -72,10 +72,18 @@ export class ResumeComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.linkScript.forEach((element, index) => {
+      this.AppendJS(element);
+    });
+    this.callRegisterEven();
   }
 
   GoCv() {
     AppComponent.typeComponent = 'app-cv';
+  }
+
+  GetDataInfo(type: string) {
+    return this.dataCV?.Information?.Data?.find(x => x.Type.toLowerCase() === type.toLowerCase());
   }
 
   @HostListener('load', ['$event'])

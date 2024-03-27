@@ -13,4 +13,5 @@ export class AppConstants {
   public static readonly imgAvatarProfile = `${AppConstants.pathUrlImg}avatar-profile.jpg`;
   public static readonly imgQrCode = `${AppConstants.pathUrlImg}qr-code.svg`;
   public static readonly imgHeroFile = `${AppConstants.pathUrlImg}hero-bg.jpg`;
+  public static readonly currentYear = (new Date()).getFullYear();
 }
