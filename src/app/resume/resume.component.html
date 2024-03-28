@@ -38,8 +38,8 @@
   [style.background-image]="'url(\'' + AppConstants.imgHeroFile + '\')'">
   <div class="container" data-aos="zoom-in" data-aos-delay="100">
     <div class="btn-group">
-      <button type="button" class="btn btn-outline-secondary"><h1>{{dataCV?.Information?.FullName}}</h1></button>
-      <button type="button" class="btn btn-outline-secondary button"><i class="fa fa-info-circle"></i></button>
+      <button type="button" (click)="GoCv()" class="btn btn-outline-secondary p-3"><h1>{{dataCV?.Information?.FullName}}</h1></button>
+      <button type="button" (click)="GoCv()" class="btn btn-outline-secondary p-3 button"><i class="fa fa-info-circle"></i></button>
     </div>
     <p>I'm <span class="typed" data-typed-items="Developer, Freelancer"></span></p>
     <div class="social-links">

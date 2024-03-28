@@ -49,7 +49,7 @@ body {
 .bkgFullName:after {
   content: " ";
   width: 100%;
-  top: 0;
+  top: -5px;
   bottom: 0;
   left: 0;
   right: 0;
@@ -62,7 +62,8 @@ body {
 
 .bkgFullName h2 {
   font-size: 100%;
-  font-weight: bold;
+  // font-weight: bold;
+  color: $colorWhite
 }
 
 .color-bkg {
