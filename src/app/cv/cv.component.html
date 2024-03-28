@@ -137,7 +137,10 @@
                   </h5>
                   <h6 class="w3-col s6 w3-right-align
                                           color-datetime">
-                    <i class="fa fa-calendar fa-fw"></i>&nbsp;<span [innerHTML]="item.Date"></span>
+                    <i class="fa fa-calendar fa-fw"></i>&nbsp;
+                    <span [innerHTML]="item.Time"></span>
+                    <br>
+                    <span [innerHTML]="item.Location"></span>
                   </h6>
                 </div>
                 <div class="w3-text-grey">
@@ -187,7 +190,9 @@
                   <h6 class="w3-col s6 w3-right-align
                                           color-datetime">
                     <i class="fa fa-calendar fa-fw"></i>
-                    &nbsp;<span [innerHTML]="item.Date"></span>
+                    &nbsp;<span [innerHTML]="item.Time"></span>
+                    <br>
+                    <span [innerHTML]="item.Location"></span>
                   </h6>
                 </div>
                 <div class="w3-text-grey">

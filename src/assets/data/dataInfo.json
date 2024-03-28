@@ -201,14 +201,16 @@
         "Icon": "graduation-cap",
         "Data": [
             {
-                "Date": "Nov 2012<br><i class='fa fa-map-marker'></i> Dong Thap Province",
+                "Time": "Nov 2012",
+                "Location": "<i class='fa fa-map-marker'></i> Dong Thap Province",
                 "Text": "3rd place, the Fifth Dong Thap Province Children and Youth Creativity Contest",
                 "Value": [
                     "<b>DP v1.0 - Dictionary Pascal</b> while student in grades 11A1 of Thanh Binh 2 High School with Windows Form Application C# in Visual Studio 2010."
                 ]
             },
             {
-                "Date": "Sep 2013 - Sep 2017<br><i class='fa fa-map-marker'></i> Can Tho City",
+                "Time": "Sep 2013 - Sep 2017",
+                "Location": "<i class='fa fa-map-marker'></i> Can Tho City",
                 "Text": "Engineer's degree in IT of Tay Do University",
                 "Value": [
                     "Projects was made:",
@@ -232,14 +234,16 @@
                 ]
             },
             {
-                "Date": "Jul 2015 - Aug 2015<br><i class='fa fa-map-marker'></i> Can Tho City",
+                "Time": "Jul 2015 - Aug 2015",
+                "Location": "<i class='fa fa-map-marker'></i> Can Tho City",
                 "Text": "Join the program KIV – Korea IT Volunteer in Tay Do University",
                 "Value": [
                     "Study C# and Linq Basic."
                 ]
             },
             {
-                "Date": "Feb – Apr 2017<br><i class='fa fa-map-marker'></i> Can Tho City",
+                "Time": "Feb – Apr 2017",
+                "Location": "<i class='fa fa-map-marker'></i> Can Tho City",
                 "Text": "Intern: Mekong Data Co., Ltd",
                 "Value": [
                     "Web JSP with Liferay CMS."
@@ -252,8 +256,9 @@
         "Icon": "suitcase",
         "Data": [
             {
-                "Date": "03 Apr 2023 - <span class='w3-tag color-bkg w3-round'>Current</span><br><i class='fa fa-map-marker'></i> Ho Chi Minh City",
-                "Text": "Step Media",
+                "Time": "03 Apr 2023 - <span class='w3-tag color-bkg w3-round'>Current</span>",
+                "Location": "<i class='fa fa-map-marker'></i> Ho Chi Minh City",
+                "Text": "Stepmedia Software",
                 "Icon": "/assets/images/stepmedia.ico",
                 "Value": [
                     "Fullstack developer with skill:",
@@ -268,7 +273,8 @@
                 ]
             },
             {
-                "Date": "15 Sep 2021 – 31 Mar 2023<br><i class='fa fa-map-marker'></i> Ho Chi Minh City",
+                "Time": "15 Sep 2021 – 31 Mar 2023",
+                "Location": "<i class='fa fa-map-marker'></i> Ho Chi Minh City",
                 "Text": "Sutrix Solutions",
                 "Icon": "/assets/images/sutrix.ico",
                 "Value": [
@@ -311,7 +317,8 @@
                 ]
             },
             {
-                "Date": "17 Jun 2017 – 15 Sep 2021<br><i class='fa fa-map-marker'></i> Ho Chi Minh City",
+                "Time": "17 Jun 2017 – 15 Sep 2021",
+                "Location": "<i class='fa fa-map-marker'></i> Ho Chi Minh City",
                 "Text": "VACS Technology Co., Ltd",
                 "Icon": "/assets/images/vacs.ico",
                 "Value": [
