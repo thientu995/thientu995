@@ -1,7 +1,9 @@
+$colorText: #272829;
 $colorWhite: #fff;
-$colorMain: #7c4dff;
-$colorSecondary: #d1c4e9;
-$colorTextHeaderMain: #7c4dff;
+$colorMain: rgba(124, 77, 255, 1);
+$colorSecondary: rgba(209, 196, 233, 1);
+$colorBkgModal: rgba(124, 77, 255, 0.5);
+$colorTextHeaderMain: rgba(124, 77, 255, 1);
 
 html,
 body,
@@ -12,5 +14,26 @@ h4,
 h5,
 h6 {
   font-family: "Roboto", sans-serif;
-  color: #272829;
+  color: $colorText;
+}
+
+a {
+  color: $colorMain;
+  text-decoration: none;
+}
+
+a:hover {
+  color: $colorSecondary;
+  text-decoration: none;
+}
+
+.button {
+  background: $colorMain !important;
+  color: $colorWhite !important;
+  transition: 0.4s;
+  border: 0;
+}
+
+.button:hover {
+  background: $colorSecondary !important;
 }

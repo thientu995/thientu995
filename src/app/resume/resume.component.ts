@@ -110,8 +110,8 @@ export class ResumeComponent implements OnInit {
      */
     this.on('click', '.mobile-nav-toggle', function (e) {
       self.select('body').classList.toggle('mobile-nav-active')
-      this.classList.toggle('bi-list')
-      this.classList.toggle('bi-x')
+      this.classList.toggle('fa-navicon')
+      this.classList.toggle('fa-close')
     })
 
     /**
@@ -126,8 +126,8 @@ export class ResumeComponent implements OnInit {
         if (body.classList.contains('mobile-nav-active')) {
           body.classList.remove('mobile-nav-active')
           let navbarToggle = self.select('.mobile-nav-toggle')
-          navbarToggle.classList.toggle('bi-list')
-          navbarToggle.classList.toggle('bi-x')
+          navbarToggle.classList.toggle('fa-navicon')
+          navbarToggle.classList.toggle('fa-close')
         }
         self.scrollto(this.hash)
       }

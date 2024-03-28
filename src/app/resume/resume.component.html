@@ -1,12 +1,14 @@
 <!-- ======= Mobile nav toggle button ======= -->
-<!-- <button type="button" class="mobile-nav-toggle d-xl-none"><i class="bi bi-list mobile-nav-toggle"></i></button> -->
-<i class="bi bi-list mobile-nav-toggle d-lg-none"></i>
+<!-- <button type="button" class="mobile-nav-toggle d-lg-none"><i class="fa fa-navicon mobile-nav-toggle"></i></button> -->
+<i class="fa fa-navicon mobile-nav-toggle d-lg-none"></i>
+<div class="d-lg-none mobile-nav-toggle-bkg"></div>
 <!-- ======= Header ======= -->
 <header id="header" class="d-flex flex-column justify-content-center">
   <nav id="navbar" class="navbar nav-menu">
     <ul>
       <li>
-        <a href="#cv" (click)="GoCv()" class="nav-link scrollto"><i class="fa fa-info-circle"></i>&nbsp;<span>View CV</span></a>
+        <a href="javascript:void(0);" (click)="GoCv()" class="nav-link"><i
+            class="fa fa-info-circle"></i>&nbsp;<span>View CV</span></a>
       </li>
       <li>
         <a href="#hero" class="nav-link scrollto active"><i class="fa fa-home"></i>&nbsp;<span>Home</span></a>
@@ -35,7 +37,10 @@
 <section id="hero" class="d-flex flex-column justify-content-center"
   [style.background-image]="'url(\'' + AppConstants.imgHeroFile + '\')'">
   <div class="container" data-aos="zoom-in" data-aos-delay="100">
-    <h1>{{dataCV?.Information?.FullName}}</h1>
+    <div class="btn-group">
+      <button type="button" class="btn btn-outline-secondary"><h1>{{dataCV?.Information?.FullName}}</h1></button>
+      <button type="button" class="btn btn-outline-secondary button"><i class="fa fa-info-circle"></i></button>
+    </div>
     <p>I'm <span class="typed" data-typed-items="Developer, Freelancer"></span></p>
     <div class="social-links">
       <span *ngFor="let item of dataCV?.Information?.Data">
@@ -74,17 +79,30 @@
           <div class="row">
             <div class="col-lg-6">
               <ul>
-                <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>{{GetDataInfo('birthday')?.TextRaw}}</span></li>
-                <li><i class="bi bi-chevron-right"></i> <strong>Website:</strong> <span>{{GetDataInfo('website')?.TextRaw}}</span></li>
-                <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>{{GetDataInfo('website')?.TextRaw}}</span></li>
-                <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>{{GetDataInfo('location')?.TextRaw}}</span></li>
+                <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong>
+                  <span>{{GetDataInfo('birthday')?.TextRaw}}</span>
+                </li>
+                <li><i class="bi bi-chevron-right"></i> <strong>Website:</strong>
+                  <span>{{GetDataInfo('website')?.TextRaw}}</span>
+                </li>
+                <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong>
+                  <span>{{GetDataInfo('website')?.TextRaw}}</span>
+                </li>
+                <li><i class="bi bi-chevron-right"></i> <strong>City:</strong>
+                  <span>{{GetDataInfo('location')?.TextRaw}}</span>
+                </li>
               </ul>
             </div>
             <div class="col-lg-6">
               <ul>
-                <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span>{{AppConstants.currentYear - GetDataInfo('birthday')?.Year}}</span></li>
-                <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>{{dataCV?.Information?.Degree}}</span></li>
-                <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>{{GetDataInfo('email')?.TextRaw}}</span></li>
+                <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span>{{AppConstants.currentYear -
+                    GetDataInfo('birthday')?.Year}}</span></li>
+                <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong>
+                  <span>{{dataCV?.Information?.Degree}}</span>
+                </li>
+                <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong>
+                  <span>{{GetDataInfo('email')?.TextRaw}}</span>
+                </li>
                 <li><i class="bi bi-chevron-right"></i> <strong>Freelance:</strong> <span>Available</span></li>
               </ul>
             </div>
@@ -713,7 +731,7 @@
                 <div class="error-message"></div>
                 <div class="sent-message">Your message has been sent. Thank you!</div>
               </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
+              <div class="text-center"><button class="button" type="submit">Send Message</button></div>
             </fieldset>
           </form>
         </div>
