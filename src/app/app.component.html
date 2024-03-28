@@ -5,5 +5,5 @@
 </div>
 <div *ngIf="!staticIsLoad" [ngSwitch]="staticTypeComponent">
   <app-cv [dataCV]="dataCV" *ngSwitchCase="'app-cv'"></app-cv>
-  <app-resume [dataCV]="dataCV" *ngSwitchDefault></app-resume>
+  <app-resume [dataCV]="dataCV" [dataTestimonial]="dataTestimonial" [dataService]="dataService" *ngSwitchDefault></app-resume>
 </div>
