@@ -54,7 +54,8 @@ export class CvComponent implements OnInit {
         return;
       }
       setTimeout(() => {
-        if(target.getAttribute('data-is-test').toLowerCase() != 'true') {
+        const isTest = target.getAttribute('data-is-test')?.toLowerCase() != 'true'
+        if(isTest) {
           window.print();
           this.proPrint(false);
         }
