@@ -1,7 +1,6 @@
 const redirectHttpCode = 301
 const hostnameRedirect = 'tunt.net'
 const redirectMap = `https://${hostnameRedirect}`
-const lengthHostName = hostnameExclude.split('.').length + 1
 
 export async function onRequest(context) {
     const url = new URL(context.request.url)
