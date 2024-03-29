@@ -47,14 +47,17 @@ export class CvComponent implements OnInit {
     this.proPrint(this.isPrint);
   }
 
-  PrintPage() {
+  PrintPage(event) {
+    const target = event.target || event.srcElement || event.currentTarget;
     this.proPrint(true, null).then(() => {
       if (!this.isPrint) {
         return;
       }
       setTimeout(() => {
-        window.print();
-        this.proPrint(false);
+        if(target.getAttribute('data-is-test').toLowerCase() != 'true') {
+          window.print();
+          this.proPrint(false);
+        }
       }, this.timeoutPrint);
     });
   }
