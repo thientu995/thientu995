@@ -1,0 +1,48 @@
+{
+    "Title": "Services",
+    "Description": "Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.",
+    "Data": [
+        {
+            "Name": "Lorem Ipsum",
+            "Description": "Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi",
+            "Link": "#",
+            "Icon": "dribbble",
+            "IconBoxColor": "blue"
+        },
+        {
+            "Name": "Sed Perspiciatis",
+            "Description": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore",
+            "Link": "#",
+            "Icon": "file-text-o",
+            "IconBoxColor": "orange"
+        },
+        {
+            "Name": "Magni Dolores",
+            "Description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia",
+            "Link": "#",
+            "Icon": "tachometer",
+            "IconBoxColor": "pink"
+        },
+        {
+            "Name": "Nemo Enim",
+            "Description": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis",
+            "Link": "#",
+            "Icon": "puzzle-piece",
+            "IconBoxColor": "yellow"
+        },
+        {
+            "Name": "Dele Cardo",
+            "Description": "Quis consequatur saepe eligendi voluptatem consequatur dolor consequuntur",
+            "Link": "#",
+            "Icon": "slideshare",
+            "IconBoxColor": "red"
+        },
+        {
+            "Name": "Divera Don",
+            "Description": "Modi nostrum vel laborum. Porro fugit error sit minus sapiente sit aspernatur",
+            "Link": "#",
+            "Icon": "file-archive-o",
+            "IconBoxColor": "teal"
+        }
+    ]
+}

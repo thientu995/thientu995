@@ -1,0 +1,36 @@
+{
+    "Title": "Testimonials",
+    "Description": "",
+    "Data": [
+        {
+            "Name": "KU Pharma",
+            "Category": "Medical Supplies",
+            "Image": "/assets/images/testimonials/KU-Pharma.png",
+            "Quote": "My experience exceeded all expectations! Not only did my purchase meet my needs perfectly, but the author's exceptional responsiveness and eagerness to assist truly set them apart. Here's to more outstanding projects from this remarkable talent. Kudos on a job exceptionally well done!"
+        },
+        {
+            "Name": "Celadon City",
+            "Category": "Property",
+            "Image": "/assets/images/testimonials/Celadon-City.png",
+            "Quote": "Friendly and fast response."
+        },
+        {
+            "Name": "LDN",
+            "Category": "Training & Cooperation",
+            "Image": "/assets/images/testimonials/LDN.png",
+            "Quote": "An outstanding experience with impeccable code, an awesome layout, a clean interface, and comprehensive documentation."
+        },
+        {
+            "Name": "Wembleymed",
+            "Category": "Medical Factory",
+            "Image": "/assets/images/testimonials/Wembleymed.png",
+            "Quote": "An exceptional experience all around! The code is not just clean but immaculate, the layout is simply awesome, the interface is sleek and intuitive, and the documentation is thorough and well-organized."
+        },
+        {
+            "Name": "ATOZ",
+            "Category": "Electronics Store",
+            "Image": "/assets/images/testimonials/ATOZ.png",
+            "Quote": "Thrilled with my purchase! This project is impeccably constructed and organized, accompanied by clear documentation. It worked flawlessly right from the first compile, without encountering any issues. Couldn't be happier with the seamless experience."
+        }
+    ]
+}
