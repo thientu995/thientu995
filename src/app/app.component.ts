@@ -24,6 +24,9 @@ export class AppComponent {
   dataService = null;
 
   @Input()
+  dataFact = null;
+
+  @Input()
   static isLoad = true;
 
   @Input()
@@ -48,10 +51,12 @@ export class AppComponent {
       this.getInfo(),
       this.getTestimonials(),
       this.getServices(),
+      this.getFacts(),
     ]).then(results => {
       this.dataCV = results[0];
       this.dataTestimonial = results[1];
       this.dataService = results[2];
+      this.dataFact = results[3];
       AppComponent.isLoad = false;
     });
   }
@@ -66,5 +71,9 @@ export class AppComponent {
   
   getServices(): Promise<any> {
     return this.http.get(AppConstants.pathUrlFileServices).pipe(map(res => res)).toPromise();
+  }
+  
+  getFacts(): Promise<any> {
+    return this.http.get(AppConstants.pathUrlFileFacts).pipe(map(res => res)).toPromise();
   }
 }

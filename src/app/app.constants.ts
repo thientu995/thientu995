@@ -12,6 +12,7 @@ export class AppConstants {
   public static readonly pathUrlFileInfo = `${AppConstants.pathUrlFile}dataInfo.json`;
   public static readonly pathUrlFileTestimonials = `${AppConstants.pathUrlFile}testimonials.json`;
   public static readonly pathUrlFileServices = `${AppConstants.pathUrlFile}services.json`;
+  public static readonly pathUrlFileFacts = `${AppConstants.pathUrlFile}facts.json`;
 
   public static readonly imgAvatarCV = `${AppConstants.pathUrlImg}avatar-cv.jpg`;
   public static readonly imgAvatarProfile = `${AppConstants.pathUrlImg}avatar-profile.jpg`;

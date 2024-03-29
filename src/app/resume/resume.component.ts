@@ -11,7 +11,12 @@ declare var Waypoint: any;
 @Component({
   selector: 'app-resume',
   templateUrl: './resume.component.html',
-  styleUrls: ['./resume.component.scss'],
+  styleUrls: [
+    '../../assets/vendor/aos/aos.css',
+    '../../assets/vendor/bootstrap/css/bootstrap.min.css',
+    '../../assets/vendor/swiper/swiper-bundle.min.css',
+    './resume.component.scss'
+  ],
   encapsulation: ViewEncapsulation.None
 })
 export class ResumeComponent implements OnInit {
@@ -26,6 +31,9 @@ export class ResumeComponent implements OnInit {
 
   @Input()
   dataService = null;
+
+  @Input()
+  dataFact = null;
 
   @Input()
   lstContact = ['Location', 'Email', 'Phone'];
@@ -70,6 +78,7 @@ export class ResumeComponent implements OnInit {
       && typeof this.dataCV !== 'undefined'
       && typeof this.dataTestimonial !== 'undefined'
       && typeof this.dataService !== 'undefined'
+      && typeof this.dataFact !== 'undefined'
     ) {
       this.navbarlinksActive();
       this.toggleBacktotop();
