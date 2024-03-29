@@ -3,7 +3,8 @@
     Go Back</button>
   <button class="w3-button w3-round w3-margin-right w3-blue" (click)="PrintPdf()"><i class="fa fa-file-pdf-o"></i>
     PDF</button>
-  <button class="w3-button w3-round w3-margin-right w3-green" (click)="PrintPage($event)" data-is-test="false"><i class="fa fa-print"></i>
+  <button class="w3-button w3-round w3-margin-right w3-green" (click)="PrintPage($event)" data-is-test="false"><i
+      class="fa fa-print"></i>
     Print</button>
 </header>
 <div class="w3-light-grey">
@@ -88,8 +89,8 @@
                   </b>
                 </p>
                 <div *ngFor="let item of dataCV?.PersonalSkills?.Data" style="width: 100%;display:inline-block">
-                  <div class="w3-tag w3-round w3-margin
-                                          color-bkg-sub" style="padding:5px;display: block;">
+                  <div class="w3-tag w3-round
+                                          color-bkg-sub" style="padding:5px;display: block;margin-bottom: 15px;">
                     <div class="w3-tag w3-round color-bkg
                                               w3-border w3-border-white
                                               w3-padding-small" style="display: block;"
@@ -129,12 +130,12 @@
             <div class="contentRight">
               <div class="w3-container" *ngFor="let item of dataCV?.WorkExperience?.Data">
                 <div class="w3-row headerRight">
-                  <h5 class="w3-col s6">
+                  <h6 class="w3-col s6">
                     <b>
                       <img [src]="item.Icon" width="32" height="32" />&nbsp;<span
                         [innerHTML]="item.Text | safeHtml"></span>
                     </b>
-                  </h5>
+                  </h6>
                   <h6 class="w3-col s6 w3-right-align
                                           color-datetime">
                     <i class="fa fa-calendar fa-fw"></i>&nbsp;
@@ -161,7 +162,7 @@
             <div class="contentRight">
               <div class="w3-container" *ngFor="let item of dataCV?.IndividualProjects?.Data">
                 <div class="w3-row headerRight">
-                  <h5 class="w3-col s6"><b [innerHTML]="item.Text | safeHtml"></b></h5>
+                  <h6 class="w3-col s6"><b [innerHTML]="item.Text | safeHtml"></b></h6>
                   <h6 class="w3-col s6 w3-right-align
                                           color-datetime">
                     <i class="fa fa-calendar fa-fw"></i>
@@ -186,7 +187,7 @@
             <div class="contentRight">
               <div class="w3-container" *ngFor="let item of dataCV?.Education?.Data">
                 <div class="w3-row headerRight">
-                  <h5 class="w3-col s6"><b [innerHTML]="item.Text | safeHtml"></b></h5>
+                  <h6 class="w3-col s6"><b [innerHTML]="item.Text | safeHtml"></b></h6>
                   <h6 class="w3-col s6 w3-right-align
                                           color-datetime">
                     <i class="fa fa-calendar fa-fw"></i>
@@ -213,7 +214,7 @@
             <div class="contentRight">
               <div class="w3-container" *ngFor="let item of dataCV?.Certificate?.Data">
                 <div class="w3-row headerRight">
-                  <h5 class="w3-col s6"><b [innerHTML]="item.Text | safeHtml"></b></h5>
+                  <h6 class="w3-col s6"><b [innerHTML]="item.Text | safeHtml"></b></h6>
                   <h6 class="w3-col s6 w3-right-align
                                           color-datetime">
                     <i class="fa fa-calendar fa-fw"></i>
