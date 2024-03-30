@@ -182,23 +182,6 @@ export class ResumeComponent implements OnInit {
   }
 
   RegisterEvent() {
-    const self = this;
-    // this.on('click', '.scrollto', function (e) {
-    //   if (self.select(this.hash)) {
-    //     console.log(this.hash)
-    //     e.preventDefault()
-
-    //     let body = self.select('body')
-    //     if (body.classList.contains('mobile-nav-active')) {
-    //       body.classList.remove('mobile-nav-active')
-    //       let navbarToggle = self.select('.mobile-nav-toggle')
-    //       navbarToggle.classList.toggle('fa-navicon')
-    //       navbarToggle.classList.toggle('fa-close')
-    //     }
-    //     self.scrollto(this.hash)
-    //   }
-    // }, true);
-
     /**
      * Scroll with ofset on page load with hash links in the url
      */
