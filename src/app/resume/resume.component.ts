@@ -137,12 +137,15 @@ export class ResumeComponent implements OnInit {
     this.select('body').classList.toggle('mobile-nav-active')
   }
 
-  findHash(target){
+  findHash(target, iTry = 0) {
     if (target.hash) {
       return target.hash;
     }
-    else{
-      return this.findHash(target.parentNode);
+    else {
+      if (iTry <= 2)
+        return this.findHash(target.parentNode, ++iTry);
+      else return null;
+
     }
   }
 
@@ -151,18 +154,30 @@ export class ResumeComponent implements OnInit {
    * Scrool with ofset on links with a class name .scrollto
    */
   scrollToMenu(event) {
+    event.preventDefault()
+    event.stopPropagation()
+    event.stopImmediatePropagation()
     const target = (event.target || event.srcElement);
     const hash = this.findHash(target);
-    if (this.select(hash)) {
-      event.preventDefault()
-      event.stopPropagation()
-      event.stopImmediatePropagation()
 
-      let body = this.select('body')
-      if (body.classList.contains('mobile-nav-active')) {
-        body.classList.remove('mobile-nav-active')
+    let body = this.select('body')
+    if (body.classList.contains('mobile-nav-active')) {
+      body.classList.remove('mobile-nav-active')
+    }
+
+    if (hash) {
+      if (this.select(hash)) {
+        if (this.select(hash)) {
+          this.scrollto(hash)
+        }
       }
-      this.scrollto(hash)
+      else {
+        switch (hash.toLowerCase()) {
+          case '#gocv':
+            this.GoCv();
+            break;
+        }
+      }
     }
   }
 
