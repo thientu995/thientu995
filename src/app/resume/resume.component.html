@@ -1,37 +1,50 @@
 <!-- ======= Mobile nav toggle button ======= -->
 <!-- <button type="button" class="mobile-nav-toggle d-lg-none"><i class="fa fa-navicon mobile-nav-toggle"></i></button> -->
-<i class="fa fa-navicon mobile-nav-toggle d-lg-none"></i>
+<i class="fa {{select('body').classList.contains('mobile-nav-active') ? 'fa-close' : 'fa-navicon'}} mobile-nav-toggle d-lg-none"
+  (click)="mobileToggle()"></i>
 <div class="d-lg-none mobile-nav-toggle-bkg"></div>
 <!-- ======= Header ======= -->
 <header id="header" class="d-flex flex-column justify-content-center">
   <nav id="navbar" class="navbar nav-menu">
     <ul>
       <li>
-        <a href="javascript:void(0);" (click)="GoCv()" class="nav-link"><i
+        <a href="javascript:void(0);" class="nav-link" (click)="GoCv()"><i
             class="fa fa-info-circle"></i>&nbsp;<span>View CV</span></a>
       </li>
       <li>
-        <a href="#hero" class="nav-link scrollto active"><i class="fa fa-home"></i>&nbsp;<span>Home</span></a>
+        <a href="#hero" class="nav-link scrollto active" (click)="scrollToMenu($event)">
+          <i class="fa fa-home"></i>&nbsp;<span>Home</span>
+        </a>
       </li>
       <li>
-        <a href="#about" class="nav-link scrollto"><i class="fa fa-user-o"></i>&nbsp;<span>About</span></a>
+        <a href="#about" class="nav-link scrollto" (click)="scrollToMenu($event)">
+          <i class="fa fa-user-o"></i>&nbsp;<span>About</span>
+        </a>
       </li>
       <li>
-        <a href="#skills" class="nav-link scrollto"><i class="fa fa-code"></i>&nbsp;<span>Skills</span></a>
+        <a href="#skills" class="nav-link scrollto" (click)="scrollToMenu($event)">
+          <i class="fa fa-code"></i>&nbsp;<span>Skills</span>
+        </a>
       </li>
       <li>
-        <a href="#resume" class="nav-link scrollto"><i class="fa fa-file-o"></i>&nbsp;<span>Resume</span></a>
+        <a href="#resume" class="nav-link scrollto" (click)="scrollToMenu($event)">
+          <i class="fa fa-file-o"></i>&nbsp;<span>Resume</span>
+        </a>
       </li>
       <li [hidden]="true">
-        <a href="#portfolio" class="nav-link scrollto"><i
-            class="fa fa-address-book-o"></i>&nbsp;<span>Portfolio</span></a>
+        <a href="#portfolio" class="nav-link scrollto" (click)="scrollToMenu($event)">
+          <i class="fa fa-address-book-o"></i>&nbsp;<span>Portfolio</span>
+        </a>
       </li>
       <li *ngIf="dataService?.Data?.length > 0" [hidden]="true">
-        <a href="#services" class="nav-link scrollto"><i
-            class="fa fa-server"></i>&nbsp;<span>{{dataService.Title}}</span></a>
+        <a href="#services" class="nav-link scrollto" (click)="scrollToMenu($event)">
+          <i class="fa fa-server"></i>&nbsp;<span>{{dataService.Title}}</span>
+        </a>
       </li>
       <li>
-        <a href="#contact" class="nav-link scrollto"><i class="fa fa-envelope-o"></i>&nbsp;<span>Contact</span></a>
+        <a href="#contact" class="nav-link scrollto" (click)="scrollToMenu($event)">
+          <i class="fa fa-envelope-o"></i>&nbsp;<span>Contact</span>
+        </a>
       </li>
     </ul>
   </nav><!-- .nav-menu -->

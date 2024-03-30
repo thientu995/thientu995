@@ -19,7 +19,7 @@ export class CvComponent implements OnInit {
   // title = 'ClientApp';
   @Input()
   dataCV = null;
-  
+
   @Input()
   typeComponent = null;
 
@@ -35,8 +35,8 @@ export class CvComponent implements OnInit {
   constructor(
     private http: HttpClient
     , private sanitizer: DomSanitizer) {
-      this.AppConstants = AppConstants;
-    }
+    this.AppConstants = AppConstants;
+  }
 
   ngOnInit(): void {
     const params = new URL(location.href).searchParams;
@@ -51,11 +51,13 @@ export class CvComponent implements OnInit {
     const target = event.target || event.srcElement || event.currentTarget;
     this.proPrint(true, null).then(() => {
       if (!this.isPrint) {
+        document.querySelector('.w3-row-padding').classList.remove('w3-flex');
         return;
       }
+      document.querySelector('.w3-row-padding').classList.add('w3-flex');
       setTimeout(() => {
         const isTest = target.getAttribute('data-is-test')?.toLowerCase() != 'true'
-        if(isTest) {
+        if (isTest) {
           window.print();
           this.proPrint(false);
         }

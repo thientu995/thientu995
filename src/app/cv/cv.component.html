@@ -3,7 +3,7 @@
     Go Back</button>
   <button class="w3-button w3-round w3-margin-right w3-blue" (click)="PrintPdf()"><i class="fa fa-file-pdf-o"></i>
     PDF</button>
-  <button class="w3-button w3-round w3-margin-right w3-green" (click)="PrintPage($event)" data-is-test="false"><i
+  <button class="w3-button w3-round w3-margin-right w3-green w3-hide-medium w3-hide-small" (click)="PrintPage($event)" data-is-test="false"><i
       class="fa fa-print"></i>
     Print</button>
 </header>
@@ -21,7 +21,7 @@
   <div class="w3-light-grey" id="ContentCV">
     <div class="w3-content w3-light-grey content">
       <!-- The Grid -->
-      <div class="w3-row-padding w3-flex" [hidden]="dataCV == null">
+      <div class="w3-row-padding" [hidden]="dataCV == null">
         <!-- Left Column -->
         <div class="w3-third">
 

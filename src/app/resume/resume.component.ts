@@ -67,9 +67,8 @@ export class ResumeComponent implements OnInit {
   ngAfterViewInit(): void {
   }
 
-  callRegisterEven() {
-    if (
-      typeof PureCounter !== 'undefined'
+  isCheckReady() {
+    return typeof PureCounter !== 'undefined'
       && typeof AOS !== 'undefined'
       && typeof Isotope !== 'undefined'
       && typeof Swiper !== 'undefined'
@@ -78,8 +77,11 @@ export class ResumeComponent implements OnInit {
       && typeof this.dataCV !== 'undefined'
       && typeof this.dataTestimonial !== 'undefined'
       && typeof this.dataService !== 'undefined'
-      && typeof this.dataFact !== 'undefined'
-    ) {
+      && typeof this.dataFact !== 'undefined';
+  }
+
+  callRegisterEven() {
+    if (this.isCheckReady()) {
       this.navbarlinksActive();
       this.toggleBacktotop();
       this.skillsAnimation();
@@ -128,35 +130,59 @@ export class ResumeComponent implements OnInit {
     }
   }
 
+  /**
+   * Mobile nav toggle
+   */
+  mobileToggle() {
+    this.select('body').classList.toggle('mobile-nav-active')
+  }
+
+  findHash(target){
+    if (target.hash) {
+      return target.hash;
+    }
+    else{
+      return this.findHash(target.parentNode);
+    }
+  }
+
+
+  /**
+   * Scrool with ofset on links with a class name .scrollto
+   */
+  scrollToMenu(event) {
+    const target = (event.target || event.srcElement);
+    const hash = this.findHash(target);
+    if (this.select(hash)) {
+      event.preventDefault()
+      event.stopPropagation()
+      event.stopImmediatePropagation()
+
+      let body = this.select('body')
+      if (body.classList.contains('mobile-nav-active')) {
+        body.classList.remove('mobile-nav-active')
+      }
+      this.scrollto(hash)
+    }
+  }
+
   RegisterEvent() {
     const self = this;
-    /**
-     * Mobile nav toggle
-     */
-    this.on('click', '.mobile-nav-toggle', function (e) {
-      self.select('body').classList.toggle('mobile-nav-active')
-      this.classList.toggle('fa-navicon')
-      this.classList.toggle('fa-close')
-    })
+    // this.on('click', '.scrollto', function (e) {
+    //   if (self.select(this.hash)) {
+    //     console.log(this.hash)
+    //     e.preventDefault()
 
-    /**
-     * Scrool with ofset on links with a class name .scrollto
-     */
-    this.on('click', '.scrollto', function (e) {
-      if (self.select(this.hash)) {
-        console.log(this.hash)
-        e.preventDefault()
-
-        let body = self.select('body')
-        if (body.classList.contains('mobile-nav-active')) {
-          body.classList.remove('mobile-nav-active')
-          let navbarToggle = self.select('.mobile-nav-toggle')
-          navbarToggle.classList.toggle('fa-navicon')
-          navbarToggle.classList.toggle('fa-close')
-        }
-        self.scrollto(this.hash)
-      }
-    }, true);
+    //     let body = self.select('body')
+    //     if (body.classList.contains('mobile-nav-active')) {
+    //       body.classList.remove('mobile-nav-active')
+    //       let navbarToggle = self.select('.mobile-nav-toggle')
+    //       navbarToggle.classList.toggle('fa-navicon')
+    //       navbarToggle.classList.toggle('fa-close')
+    //     }
+    //     self.scrollto(this.hash)
+    //   }
+    // }, true);
 
     /**
      * Scroll with ofset on page load with hash links in the url
@@ -168,7 +194,6 @@ export class ResumeComponent implements OnInit {
         }
       }
     });
-
 
     /**
      * Porfolio isotope and filter
@@ -240,7 +265,6 @@ export class ResumeComponent implements OnInit {
      * Animation on scroll
      */
     this.onPageLoad(null, () => {
-      console.log('Animation on scroll')
       AOS.init({
         duration: 1000,
         easing: 'ease-in-out',
@@ -252,7 +276,9 @@ export class ResumeComponent implements OnInit {
     /**
      * Initiate Pure Counter 
      */
-    new PureCounter();
+    setTimeout(() => {
+      new PureCounter();
+    }, 500)
   }
 
   /**
@@ -375,6 +401,8 @@ export class ResumeComponent implements OnInit {
    * Easy on scroll event listener 
    */
   onscroll = (el, listener) => {
-    el.addEventListener('scroll', listener)
+    el.addEventListener('scroll', () => {
+      listener()
+    })
   }
 }

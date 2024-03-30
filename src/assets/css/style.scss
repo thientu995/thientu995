@@ -5,6 +5,10 @@ $colorSecondary: rgba(209, 196, 233, 1);
 $colorBkgModal: rgba(124, 77, 255, 0.5);
 $colorTextHeaderMain: rgba(124, 77, 255, 1);
 
+html {
+  scroll-behavior: smooth;
+}
+
 html,
 body,
 h1,
