@@ -194,7 +194,8 @@
     "CareerObjective": {
         "Text": "Career Objective",
         "Icon": "quote-right",
-        "Data": "Looking for a stable job and fit with dotNET Developer, as well as the opportunity to develop other skills."
+        "Quote": "Looking for a stable job and fit with dotNET Developer, as well as the opportunity to develop other skills.",
+        "About": "Currently in search of a stable and fulfilling role tailored to my expertise as a .NET Developer. I aspire for a position that not only aligns with my skills but also provides ample opportunities for continuous growth and development across various domains."
     },
     "Education": {
         "Text": "Education",
