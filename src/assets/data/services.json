@@ -1,47 +1,47 @@
 {
     "Title": "Services",
-    "Description": "Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.",
+    "Description": "Delivering comprehensive IT solutions and services to meet diverse customer needs. Keeping pace with the latest technologies every day.",
     "Data": [
         {
-            "Name": "Lorem Ipsum",
-            "Description": "Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi",
+            "Name": "Website",
+            "Description": "We offer top-notch support in designing and developing modern-style websites",
             "Link": "#",
-            "Icon": "dribbble",
+            "Icon": "html5",
             "IconBoxColor": "blue"
         },
         {
-            "Name": "Sed Perspiciatis",
-            "Description": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore",
+            "Name": "Software",
+            "Description": "Analyzing and developing software tailored to your unique requirements",
             "Link": "#",
-            "Icon": "file-text-o",
+            "Icon": "desktop",
             "IconBoxColor": "orange"
         },
         {
-            "Name": "Magni Dolores",
-            "Description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia",
+            "Name": "Mobile Application",
+            "Description": "Building cross-platform mobile applications to deliver the best user experience",
             "Link": "#",
-            "Icon": "tachometer",
+            "Icon": "mobile-phone",
             "IconBoxColor": "pink"
         },
         {
-            "Name": "Nemo Enim",
-            "Description": "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis",
+            "Name": "Operating System",
+            "Description": "Supporting you in installation and operations to ensure seamless performance and uninterrupted service",
             "Link": "#",
             "Icon": "puzzle-piece",
             "IconBoxColor": "yellow"
         },
         {
-            "Name": "Dele Cardo",
-            "Description": "Quis consequatur saepe eligendi voluptatem consequatur dolor consequuntur",
+            "Name": "SEO Optimization",
+            "Description": "SEO is the process of improving the quality and quantity of website traffic to a website from search engines",
             "Link": "#",
-            "Icon": "slideshare",
+            "Icon": "tachometer",
             "IconBoxColor": "red"
         },
         {
-            "Name": "Divera Don",
-            "Description": "Modi nostrum vel laborum. Porro fugit error sit minus sapiente sit aspernatur",
+            "Name": "Consulting Solutions",
+            "Description": "We are ready to listen and enthusiastically provide technology solutions. Don't hesitate to contact us!",
             "Link": "#",
-            "Icon": "file-archive-o",
+            "Icon": "slideshare",
             "IconBoxColor": "teal"
         }
     ]

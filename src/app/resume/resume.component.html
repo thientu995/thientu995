@@ -36,7 +36,7 @@
           <i class="fa fa-address-book-o"></i>&nbsp;<span>Portfolio</span>
         </a>
       </li>
-      <li *ngIf="dataService?.Data?.length > 0" [hidden]="true">
+      <li *ngIf="dataService?.Data?.length > 0">
         <a href="#services" class="nav-link scrollto" (click)="scrollToMenu($event)">
           <i class="fa fa-server"></i>&nbsp;<span>{{dataService.Title}}</span>
         </a>
@@ -81,7 +81,7 @@
 
       <div class="section-title">
         <h2>{{dataCV?.Information?.Title}}</h2>
-        <p>{{dataCV?.CareerObjective?.About}}</p>
+        <p [innerHTML]="dataCV?.CareerObjective?.Introduction"></p>
       </div>
 
       <div class="row">
@@ -128,34 +128,38 @@
               </ul>
             </div>
           </div>
-          <p [innerHTML]="dataCV?.CareerObjective?.Introduction"></p>
+          <!-- <p [innerHTML]="dataCV?.CareerObjective?.Introduction"></p> -->
+
+
+          <!-- ======= Facts Section ======= -->
+          <div id="facts" class="facts" *ngIf="dataFact?.Data?.length > 0">
+            <div class="container" data-aos="fade-up">
+              <!-- <div class="section-title">
+                <h2>{{dataFact.Title}}</h2>
+                <p>{{dataFact.Description}}</p>
+              </div> -->
+              <div class="row">
+
+                <div class="col-lg-3 col-md-6" *ngFor="let item of dataFact.Data; let i = index">
+                  <div class="count-box">
+                    <i class="fa fa-{{item.Icon}}"></i>
+                    <span data-purecounter-start="0" [attr.data-purecounter-end]="item.Value"
+                      data-purecounter-duration="1" class="purecounter"></span>
+                    <p>{{item.Text}}</p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <!-- End Facts Section -->
+
         </div>
       </div>
 
     </div>
   </section><!-- End About Section -->
 
-  <!-- ======= Facts Section ======= -->
-  <section id="facts" class="facts" *ngIf="dataFact?.Data?.length > 0">
-    <div class="container" data-aos="fade-up">
-      <div class="section-title">
-        <h2>{{dataFact.Title}}</h2>
-        <p>{{dataFact.Description}}</p>
-      </div>
-      <div class="row">
-
-        <div class="col-lg-3 col-md-6" *ngFor="let item of dataFact.Data; let i = index">
-          <div class="count-box">
-            <i class="fa fa-{{item.Icon}}"></i>
-            <span data-purecounter-start="0" [attr.data-purecounter-end]="item.Value" data-purecounter-duration="1"
-              class="purecounter"></span>
-            <p>{{item.Text}}</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section><!-- End Facts Section -->
 
   <!-- ======= Skills Section ======= -->
   <section id="skills" class="skills section-bg">
@@ -435,7 +439,7 @@
   </section><!-- End Portfolio Section -->
 
   <!-- ======= Services Section ======= -->
-  <section id="services" class="services" *ngIf="dataService?.Data?.length > 0" [hidden]="true">
+  <section id="services" class="services" *ngIf="dataService?.Data?.length > 0">
     <div class="container" data-aos="fade-up">
       <div class="section-title">
         <h2>{{dataService.Title}}</h2>
