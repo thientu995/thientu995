@@ -265,12 +265,6 @@
                 "Value": [
                     "Fullstack developer with skill:",
                     "<ul class='timeline'>",
-                    "<li><span class='color-datetime'>Apr 2023</span>: Developer - Teamsize: 10-20.",
-                    "<ol>",
-                    "<li><span class='color-datetime'>Auvenir</span>: Microservices (.NET) + React",
-                    "</li>",
-                    "</li>",
-                    "</ol>",
                     "<li><span class='color-datetime'>Dec 2023</span>: Developer - Teamsize: 5.",
                     "<ol>",
                     "<li><span class='color-datetime'>GoSell</span>: Microservices (JAVA & .NET) + React",
@@ -279,6 +273,12 @@
                     "</li>",
                     "</ol>",
                     "</li>",
+                    "<li><span class='color-datetime'>Apr 2023</span>: Developer - Teamsize: 10-20.",
+                    "<ol>",
+                    "<li><span class='color-datetime'>Auvenir</span>: Microservices (.NET) + React",
+                    "</li>",
+                    "</li>",
+                    "</ol>",
                     "</ul>"
                 ]
             },
