@@ -3,9 +3,9 @@ name: Angular Build
 # {1}
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "develop_angular" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "develop_angular" ]
 
 jobs:
   angular:
