@@ -5,7 +5,7 @@ on:
   push:
     branches: [ "develop_angular" ]
   pull_request:
-    branches: [ "develop_angular" ]
+    branches: [ "deploy" ]
 
 jobs:
   angular:
