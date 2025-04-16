@@ -215,7 +215,8 @@
                 "Location": "<i class='fa fa-map-marker'></i> Can Tho City",
                 "Text": "Engineer's degree in IT of Tay Do University",
                 "Value": [
-                    "Projects was made:",
+                    "<strong>GPA: 2.92 (Good)</strong>",
+                    "<br>Projects was made:",
                     "<ul class='timeline'>",
                     "<li><span class='color-datetime'>Jan – May 2017</span>: graduation thesis <b>T4Travel DongThap</b> - Dong Thap province tourism lookup application.",
                     "<ol>",
