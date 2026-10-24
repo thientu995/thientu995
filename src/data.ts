@@ -131,9 +131,15 @@ export const profile = {
     website: info.Information.Data.find((d) => d.Type === 'website')?.TextHref ?? '',
 };
 
-// Contact channels rendered as cards in the Contact section.
+// Contact channels rendered as cards in the Contact section. The tel: href
+// is rebuilt from the digits of TextRaw - the data ships "tel:(+84)35 653
+// 0909" with spaces/parens, which is not a valid tel: URI.
 export const contactChannels = info.Information.Data.filter((d) =>
     ['email', 'phone', 'skype', 'github', 'website'].includes(d.Type),
+).map((d) =>
+    d.Type === 'phone'
+        ? { ...d, TextHref: 'tel:+' + d.TextRaw.replace(/\D/g, '') }
+        : d,
 );
 
 // Personal facts rendered in the About aside.
