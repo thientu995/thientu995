@@ -136,6 +136,12 @@ const term = [
         grid-template-columns: 1.05fr 0.95fr;
         gap: clamp(32px, 5vw, 64px);
         align-items: center;
+
+        // Grid items default to min-width:auto - the terminal's nowrap lines
+        // would then force the column wider than the viewport (visible <360px).
+        > * {
+            min-width: 0;
+        }
     }
 
     // ---- Left column ----

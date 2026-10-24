@@ -169,5 +169,8 @@ export const googleSkills = info.GoogleSkills.Data.map((s) => ({
 export const site = {
     url: 'https://cv.t4vn.com',
     title: `${info.Information.FullName} — ${profile.role}`,
-    description: info.CareerObjective.About,
+    // The career-objective paragraph is 257 chars - too long for a meta
+    // description (search engines truncate ~160). The Quote line is the
+    // data's own one-line summary and fits comfortably.
+    description: info.CareerObjective.Quote,
 };
