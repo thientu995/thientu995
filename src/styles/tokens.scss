@@ -19,11 +19,11 @@
     --blue: #4c8df6;
     --blue-soft: rgba(76, 141, 246, 0.14);
 
-    // Modern studio accent (clean tech blue for primary actions)
-    --accent: #3b82f6;
-    --accent-hover: #2563eb;
-    --accent-glow: rgba(59, 130, 246, 0.35);
-    --accent-soft: rgba(59, 130, 246, 0.12);
+    // Modern studio accent (violet, sampled from the QR brand mark #7C4DFF)
+    --accent: #7c4dff;
+    --accent-hover: #6839e8;
+    --accent-glow: rgba(124, 77, 255, 0.38);
+    --accent-soft: rgba(124, 77, 255, 0.14);
 
     // ---- Canvas & layered surfaces (dark) ----
     --bg: #090a0f;
@@ -42,8 +42,8 @@
 
     // ---- Gradients ----
     --grad-brand: linear-gradient(135deg, var(--red) 0%, var(--gold) 35%, var(--green) 68%, var(--blue) 100%);
-    --grad-text: linear-gradient(135deg, #ffffff 20%, #cad7fe 65%, #60a5fa 100%);
-    --grad-accent: linear-gradient(135deg, #4c8df6 0%, #2563eb 100%);
+    --grad-text: linear-gradient(135deg, #ffffff 20%, #d8ccfe 65%, #a78bfa 100%);
+    --grad-accent: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%);
 
     // ---- Component surfaces ----
     --nav-bg: rgba(9, 10, 15, 0.8);
@@ -83,7 +83,7 @@
 // Light theme - opt-in via data-theme; default follows the OS preference.
 // =============================================================================
 html[data-theme='light'] {
-    --accent-glow: rgba(37, 99, 235, 0.22);
+    --accent-glow: rgba(124, 77, 255, 0.22);
 
     --bg: #f8f9fc;
     --bg-raise: #ffffff;
@@ -98,7 +98,7 @@ html[data-theme='light'] {
     --muted: #475569;
     --faint: #64748b;
 
-    --grad-text: linear-gradient(135deg, #0f172a 20%, #1e3a8a 65%, #2563eb 100%);
+    --grad-text: linear-gradient(135deg, #0f172a 20%, #4c1d95 65%, #7c3aed 100%);
     --grad-brand: linear-gradient(135deg, #dc2626 0%, #d97706 35%, #16a34a 68%, #2563eb 100%);
 
     --nav-bg: rgba(248, 249, 252, 0.85);
