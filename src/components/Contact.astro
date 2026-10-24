@@ -1,0 +1,190 @@
+---
+import Icon from './Icon.astro';
+import { contactChannels } from '../data';
+
+const labels: Record<string, string> = {
+    email: 'Email',
+    phone: 'Phone',
+    skype: 'Skype',
+    github: 'GitHub',
+    website: 'Website',
+};
+---
+
+<section class="section" id="contact">
+    <div class="container">
+        <div class="section-head center reveal">
+            <span class="eyebrow">Contact</span>
+            <h2>Let's build something <span class="grad">together</span></h2>
+            <p>
+                Have a project in mind, a role to fill, or just want to talk tech?
+                Any channel below reaches me directly.
+            </p>
+        </div>
+
+        <div class="contact-grid">
+            <div class="contact-cards">
+                {contactChannels.map((channel, i) => (
+                    <a
+                        class="contact-card card reveal"
+                        data-delay={String(i % 2)}
+                        href={channel.TextHref}
+                        target={channel.TextHref.startsWith('http') ? '_blank' : undefined}
+                        rel={channel.TextHref.startsWith('http') ? 'noopener noreferrer' : undefined}
+                    >
+                        <span class="cc-icon"><Icon name={channel.Icon} size={19} /></span>
+                        <span class="cc-body">
+                            <span class="cc-label">{labels[channel.Type] ?? channel.Type}</span>
+                            <span class="cc-value">{channel.TextRaw}</span>
+                        </span>
+                        <Icon name="arrow-right" size={16} class="cc-arrow" />
+                    </a>
+                ))}
+            </div>
+
+            <aside class="qr-card card reveal" data-delay="1">
+                <img src="/assets/images/qr-code.svg" alt="Contact QR code" loading="lazy" />
+                <h3>Quick connect</h3>
+                <p>Scan the code to pull up my contact details on your phone.</p>
+                <div class="qr-actions">
+                    <a href="/assets/data/cv.pdf" class="btn btn-primary" download>
+                        <Icon name="download" size={15} />
+                        CV (PDF)
+                    </a>
+                    <a href="/assets/data/cv.png" class="btn btn-ghost" download>
+                        <Icon name="download" size={15} />
+                        CV (PNG)
+                    </a>
+                </div>
+            </aside>
+        </div>
+    </div>
+</section>
+
+<style lang="scss">
+    @use '../styles/tokens';
+
+    .contact-grid {
+        display: grid;
+        grid-template-columns: 1.6fr 1fr;
+        gap: 18px;
+        align-items: stretch;
+    }
+
+    .contact-cards {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+    }
+
+    .contact-card {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        padding: 20px 22px;
+        transition: transform 0.25s var(--ease), border-color 0.25s var(--ease);
+
+        &:hover {
+            transform: translateY(-3px);
+            border-color: var(--accent);
+
+            .cc-arrow {
+                color: var(--accent);
+                transform: translateX(3px);
+            }
+        }
+    }
+
+    .cc-icon {
+        display: grid;
+        place-items: center;
+        width: 46px;
+        height: 46px;
+        flex: none;
+        border-radius: 13px;
+        color: var(--accent);
+        background: var(--accent-soft);
+        border: 1px solid var(--line);
+    }
+
+    .cc-body {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        min-width: 0;
+    }
+
+    .cc-label {
+        font: 500 11px var(--font-mono);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--faint);
+    }
+
+    .cc-value {
+        font-size: 14.5px;
+        font-weight: 600;
+        color: var(--text);
+        overflow-wrap: anywhere;
+    }
+
+    .cc-arrow {
+        margin-left: auto;
+        color: var(--faint);
+        transition: color 0.25s var(--ease), transform 0.25s var(--ease);
+    }
+
+    // ---- QR aside ----
+    .qr-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 30px 26px;
+
+        img {
+            width: 148px;
+            height: 148px;
+            padding: 12px;
+            border-radius: var(--r-md);
+            background: #fff;
+            margin-bottom: 18px;
+        }
+
+        h3 {
+            font-size: 17px;
+            font-weight: 600;
+        }
+
+        p {
+            margin-top: 6px;
+            font-size: 13.5px;
+            color: var(--muted);
+        }
+    }
+
+    .qr-actions {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 18px;
+
+        .btn {
+            padding: 10px 18px;
+            font-size: 13px;
+        }
+    }
+
+    @media (max-width: 900px) {
+        .contact-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    @media (max-width: 560px) {
+        .contact-cards {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>

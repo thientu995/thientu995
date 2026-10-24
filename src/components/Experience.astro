@@ -1,0 +1,142 @@
+---
+import { info, normalizeRichHtml } from '../data';
+import Icon from './Icon.astro';
+---
+
+<section class="section" id="experience">
+    <div class="container">
+        <div class="section-head reveal">
+            <span class="eyebrow">{info.WorkExperience.Text}</span>
+            <h2>Nine years of <span class="grad">shipping software</span></h2>
+        </div>
+
+        <div class="tl">
+            {info.WorkExperience.Data.map((job, i) => (
+                <article class="tl-item reveal" data-delay={String(Math.min(i, 3))}>
+                    <div class="tl-rail" aria-hidden="true">
+                        {job.Icon ? (
+                            <img src={job.Icon} alt="" width="40" height="40" loading="lazy" />
+                        ) : (
+                            <span class="tl-dot"><Icon name="building" size={18} /></span>
+                        )}
+                    </div>
+
+                    <div class="tl-body card">
+                        <header class="tl-head">
+                            <h3>{job.Text}</h3>
+                            <span class="tl-time" set:html={normalizeRichHtml(job.Time)} />
+                        </header>
+                        <p class="tl-loc meta-location" set:html={normalizeRichHtml(job.Location)} />
+                        <div class="rich" set:html={job.Value.map(normalizeRichHtml).join('\n')} />
+                    </div>
+                </article>
+            ))}
+        </div>
+    </div>
+</section>
+
+<style lang="scss">
+    @use '../styles/tokens';
+
+    .tl {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 22px;
+        padding-left: 8px;
+    }
+
+    .tl-item {
+        display: grid;
+        grid-template-columns: 64px 1fr;
+        gap: 18px;
+        position: relative;
+
+        // Vertical rail connecting the company markers.
+        &::before {
+            content: '';
+            position: absolute;
+            left: 43px;
+            top: 54px;
+            bottom: -26px;
+            width: 2px;
+            background: linear-gradient(var(--line-strong), transparent);
+        }
+
+        &:last-child::before {
+            display: none;
+        }
+    }
+
+    .tl-rail {
+        display: grid;
+        place-items: center;
+        width: 52px;
+        height: 52px;
+        border-radius: 16px;
+        background: var(--bg-raise);
+        border: 1px solid var(--line-strong);
+        box-shadow: var(--shadow-card);
+        z-index: 1;
+
+        img {
+            width: 28px;
+            height: 28px;
+            border-radius: 7px;
+            object-fit: contain;
+        }
+    }
+
+    .tl-dot {
+        color: var(--accent);
+    }
+
+    .tl-body {
+        padding: 24px 26px;
+        transition: border-color 0.3s var(--ease);
+
+        &:hover {
+            border-color: var(--line-strong);
+        }
+    }
+
+    .tl-head {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px 16px;
+        margin-bottom: 4px;
+
+        h3 {
+            font-size: 19px;
+            font-weight: 700;
+        }
+    }
+
+    .tl-time {
+        font: 500 12.5px var(--font-mono);
+        color: var(--muted);
+        text-align: right;
+    }
+
+    .tl-loc {
+        margin-bottom: 12px;
+    }
+
+    @media (max-width: 640px) {
+        .tl-item {
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+
+        .tl-item::before {
+            display: none;
+        }
+
+        .tl-rail {
+            width: 44px;
+            height: 44px;
+        }
+    }
+</style>

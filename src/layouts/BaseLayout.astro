@@ -1,0 +1,116 @@
+---
+import '../styles/global.scss';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { info, profile, site } from '../data';
+
+interface Props {
+    title?: string;
+    description?: string;
+}
+
+const { title = site.title, description = site.description } = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const ogImage = new URL('/assets/images/avatar-cv.jpg', Astro.site);
+
+// Person structured data - every field is sourced from the JSON data files.
+const personSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: info.Information.FullName,
+    alternateName: 'Thien Tu',
+    jobTitle: profile.role,
+    description: info.CareerObjective.About,
+    email: `mailto:${profile.email}`,
+    telephone: '(+84)35 653 0909',
+    url: site.url,
+    image: ogImage.toString(),
+    address: {
+        '@type': 'PostalAddress',
+        addressLocality: profile.location,
+        addressCountry: 'VN',
+    },
+    sameAs: [
+        profile.github,
+        'https://www.t4vn.com',
+        'https://utpro.dev',
+        'https://www.nuget.org/profiles/thientu',
+    ],
+    knowsAbout: info.ProgrommingSkills.Data.map((s) => s.Text),
+};
+
+const fontsHref =
+    'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap';
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <!-- Primary SEO -->
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <meta name="author" content={info.Information.FullName} />
+        <meta
+            name="robots"
+            content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+        />
+        <meta name="theme-color" content="#090a0f" />
+        <meta name="generator" content={Astro.generator} />
+        <link rel="canonical" href={canonical} />
+        <link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />
+
+        <!-- Icons -->
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+        <!-- Open Graph -->
+        <meta property="og:type" content="profile" />
+        <meta property="og:site_name" content={info.Information.FullName} />
+        <meta property="og:url" content={canonical} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content={ogImage} />
+
+        <!-- Twitter -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description} />
+        <meta name="twitter:image" content={ogImage} />
+
+        <!-- Fonts (async pattern - never render-blocking) -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link rel="stylesheet" href={fontsHref} media="print" onload="this.media='all'" />
+        <noscript><link rel="stylesheet" href={fontsHref} /></noscript>
+
+        <!-- Theme: apply the persisted/OS preference before first paint -->
+        <script is:inline>
+            (function () {
+                try {
+                    var t = localStorage.getItem('theme');
+                    if (t !== 'light' && t !== 'dark') {
+                        t = window.matchMedia('(prefers-color-scheme: light)').matches
+                            ? 'light'
+                            : 'dark';
+                    }
+                    if (t === 'light') document.documentElement.setAttribute('data-theme', 'light');
+                } catch (e) {
+                    /* dark stays the default */
+                }
+            })();
+        </script>
+
+        <!-- Structured data -->
+        <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+    </head>
+    <body>
+        <a class="skip-link" href="#main">Skip to content</a>
+        <Header />
+        <main id="main"><slot /></main>
+        <Footer />
+        <script src="../scripts/main.ts"></script>
+    </body>
+</html>

@@ -1,0 +1,289 @@
+---
+import Icon from './Icon.astro';
+import { info, profile } from '../data';
+
+const year = new Date().getFullYear();
+
+const navigate = [
+    { href: '#about', label: 'About' },
+    { href: '#services', label: 'Services' },
+    { href: '#skills', label: 'Skills' },
+    { href: '#experience', label: 'Experience' },
+    { href: '#projects', label: 'Projects' },
+];
+
+const ecosystem = [
+    { href: 'https://www.t4vn.com', label: 't4vn.com', note: 'T4VN - home base' },
+    { href: 'https://utpro.dev', label: 'utpro.dev', note: 'Umbraco Turbo Pro' },
+    { href: 'https://www.nuget.org/profiles/thientu', label: 'NuGet', note: 'Open-source packages' },
+    { href: profile.github, label: 'GitHub', note: 'Source & projects' },
+];
+---
+
+<footer class="site-footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="#hero" class="brand" aria-label="Back to top">
+                    <span class="brand-mark" aria-hidden="true">TT</span>
+                    <strong>{info.Information.FullName}</strong>
+                </a>
+                <p>
+                    {info.CareerObjective.Quote}
+                </p>
+                <div class="footer-dots" aria-hidden="true">
+                    <i></i><i></i><i></i><i></i>
+                </div>
+            </div>
+
+            <nav class="footer-col" aria-label="Footer - navigate">
+                <h3>Navigate</h3>
+                <ul>
+                    {navigate.map((l) => (
+                        <li><a href={l.href}>{l.label}</a></li>
+                    ))}
+                    <li><a href="/assets/data/cv.pdf" download>Download CV</a></li>
+                </ul>
+            </nav>
+
+            <nav class="footer-col" aria-label="Footer - ecosystem">
+                <h3>Ecosystem</h3>
+                <ul>
+                    {ecosystem.map((l) => (
+                        <li>
+                            <a href={l.href} target="_blank" rel="noopener noreferrer">
+                                {l.label}
+                                <span>{l.note}</span>
+                            </a>
+                        </li>
+                    ))}
+                </ul>
+            </nav>
+
+            <div class="footer-col">
+                <h3>Say hello</h3>
+                <ul>
+                    <li>
+                        <a href={`mailto:${profile.email}`}>
+                            <Icon name="mail" size={15} />
+                            {profile.email}
+                        </a>
+                    </li>
+                    <li>
+                        <a href="tel:+84356530909">
+                            <Icon name="phone" size={15} />
+                            {profile.phone}
+                        </a>
+                    </li>
+                    <li>
+                        <span class="loc">
+                            <Icon name="map-pin" size={15} />
+                            {profile.location}
+                        </span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>
+                © <span id="year">{year}</span>
+                {info.Information.FullName} ·
+                <span class="slogan">"{info.Information.Slogan}"</span>
+                · powered by <a href="https://www.t4vn.com" target="_blank" rel="noopener noreferrer">T4VN</a>
+            </p>
+            <a class="to-top" href="#hero" aria-label="Back to top">
+                <Icon name="chevron-right" size={16} class="rot" />
+            </a>
+        </div>
+    </div>
+</footer>
+
+<style lang="scss">
+    @use '../styles/tokens';
+
+    .site-footer {
+        margin-top: clamp(56px, 8vw, 96px);
+        border-top: 1px solid var(--line);
+        background: var(--bg-raise);
+    }
+
+    .footer-grid {
+        display: grid;
+        grid-template-columns: 1.6fr 1fr 1.2fr 1.2fr;
+        gap: 40px;
+        padding: clamp(44px, 6vw, 64px) 0 40px;
+    }
+
+    .footer-brand {
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 11px;
+        }
+
+        .brand-mark {
+            display: grid;
+            place-items: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            font: 700 14px var(--font-display);
+            color: #fff;
+            background: var(--grad-accent);
+        }
+
+        strong {
+            font: 700 17px var(--font-display);
+        }
+
+        p {
+            margin-top: 14px;
+            max-width: 320px;
+            color: var(--muted);
+            font-size: 14px;
+            font-style: italic;
+        }
+    }
+
+    .footer-dots {
+        display: inline-flex;
+        gap: 6px;
+        margin-top: 16px;
+
+        i {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+
+            &:nth-child(1) {
+                background: var(--red);
+            }
+
+            &:nth-child(2) {
+                background: var(--gold);
+            }
+
+            &:nth-child(3) {
+                background: var(--green);
+            }
+
+            &:nth-child(4) {
+                background: var(--blue);
+            }
+        }
+    }
+
+    .footer-col h3 {
+        font: 600 12px var(--font-mono);
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--faint);
+        margin-bottom: 16px;
+    }
+
+    .footer-col ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .footer-col a {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--muted);
+        font-size: 14px;
+        transition: color 0.2s var(--ease);
+
+        &:hover {
+            color: var(--accent);
+        }
+
+        span {
+            display: block;
+            font-size: 12px;
+            color: var(--faint);
+        }
+    }
+
+    .footer-col a:has(span) {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2px;
+    }
+
+    .loc {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--muted);
+        font-size: 14px;
+    }
+
+    .footer-bottom {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 20px 0 26px;
+        border-top: 1px solid var(--line);
+
+        p {
+            color: var(--faint);
+            font-size: 13.5px;
+
+            a {
+                color: var(--muted);
+                border-bottom: 1px solid var(--line-strong);
+
+                &:hover {
+                    color: var(--accent);
+                    border-color: var(--accent);
+                }
+            }
+        }
+
+        .slogan {
+            color: var(--muted);
+            font-style: italic;
+        }
+    }
+
+    .to-top {
+        display: grid;
+        place-items: center;
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        color: var(--muted);
+        border: 1px solid var(--line-strong);
+        transition: color 0.2s var(--ease), border-color 0.2s var(--ease), transform 0.2s var(--ease);
+
+        .rot {
+            transform: rotate(-90deg);
+        }
+
+        &:hover {
+            color: var(--accent);
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+    }
+
+    @media (max-width: 900px) {
+        .footer-grid {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+
+    @media (max-width: 560px) {
+        .footer-grid {
+            grid-template-columns: 1fr;
+            gap: 32px;
+        }
+    }
+</style>

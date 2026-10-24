@@ -1,0 +1,187 @@
+---
+import Icon from './Icon.astro';
+import { info, personalFacts, normalizeRichHtml } from '../data';
+
+// Map the data "Type" keys onto human labels (frontmatter = build time).
+const typeLabels: Record<string, string> = {
+    title: 'Role',
+    birthday: 'Birthday',
+    location: 'Location',
+};
+
+const emailItem = info.Information.Data.find((d) => d.Type === 'email');
+---
+
+<section class="section" id="about">
+    <div class="container about-grid">
+        <div class="about-main">
+            <div class="section-head reveal">
+                <span class="eyebrow">{info.Information.Title}</span>
+                <h2>Driven by <span class="grad">passion</span>, built on experience</h2>
+            </div>
+
+            <blockquote class="quote reveal" data-delay="1">
+                <Icon name="quote" size={22} class="q-icon" />
+                <p>{info.CareerObjective.Quote}</p>
+            </blockquote>
+
+            <p class="about-text reveal" data-delay="2">{info.CareerObjective.About}</p>
+
+            <div class="intro rich reveal" data-delay="3" set:html={normalizeRichHtml(info.CareerObjective.Introduction)} />
+        </div>
+
+        <aside class="about-aside card reveal" data-delay="2">
+            <h3>{info.Information.FullName}</h3>
+            <p class="degree">
+                {info.Information.Degree} degree · IT
+            </p>
+
+            <ul class="quick">
+                {personalFacts.map((item) => (
+                    <li>
+                        <span class="q-icon-box">
+                            <Icon name={item.Icon} size={15} />
+                        </span>
+                        <span class="q-label">{typeLabels[item.Type] ?? item.Type}</span>
+                        <span class="q-value">
+                            {item.TextRaw}{item.Year ? ` (${item.Year})` : ''}
+                        </span>
+                    </li>
+                ))}
+                <li>
+                    <span class="q-icon-box"><Icon name="envelope" size={15} /></span>
+                    <span class="q-label">Email</span>
+                    <a class="q-value" href={emailItem?.TextHref}>{emailItem?.TextRaw}</a>
+                </li>
+            </ul>
+
+            <a href="/assets/data/cv.pdf" class="btn btn-primary cv-btn" download>
+                <Icon name="download" size={15} />
+                Download CV
+            </a>
+        </aside>
+    </div>
+</section>
+
+<style lang="scss">
+    @use '../styles/tokens';
+
+    .about-grid {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr;
+        gap: clamp(32px, 5vw, 64px);
+        align-items: start;
+    }
+
+    .quote {
+        position: relative;
+        margin: 0 0 22px;
+        padding: 22px 26px;
+        border-radius: var(--r-lg);
+        background: var(--accent-soft);
+        border: 1px solid var(--line);
+
+        .q-icon {
+            color: var(--accent);
+            opacity: 0.85;
+        }
+
+        p {
+            margin-top: 10px;
+            font: 500 16.5px/1.65 var(--font-display);
+            letter-spacing: -0.01em;
+            color: var(--text);
+        }
+    }
+
+    .about-text {
+        color: var(--muted);
+        line-height: 1.8;
+        margin-bottom: 16px;
+    }
+
+    .intro {
+        max-width: 620px;
+    }
+
+    // ---- Aside ----
+    .about-aside {
+        padding: 28px;
+        position: sticky;
+        top: calc(var(--nav-h) + 24px);
+
+        h3 {
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .degree {
+            margin: 6px 0 20px;
+            font: 500 12.5px var(--font-mono);
+            color: var(--faint);
+        }
+    }
+
+    .quick {
+        list-style: none;
+        margin: 0 0 22px;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+
+        li {
+            display: grid;
+            grid-template-columns: 34px 76px 1fr;
+            align-items: center;
+            gap: 8px;
+            padding: 11px 0;
+            border-bottom: 1px dashed var(--line);
+
+            &:last-child {
+                border-bottom: none;
+            }
+        }
+    }
+
+    .q-icon-box {
+        display: grid;
+        place-items: center;
+        width: 30px;
+        height: 30px;
+        border-radius: 9px;
+        color: var(--accent);
+        background: var(--accent-soft);
+        border: 1px solid var(--line);
+    }
+
+    .q-label {
+        font-size: 12.5px;
+        color: var(--faint);
+    }
+
+    .q-value {
+        font-size: 13.5px;
+        font-weight: 500;
+        color: var(--text);
+        text-align: right;
+        overflow-wrap: anywhere;
+
+        &:is(a):hover {
+            color: var(--accent);
+        }
+    }
+
+    .cv-btn {
+        width: 100%;
+    }
+
+    @media (max-width: 900px) {
+        .about-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .about-aside {
+            position: static;
+        }
+    }
+</style>

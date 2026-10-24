@@ -1,0 +1,91 @@
+---
+import { info, normalizeRichHtml } from '../data';
+import Icon from './Icon.astro';
+---
+
+<section class="section" id="education">
+    <div class="container">
+        <div class="section-head reveal">
+            <span class="eyebrow">{info.Education.Text}</span>
+            <h2>Foundations & <span class="grad">milestones</span></h2>
+        </div>
+
+        <div class="edu-grid">
+            {info.Education.Data.map((entry, i) => (
+                <article class="edu-card card reveal" data-delay={String(i % 2)}>
+                    <header>
+                        <span class="edu-icon"><Icon name="graduation-cap" size={19} /></span>
+                        <div>
+                            <h3>{entry.Text}</h3>
+                            <span class="edu-time" set:html={normalizeRichHtml(entry.Time)} />
+                        </div>
+                    </header>
+                    <p class="tl-loc meta-location" set:html={normalizeRichHtml(entry.Location)} />
+                    <div class="rich" set:html={entry.Value.map(normalizeRichHtml).join('\n')} />
+                </article>
+            ))}
+        </div>
+    </div>
+</section>
+
+<style lang="scss">
+    @use '../styles/tokens';
+
+    .edu-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+        align-items: start;
+    }
+
+    .edu-card {
+        padding: 26px;
+
+        // The degree entry carries a long nested list - let it span full width.
+        &:first-child {
+            grid-column: 1 / -1;
+        }
+    }
+
+    header {
+        display: flex;
+        align-items: flex-start;
+        gap: 14px;
+        margin-bottom: 12px;
+
+        h3 {
+            font-size: 16.5px;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+    }
+
+    .edu-icon {
+        display: grid;
+        place-items: center;
+        width: 42px;
+        height: 42px;
+        flex: none;
+        border-radius: 12px;
+        color: var(--gold);
+        background: var(--gold-soft);
+        border: 1px solid var(--line);
+    }
+
+    .edu-time {
+        display: block;
+        margin-top: 4px;
+        font: 500 12px var(--font-mono);
+        color: var(--faint);
+    }
+
+    .tl-loc {
+        margin-bottom: 12px;
+    }
+
+    @media (max-width: 860px) {
+        .edu-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>

@@ -1,0 +1,301 @@
+---
+import Icon from './Icon.astro';
+import { profile } from '../data';
+
+const navLinks = [
+    { href: '#about', label: 'About' },
+    { href: '#services', label: 'Services' },
+    { href: '#skills', label: 'Skills' },
+    { href: '#experience', label: 'Experience' },
+    { href: '#projects', label: 'Projects' },
+    { href: '#testimonials', label: 'Testimonials' },
+    { href: '#contact', label: 'Contact' },
+];
+---
+
+<header class="site-header">
+    <div class="container header-inner">
+        <a href="#hero" class="header-brand" aria-label="Back to top">
+            <span class="brand-mark" aria-hidden="true">TT</span>
+            <span class="brand-text">
+                <strong>Thien&nbsp;Tu</strong>
+                <span>Fullstack .NET Developer</span>
+            </span>
+        </a>
+
+        <nav class="header-nav" id="header-nav" aria-label="Primary">
+            <span class="nav-menu" id="nav-menu">
+                {navLinks.map((link) => <a href={link.href} class="nav-spy">{link.label}</a>)}
+            </span>
+            <span class="nav-actions">
+                <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch theme">
+                    <Icon name="sun" size={17} class="icon-sun" />
+                    <Icon name="moon" size={17} class="icon-moon" />
+                </button>
+                <a href="/assets/data/cv.pdf" class="btn btn-primary btn-cv" download>
+                    <Icon name="download" size={15} />
+                    CV
+                </a>
+                <a
+                    href={profile.github}
+                    class="nav-github"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="GitHub profile"
+                >
+                    <Icon name="github" size={18} />
+                </a>
+            </span>
+        </nav>
+
+        <button
+            class="nav-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="nav-menu"
+            aria-label="Open menu"
+        >
+            <Icon name="menu" size={20} class="icon-open" />
+            <Icon name="x" size={20} class="icon-close" />
+        </button>
+    </div>
+</header>
+
+<style lang="scss">
+    @use '../styles/tokens';
+
+    .site-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        height: var(--nav-h);
+        background: var(--nav-bg);
+        border-bottom: 1px solid var(--nav-border);
+        backdrop-filter: blur(16px) saturate(1.4);
+        -webkit-backdrop-filter: blur(16px) saturate(1.4);
+    }
+
+    .header-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        height: 100%;
+    }
+
+    // ---- Brand ----
+    .header-brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 11px;
+        min-width: 0;
+    }
+
+    .brand-mark {
+        display: grid;
+        place-items: center;
+        width: 38px;
+        height: 38px;
+        flex: none;
+        border-radius: 11px;
+        font: 700 15px var(--font-display);
+        color: #fff;
+        background: var(--grad-accent);
+        box-shadow: 0 6px 18px -6px var(--accent-glow);
+    }
+
+    .brand-text {
+        display: flex;
+        flex-direction: column;
+        line-height: 1.2;
+        min-width: 0;
+
+        strong {
+            font: 700 16px var(--font-display);
+            letter-spacing: -0.01em;
+        }
+
+        span {
+            font: 500 10.5px var(--font-mono);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--faint);
+        }
+    }
+
+    // ---- Nav ----
+    .header-nav {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+    }
+
+    .nav-menu {
+        display: inline-flex;
+        align-items: center;
+        gap: 2px;
+        padding: 4px;
+        border-radius: var(--radius-pill);
+        background: var(--surface);
+        border: 1px solid var(--line);
+    }
+
+    .nav-menu a {
+        display: inline-block;
+        padding: 7px 13px;
+        border-radius: var(--radius-pill);
+        font: 500 13.5px var(--font-body);
+        color: var(--muted);
+        transition: color 0.2s var(--ease), background 0.2s var(--ease);
+    }
+
+    .nav-menu a:hover {
+        color: var(--text);
+        background: var(--surface-2);
+    }
+
+    .nav-menu a.active {
+        color: #fff;
+        background: var(--grad-accent);
+        box-shadow: 0 4px 14px -4px var(--accent-glow);
+    }
+
+    .nav-actions {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .btn-cv {
+        padding: 9px 18px;
+        font-size: 13.5px;
+    }
+
+    .nav-github {
+        display: grid;
+        place-items: center;
+        width: 38px;
+        height: 38px;
+        border-radius: 11px;
+        color: var(--muted);
+        background: var(--surface);
+        border: 1px solid var(--line);
+        transition: color 0.2s var(--ease), border-color 0.2s var(--ease), transform 0.2s var(--ease);
+    }
+
+    .nav-github:hover {
+        color: var(--text);
+        border-color: var(--line-strong);
+        transform: translateY(-1px);
+    }
+
+    .theme-toggle {
+        display: grid;
+        place-items: center;
+        width: 38px;
+        height: 38px;
+        border-radius: 11px;
+        color: var(--muted);
+        background: var(--surface);
+        border: 1px solid var(--line);
+        cursor: pointer;
+        transition: color 0.2s var(--ease), border-color 0.2s var(--ease);
+
+        // Dark canvas shows the moon (switch to light); light shows the sun.
+        :global(.icon-sun) {
+            display: none;
+        }
+
+        :global(.icon-moon) {
+            display: block;
+        }
+    }
+
+    .theme-toggle:hover {
+        color: var(--gold);
+        border-color: var(--line-strong);
+    }
+
+    html[data-theme='light'] .theme-toggle :global(.icon-sun) {
+        display: block;
+    }
+
+    html[data-theme='light'] .theme-toggle :global(.icon-moon) {
+        display: none;
+    }
+
+    // ---- Hamburger (hidden on desktop) ----
+    .nav-toggle {
+        display: none;
+        place-items: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 11px;
+        color: var(--text);
+        background: var(--surface);
+        border: 1px solid var(--line);
+        cursor: pointer;
+
+        :global(.icon-close) {
+            display: none;
+        }
+    }
+
+    // ---- Mobile drawer ----
+    @media (max-width: 1023px) {
+        .nav-toggle {
+            display: grid;
+        }
+
+        .nav-menu {
+            position: fixed;
+            top: calc(var(--nav-h) + 10px);
+            left: 14px;
+            right: 14px;
+            z-index: 99;
+            display: none;
+            flex-direction: column;
+            align-items: stretch;
+            gap: 4px;
+            padding: 10px;
+            border-radius: var(--r-lg);
+            background: var(--bg-raise);
+            border: 1px solid var(--line-strong);
+            box-shadow: var(--shadow-pop);
+        }
+
+        .nav-menu a {
+            padding: 12px 16px;
+            font-size: 15px;
+            border-radius: var(--r-sm);
+        }
+
+        .nav-actions {
+            margin-left: auto;
+        }
+
+        .site-header.nav-open :global(.nav-menu) {
+            display: flex;
+        }
+
+        .site-header.nav-open .nav-toggle :global(.icon-open) {
+            display: none;
+        }
+
+        .site-header.nav-open .nav-toggle :global(.icon-close) {
+            display: block;
+        }
+    }
+
+    @media (max-width: 560px) {
+        .brand-text span {
+            display: none;
+        }
+
+        .btn-cv {
+            display: none;
+        }
+    }
+</style>

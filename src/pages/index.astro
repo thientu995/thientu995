@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import Facts from '../components/Facts.astro';
+import About from '../components/About.astro';
+import Services from '../components/Services.astro';
+import Skills from '../components/Skills.astro';
+import Experience from '../components/Experience.astro';
+import Education from '../components/Education.astro';
+import Projects from '../components/Projects.astro';
+import Testimonials from '../components/Testimonials.astro';
+import Contact from '../components/Contact.astro';
+import { site } from '../data';
+---
+
+<BaseLayout title={site.title} description={site.description}>
+    <Hero />
+    <Facts />
+    <About />
+    <Services />
+    <Skills />
+    <Experience />
+    <Education />
+    <Projects />
+    <Testimonials />
+    <Contact />
+</BaseLayout>

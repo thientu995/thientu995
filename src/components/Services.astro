@@ -1,0 +1,115 @@
+---
+import Icon from './Icon.astro';
+import { servicesData } from '../data';
+
+// Map the data's IconBoxColor names onto the four T4VN brand accents.
+const accentMap: Record<string, { color: string; soft: string }> = {
+    blue: { color: 'var(--blue)', soft: 'var(--blue-soft)' },
+    orange: { color: 'var(--gold)', soft: 'var(--gold-soft)' },
+    yellow: { color: 'var(--gold)', soft: 'var(--gold-soft)' },
+    pink: { color: 'var(--red)', soft: 'var(--red-soft)' },
+    red: { color: 'var(--red)', soft: 'var(--red-soft)' },
+    teal: { color: 'var(--green)', soft: 'var(--green-soft)' },
+};
+---
+
+<section class="section" id="services">
+    <div class="container">
+        <div class="section-head center reveal">
+            <span class="eyebrow">{servicesData.Title}</span>
+            <h2>What I can <span class="grad">do for you</span></h2>
+            <p>{servicesData.Description}</p>
+        </div>
+
+        <div class="services-grid">
+            {servicesData.Data.map((service, i) => {
+                const accent = accentMap[service.IconBoxColor] ?? accentMap.blue;
+                return (
+                    <article class="service-card card reveal" data-delay={String(i % 3)}>
+                        <span
+                            class="service-icon"
+                            style={`color:${accent.color};background:${accent.soft}`}
+                        >
+                            <Icon name={service.Icon} size={23} />
+                        </span>
+                        <h3>{service.Name}</h3>
+                        <p>{service.Description}</p>
+                    </article>
+                );
+            })}
+        </div>
+    </div>
+</section>
+
+<style lang="scss">
+    @use '../styles/tokens';
+
+    .services-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+    }
+
+    .service-card {
+        position: relative;
+        padding: 28px 26px;
+        overflow: hidden;
+        transition: transform 0.3s var(--ease), border-color 0.3s var(--ease);
+
+        // Colored top hairline that fades in on hover.
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--grad-brand);
+            opacity: 0;
+            transition: opacity 0.3s var(--ease);
+        }
+
+        &:hover {
+            transform: translateY(-5px);
+            border-color: var(--line-strong);
+
+            &::before {
+                opacity: 1;
+            }
+        }
+    }
+
+    .service-icon {
+        display: grid;
+        place-items: center;
+        width: 52px;
+        height: 52px;
+        border-radius: 15px;
+        border: 1px solid var(--line);
+        margin-bottom: 18px;
+    }
+
+    h3 {
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 9px;
+    }
+
+    p {
+        color: var(--muted);
+        font-size: 14.5px;
+        line-height: 1.7;
+    }
+
+    @media (max-width: 900px) {
+        .services-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 560px) {
+        .services-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>

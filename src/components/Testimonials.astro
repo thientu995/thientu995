@@ -1,0 +1,176 @@
+---
+import Icon from './Icon.astro';
+import { testimonialsData } from '../data';
+---
+
+<section class="section" id="testimonials">
+    <div class="container">
+        <div class="section-head center reveal">
+            <span class="eyebrow">{testimonialsData.Title}</span>
+            <h2>Kind words from <span class="grad">great clients</span></h2>
+        </div>
+
+        <div class="ts-wrap reveal" data-slider>
+            <div class="ts-stage card">
+                {testimonialsData.Data.map((t, i) => (
+                    <figure
+                        class="ts-slide"
+                        class:list={{ active: i === 0 }}
+                        aria-hidden={i === 0 ? 'false' : 'true'}
+                    >
+                        <Icon name="quote" size={30} class="ts-quote" />
+                        <blockquote>{t.Quote}</blockquote>
+                        <figcaption>
+                            <img src={t.Image} alt={t.Name} width="46" height="46" loading="lazy" />
+                            <div>
+                                <strong>{t.Name}</strong>
+                                <span>{t.Category}</span>
+                            </div>
+                        </figcaption>
+                    </figure>
+                ))}
+            </div>
+
+            <div class="ts-controls">
+                <button type="button" class="ts-arrow" data-prev aria-label="Previous testimonial">
+                    <Icon name="chevron-left" size={17} />
+                </button>
+                <div class="ts-dots" aria-label="Testimonials">
+                    {testimonialsData.Data.map((t, i) => (
+                        <button
+                            type="button"
+                            class="ts-dot"
+                            class:list={{ active: i === 0 }}
+                            aria-label={`Show testimonial from ${t.Name}`}
+                        ></button>
+                    ))}
+                </div>
+                <button type="button" class="ts-arrow" data-next aria-label="Next testimonial">
+                    <Icon name="chevron-right" size={17} />
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style lang="scss">
+    @use '../styles/tokens';
+
+    .ts-wrap {
+        max-width: 780px;
+        margin-inline: auto;
+    }
+
+    .ts-stage {
+        position: relative;
+        padding: clamp(30px, 5vw, 48px);
+        min-height: 300px;
+        overflow: hidden;
+    }
+
+    .ts-slide {
+        position: absolute;
+        inset: clamp(30px, 5vw, 48px);
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        opacity: 0;
+        transform: translateX(26px);
+        transition: opacity 0.55s var(--ease), transform 0.55s var(--ease);
+        pointer-events: none;
+
+        &.active {
+            opacity: 1;
+            transform: none;
+            pointer-events: auto;
+        }
+    }
+
+    .ts-quote {
+        color: var(--accent);
+        opacity: 0.5;
+        margin-bottom: 16px;
+    }
+
+    blockquote {
+        flex: 1;
+        font: 500 clamp(16px, 2vw, 19px)/1.7 var(--font-display);
+        letter-spacing: -0.01em;
+        color: var(--text);
+    }
+
+    figcaption {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-top: 26px;
+
+        img {
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--line-strong);
+            background: var(--bg-raise);
+        }
+
+        strong {
+            display: block;
+            font-size: 15px;
+        }
+
+        span {
+            display: block;
+            margin-top: 2px;
+            font: 500 11.5px var(--font-mono);
+            color: var(--faint);
+        }
+    }
+
+    .ts-controls {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 22px;
+    }
+
+    .ts-arrow {
+        display: grid;
+        place-items: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        color: var(--muted);
+        background: var(--surface);
+        border: 1px solid var(--line-strong);
+        cursor: pointer;
+        transition: color 0.2s var(--ease), border-color 0.2s var(--ease);
+
+        &:hover {
+            color: var(--accent);
+            border-color: var(--accent);
+        }
+    }
+
+    .ts-dots {
+        display: inline-flex;
+        gap: 8px;
+    }
+
+    .ts-dot {
+        width: 8px;
+        height: 8px;
+        padding: 0;
+        border-radius: var(--radius-pill);
+        background: var(--surface-3);
+        border: none;
+        cursor: pointer;
+        transition: width 0.3s var(--ease), background 0.3s var(--ease);
+
+        &.active {
+            width: 24px;
+            background: var(--accent);
+        }
+    }
+</style>

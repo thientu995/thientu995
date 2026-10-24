@@ -1,0 +1,428 @@
+@use './tokens';
+
+// =============================================================================
+// Base styles shared by every section: reset-lite, canvas, typography, buttons,
+// section scaffolding, reveal-on-scroll and the rich-content renderer used by
+// the timeline/project bodies (the JSON data ships legacy HTML strings).
+// =============================================================================
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: calc(var(--nav-h) + 16px);
+}
+
+body {
+    margin: 0;
+    font: 400 16px/1.65 var(--font-body);
+    color: var(--text);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: clip;
+}
+
+// Faint blueprint grid + two soft color glows, fixed behind everything.
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    background-image:
+        linear-gradient(var(--grid-line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+    background-size: 44px 44px;
+    pointer-events: none;
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background:
+        radial-gradient(560px 380px at 85% -5%, var(--accent-glow), transparent 70%),
+        radial-gradient(520px 360px at 0% 100%, rgba(240, 84, 72, 0.1), transparent 70%);
+    pointer-events: none;
+}
+
+img,
+svg {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: var(--font-display);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin: 0;
+}
+
+p {
+    margin: 0;
+}
+
+::selection {
+    background: var(--accent);
+    color: #fff;
+}
+
+:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+// Scrollbars follow the canvas instead of the OS-default white thumb.
+html {
+    scrollbar-color: color-mix(in srgb, var(--text) 22%, transparent) var(--bg);
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: color-mix(in srgb, var(--text) 20%, transparent);
+    border-radius: 8px;
+    border: 3px solid var(--bg);
+}
+
+.skip-link {
+    position: fixed;
+    top: 8px;
+    left: 8px;
+    z-index: 200;
+    padding: 10px 16px;
+    border-radius: var(--radius-pill);
+    background: var(--accent);
+    color: #fff;
+    font-weight: 600;
+    transform: translateY(-64px);
+}
+
+.skip-link:focus {
+    transform: none;
+}
+
+// ----------------------------------------------------------------------------
+// Layout scaffolding
+// ----------------------------------------------------------------------------
+.container {
+    width: 100%;
+    max-width: var(--maxw);
+    margin-inline: auto;
+    padding-inline: clamp(18px, 4vw, 40px);
+}
+
+.section {
+    position: relative;
+    padding: clamp(64px, 9vw, 110px) 0;
+}
+
+.section + .section {
+    padding-top: 0;
+}
+
+.section-head {
+    max-width: 640px;
+    margin-bottom: clamp(34px, 5vw, 54px);
+}
+
+.section-head.center {
+    margin-inline: auto;
+    text-align: center;
+}
+
+.eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font: 500 12px/1 var(--font-mono);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    padding: 7px 14px;
+    border-radius: var(--radius-pill);
+    background: var(--accent-soft);
+    border: 1px solid var(--line);
+    margin-bottom: 18px;
+}
+
+.eyebrow::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 10px var(--accent);
+}
+
+.section-head h2 {
+    font-size: clamp(28px, 4.4vw, 42px);
+    font-weight: 700;
+    margin-bottom: 14px;
+}
+
+.section-head h2 .grad {
+    background: var(--grad-text);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.section-head p {
+    color: var(--muted);
+    font-size: 16.5px;
+}
+
+// Generic card surface used across sections.
+.card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--r-lg);
+    box-shadow: var(--shadow-card);
+}
+
+// ----------------------------------------------------------------------------
+// Buttons
+// ----------------------------------------------------------------------------
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    padding: 13px 24px;
+    border-radius: var(--radius-pill);
+    border: 1px solid transparent;
+    font: 600 14.5px var(--font-body);
+    cursor: pointer;
+    transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease),
+        background 0.25s var(--ease), border-color 0.25s var(--ease), color 0.25s var(--ease);
+}
+
+.btn:active {
+    transform: translateY(1px) scale(0.99);
+}
+
+.btn-primary {
+    background: var(--grad-accent);
+    color: #fff;
+    box-shadow: 0 8px 24px -8px var(--accent-glow);
+}
+
+.btn-primary:hover {
+    box-shadow: 0 12px 30px -6px var(--accent-glow);
+    transform: translateY(-2px);
+}
+
+.btn-ghost {
+    background: var(--surface);
+    border-color: var(--line-strong);
+    color: var(--text);
+}
+
+.btn-ghost:hover {
+    background: var(--surface-2);
+    border-color: var(--line-highlight);
+    transform: translateY(-2px);
+}
+
+// ----------------------------------------------------------------------------
+// Reveal-on-scroll (JS adds .in when the element enters the viewport)
+// ----------------------------------------------------------------------------
+.reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+}
+
+.reveal.in {
+    opacity: 1;
+    transform: none;
+}
+
+.reveal[data-delay='1'] {
+    transition-delay: 0.08s;
+}
+
+.reveal[data-delay='2'] {
+    transition-delay: 0.16s;
+}
+
+.reveal[data-delay='3'] {
+    transition-delay: 0.24s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+// ----------------------------------------------------------------------------
+// Rich content - renders the legacy HTML strings shipped in the JSON data.
+// Covers the classes those strings rely on: ul.timeline, .color-datetime,
+// the "Current" tag (normalized to .badge-current) and the map-pin icon.
+// ----------------------------------------------------------------------------
+.rich {
+    font-size: 14.5px;
+    line-height: 1.75;
+    color: var(--muted);
+}
+
+.rich a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
+    transition: border-color 0.2s var(--ease);
+    // Data ships very long URLs (youtube lists, nuget...); never let them
+    // blow out the layout on narrow screens.
+    overflow-wrap: anywhere;
+}
+
+.rich a:hover {
+    border-bottom-color: var(--accent);
+}
+
+.rich b,
+.rich strong {
+    color: var(--text);
+    font-weight: 600;
+}
+
+.rich i {
+    font-style: italic;
+}
+
+.rich > * + * {
+    margin-top: 6px;
+}
+
+.rich ul,
+.rich ol {
+    margin: 8px 0;
+    padding: 0;
+}
+
+.rich ul {
+    list-style: none;
+}
+
+.rich ul li {
+    position: relative;
+    padding-left: 20px;
+    margin: 7px 0;
+}
+
+.rich ul li::before {
+    content: '';
+    position: absolute;
+    left: 3px;
+    top: 0.66em;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    opacity: 0.75;
+}
+
+.rich ol {
+    list-style: decimal;
+    padding-left: 22px;
+}
+
+.rich ol li {
+    margin: 6px 0;
+    padding-left: 4px;
+}
+
+.rich li::marker {
+    color: var(--accent);
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+}
+
+// Inline chips for dates inside the rich bodies ("<span class='color-datetime'>").
+.color-datetime {
+    display: inline-block;
+    font: 500 11.5px/1.6 var(--font-mono);
+    color: var(--accent);
+    background: var(--accent-soft);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-pill);
+    padding: 1px 9px;
+    white-space: nowrap;
+}
+
+// "Current" employment tag, normalized from the legacy w3-tag markup.
+.badge-current {
+    display: inline-block;
+    font: 600 11px/1.8 var(--font-mono);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #3fbf43;
+    background: var(--green-soft);
+    border: 1px solid rgba(88, 180, 90, 0.35);
+    border-radius: var(--radius-pill);
+    padding: 1px 10px;
+    vertical-align: 1px;
+    white-space: nowrap;
+}
+
+html[data-theme='light'] .badge-current {
+    color: #15803d;
+}
+
+// Map-pin SVG injected in place of the legacy <i class='fa fa-map-marker'>.
+.icon-inline {
+    width: 13px;
+    height: 13px;
+    margin-right: 2px;
+    color: var(--accent);
+    vertical-align: -1.5px;
+}
+
+// Timeline/location line inside card meta rows.
+.meta-location {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 13px;
+    color: var(--faint);
+}
+
+.meta-location .icon-inline {
+    color: var(--faint);
+}

@@ -1,0 +1,112 @@
+// =============================================================================
+// Design tokens - T4VN family "modern tech" theme (2026 redesign language).
+// Adapted from T4VN.Website.HomePage/_sass/_variables.scss so the profile site
+// shares one visual identity with t4vn.com and utpro.dev.
+//
+// Dark is the default canvas; light is an opt-in via html[data-theme="light"]
+// (toggle persisted in localStorage, initial value honors prefers-color-scheme).
+// Everything is a CSS custom property consumed with var(--token-name).
+// =============================================================================
+
+:root {
+    // ---- Brand: the four T4VN logo colors (energy, not wallpaper) ----
+    --red: #f05448;
+    --red-soft: rgba(240, 84, 72, 0.14);
+    --green: #58b45a;
+    --green-soft: rgba(88, 180, 90, 0.14);
+    --gold: #fdc726;
+    --gold-soft: rgba(253, 199, 38, 0.12);
+    --blue: #4c8df6;
+    --blue-soft: rgba(76, 141, 246, 0.14);
+
+    // Modern studio accent (clean tech blue for primary actions)
+    --accent: #3b82f6;
+    --accent-hover: #2563eb;
+    --accent-glow: rgba(59, 130, 246, 0.35);
+    --accent-soft: rgba(59, 130, 246, 0.12);
+
+    // ---- Canvas & layered surfaces (dark) ----
+    --bg: #090a0f;
+    --bg-raise: #11131c;
+    --surface: rgba(255, 255, 255, 0.038);
+    --surface-2: rgba(255, 255, 255, 0.07);
+    --surface-3: rgba(255, 255, 255, 0.11);
+    --line: rgba(255, 255, 255, 0.08);
+    --line-strong: rgba(255, 255, 255, 0.15);
+    --line-highlight: rgba(255, 255, 255, 0.22);
+
+    // ---- Text hierarchy ----
+    --text: #f3f5f9;
+    --muted: #9ba3b4;
+    --faint: #6d7486;
+
+    // ---- Gradients ----
+    --grad-brand: linear-gradient(135deg, var(--red) 0%, var(--gold) 35%, var(--green) 68%, var(--blue) 100%);
+    --grad-text: linear-gradient(135deg, #ffffff 20%, #cad7fe 65%, #60a5fa 100%);
+    --grad-accent: linear-gradient(135deg, #4c8df6 0%, #2563eb 100%);
+
+    // ---- Component surfaces ----
+    --nav-bg: rgba(9, 10, 15, 0.8);
+    --nav-border: rgba(255, 255, 255, 0.08);
+    --code-bg: rgba(0, 0, 0, 0.4);
+    --grid-line: rgba(255, 255, 255, 0.024);
+    --shadow-card: 0 16px 36px -12px rgba(0, 0, 0, 0.6), 0 0 0 1px var(--line);
+    --shadow-pop: 0 28px 64px -16px rgba(0, 0, 0, 0.75), 0 0 0 1px var(--line-strong);
+
+    color-scheme: dark;
+
+    // ---- Typography ----
+    --font-display: 'Space Grotesk', Inter, system-ui, sans-serif;
+    --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, Consolas, monospace;
+    --font-sans: var(--font-body);
+
+    // ---- Radii ----
+    --r-xs: 6px;
+    --r-sm: 9px;
+    --r-md: 14px;
+    --r-lg: 18px;
+    --r-xl: 24px;
+    --radius: var(--r-md);
+    --radius-pill: 999px;
+
+    // ---- Layout ----
+    --maxw: 1240px;
+    --max-width: var(--maxw);
+    --nav-h: 68px;
+
+    // ---- Motion ----
+    --ease: cubic-bezier(0.22, 0.8, 0.28, 1);
+}
+
+// =============================================================================
+// Light theme - opt-in via data-theme; default follows the OS preference.
+// =============================================================================
+html[data-theme='light'] {
+    --accent-glow: rgba(37, 99, 235, 0.22);
+
+    --bg: #f8f9fc;
+    --bg-raise: #ffffff;
+    --surface: rgba(15, 23, 42, 0.035);
+    --surface-2: rgba(15, 23, 42, 0.065);
+    --surface-3: rgba(15, 23, 42, 0.1);
+    --line: rgba(15, 23, 42, 0.08);
+    --line-strong: rgba(15, 23, 42, 0.16);
+    --line-highlight: rgba(15, 23, 42, 0.24);
+
+    --text: #0f172a;
+    --muted: #475569;
+    --faint: #64748b;
+
+    --grad-text: linear-gradient(135deg, #0f172a 20%, #1e3a8a 65%, #2563eb 100%);
+    --grad-brand: linear-gradient(135deg, #dc2626 0%, #d97706 35%, #16a34a 68%, #2563eb 100%);
+
+    --nav-bg: rgba(248, 249, 252, 0.85);
+    --nav-border: rgba(15, 23, 42, 0.08);
+    --code-bg: rgba(15, 23, 42, 0.045);
+    --grid-line: rgba(15, 23, 42, 0.035);
+    --shadow-card: 0 16px 36px -12px rgba(15, 23, 42, 0.12), 0 0 0 1px var(--line);
+    --shadow-pop: 0 24px 56px -16px rgba(15, 23, 42, 0.16), 0 0 0 1px var(--line-strong);
+
+    color-scheme: light;
+}

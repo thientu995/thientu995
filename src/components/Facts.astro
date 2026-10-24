@@ -1,0 +1,108 @@
+---
+import Icon from './Icon.astro';
+import { factsData } from '../data';
+
+// Rotate the four T4VN brand colors across the fact cards.
+const accents = ['var(--blue)', 'var(--gold)', 'var(--green)', 'var(--red)'];
+---
+
+<section class="facts" id="facts" aria-label="Highlights">
+    <div class="container">
+        <div class="facts-grid card reveal">
+            {factsData.Data.map((fact, i) => (
+                <div class="fact">
+                    <span class="fact-icon" style={`color:${accents[i % accents.length]}`}>
+                        <Icon name={fact.Icon} size={22} />
+                    </span>
+                    <div>
+                        <strong
+                            class="fact-value"
+                            data-count={fact.Value}
+                            style={`--accent:${accents[i % accents.length]}`}>
+                            {fact.Value}
+                        </strong>
+                        <span class="fact-label">{fact.Text}</span>
+                    </div>
+                </div>
+            ))}
+        </div>
+    </div>
+</section>
+
+<style lang="scss">
+    @use '../styles/tokens';
+
+    .facts {
+        padding: 0 0 clamp(40px, 6vw, 72px);
+    }
+
+    .facts-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        overflow: hidden;
+    }
+
+    .fact {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 26px 28px;
+
+        & + .fact {
+            border-left: 1px solid var(--line);
+        }
+    }
+
+    .fact-icon {
+        display: grid;
+        place-items: center;
+        width: 48px;
+        height: 48px;
+        flex: none;
+        border-radius: 14px;
+        background: var(--surface-2);
+        border: 1px solid var(--line);
+    }
+
+    .fact-value {
+        display: block;
+        font: 700 clamp(24px, 2.6vw, 30px)/1.1 var(--font-display);
+        letter-spacing: -0.02em;
+        color: var(--accent);
+        font-variant-numeric: tabular-nums;
+    }
+
+    .fact-label {
+        display: block;
+        margin-top: 3px;
+        font-size: 13px;
+        color: var(--faint);
+    }
+
+    @media (max-width: 900px) {
+        .facts-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .fact:nth-child(3) {
+            border-left: none;
+        }
+
+        .fact:nth-child(n + 3) {
+            border-top: 1px solid var(--line);
+        }
+    }
+
+    @media (max-width: 480px) {
+        .fact {
+            padding: 20px;
+            gap: 12px;
+        }
+
+        .fact-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 11px;
+        }
+    }
+</style>
