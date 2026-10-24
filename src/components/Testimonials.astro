@@ -1,6 +1,11 @@
 ---
 import Icon from './Icon.astro';
 import { testimonialsData } from '../data';
+
+// 96px WebP thumbs are generated next to the full-size PNGs by
+// scripts/optimize-images.mjs; fall back to the data's original if one
+// is ever missing.
+const thumb = (img) => img.replace(/\.(png|jpe?g)$/i, '.webp');
 ---
 
 <section class="section" id="testimonials">
@@ -21,7 +26,15 @@ import { testimonialsData } from '../data';
                         <Icon name="quote" size={30} class="ts-quote" />
                         <blockquote>{t.Quote}</blockquote>
                         <figcaption>
-                            <img src={t.Image} alt={t.Name} width="46" height="46" loading="lazy" />
+                            <img
+                                src={thumb(t.Image)}
+                                onerror={`this.onerror=null;this.src='${t.Image}'`}
+                                alt={t.Name}
+                                width="46"
+                                height="46"
+                                loading="lazy"
+                                decoding="async"
+                            />
                             <div>
                                 <strong>{t.Name}</strong>
                                 <span>{t.Category}</span>

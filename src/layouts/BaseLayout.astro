@@ -13,7 +13,6 @@ const { title = site.title, description = site.description } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const ogImage = new URL('/assets/images/avatar-cv.jpg', Astro.site);
-
 // Person structured data - every field is sourced from the JSON data files.
 const personSchema = {
     '@context': 'https://schema.org',
@@ -58,27 +57,37 @@ const fontsHref =
             name="robots"
             content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
         />
-        <meta name="theme-color" content="#090a0f" />
         <meta name="generator" content={Astro.generator} />
         <link rel="canonical" href={canonical} />
         <link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />
 
+        <!-- Browser chrome color follows the OS scheme (our theme honors it too) -->
+        <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#090a0f" />
+        <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f8f9fc" />
+
         <!-- Icons -->
-        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="32x32" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
         <!-- Open Graph -->
         <meta property="og:type" content="profile" />
+        <meta property="og:locale" content="en_US" />
         <meta property="og:site_name" content={info.Information.FullName} />
         <meta property="og:url" content={canonical} />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:image" content={ogImage} />
+        <meta property="og:image:width" content="541" />
+        <meta property="og:image:height" content="541" />
+        <meta property="og:image:alt" content={`${info.Information.FullName} - ${profile.role}`} />
 
         <!-- Twitter -->
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
         <meta name="twitter:image" content={ogImage} />
+        <meta name="twitter:image:alt" content={`${info.Information.FullName} - ${profile.role}`} />
 
         <!-- Fonts (async pattern - never render-blocking) -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />

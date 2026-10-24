@@ -135,6 +135,11 @@ html {
 .section {
     position: relative;
     padding: clamp(64px, 9vw, 110px) 0;
+
+    // Every .section sits below the hero fold; letting the browser skip
+    // offscreen layout/paint keeps the first render cheap on this long page.
+    content-visibility: auto;
+    contain-intrinsic-size: auto 900px;
 }
 
 .section + .section {
