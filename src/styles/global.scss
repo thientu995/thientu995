@@ -336,26 +336,18 @@ html {
     padding: 0;
 }
 
+// Native outside markers (not an absolutely-positioned dot): the browser
+// centers the marker on the FIRST line's baseline no matter what opens the
+// item - the data often starts <li> with a .color-datetime chip or <b>,
+// which is taller than plain text and broke fixed-offset dots. Wrapped
+// lines still hang-indent because the marker sits in the ul padding.
 .rich ul {
-    list-style: none;
+    list-style: disc outside;
+    padding-left: 18px;
 }
 
 .rich ul li {
-    position: relative;
-    padding-left: 20px;
     margin: 7px 0;
-}
-
-.rich ul li::before {
-    content: '';
-    position: absolute;
-    left: 3px;
-    top: 0.66em;
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--accent);
-    opacity: 0.75;
 }
 
 .rich ol {
