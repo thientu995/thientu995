@@ -19,27 +19,27 @@ const cvSections = siteText.Cv.Sections;
         <title>{cvTitle}</title>
         <meta name="description" content={cvMetaDescription} />
         <meta name="robots" content="noindex, nofollow" />
-        
+
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@600;700&display=swap"
             rel="stylesheet"
         />
 
         <style is:global>
             :root {
-                --primary: #6d28d9;
-                --primary-dark: #5b21b6;
-                --primary-light: #ede9fe;
+                --ink: #0f172a;
+                --body-c: #334155;
+                --muted: #64748b;
+                --faint: #94a3b8;
+                --line: #e2e8f0;
                 --accent: #7c4dff;
-                --text-main: #1e293b;
-                --text-muted: #64748b;
-                --text-light: #94a3b8;
-                --border: #e2e8f0;
-                --sidebar-bg: #f8fafc;
-                --card-bg: #ffffff;
+                --accent-deep: #5b21b6;
+                --accent-soft: #f1ebff;
+                --side-bg: #faf9fe;
+                --card-bg: #f8fafc;
             }
 
             * {
@@ -50,14 +50,14 @@ const cvSections = siteText.Cv.Sections;
 
             body {
                 font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-                color: var(--text-main);
-                background-color: #cbd5e1;
+                color: var(--body-c);
+                background: #eceef6;
                 font-size: 13.5px;
-                line-height: 1.5;
+                line-height: 1.55;
                 -webkit-font-smoothing: antialiased;
             }
 
-            /* Toolbar atop for screen view */
+            /* ---------- Screen toolbar ---------- */
             .cv-toolbar {
                 position: sticky;
                 top: 0;
@@ -68,18 +68,22 @@ const cvSections = siteText.Cv.Sections;
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
-                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
             }
 
             .cv-toolbar-info {
                 display: flex;
                 align-items: center;
                 gap: 12px;
+                min-width: 0;
             }
 
             .cv-toolbar-title {
                 font-size: 15px;
                 font-weight: 600;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
             }
 
             .cv-toolbar-actions {
@@ -100,136 +104,179 @@ const cvSections = siteText.Cv.Sections;
                 text-decoration: none;
                 transition: all 0.2s ease;
                 border: none;
+                white-space: nowrap;
             }
 
             .btn-print {
-                background: #7c4dff;
+                background: var(--accent);
                 color: #ffffff;
             }
 
             .btn-print:hover {
-                background: #6839e8;
+                background: #6d3ae8;
                 transform: translateY(-1px);
             }
 
             .btn-back {
-                background: rgba(255,255,255,0.12);
+                background: rgba(255, 255, 255, 0.12);
                 color: #ffffff;
             }
 
             .btn-back:hover {
-                background: rgba(255,255,255,0.2);
+                background: rgba(255, 255, 255, 0.2);
             }
 
-            /* CV Container sheet */
-            .cv-container {
-                max-width: 960px;
-                margin: 28px auto;
+            /* ---------- Stage & sheet ---------- */
+            .cv-stage {
+                padding: 28px 16px 48px;
+            }
+
+            .cv-sheet {
+                max-width: 980px;
+                margin: 0 auto;
                 background: #ffffff;
-                box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
-                border-radius: 4px;
-                overflow: hidden;
+                border-radius: 14px;
+                box-shadow:
+                    0 24px 48px -20px rgba(15, 23, 42, 0.25),
+                    0 8px 20px -12px rgba(91, 33, 182, 0.18);
                 display: grid;
-                grid-template-columns: 290px 1fr;
+                grid-template-columns: 292px 1fr;
+                overflow: hidden;
             }
 
-            /* Left Sidebar */
-            .cv-sidebar {
-                background: var(--sidebar-bg);
-                border-right: 1px solid var(--border);
-                padding: 32px 24px;
+            /* ---------- Sidebar ---------- */
+            .cv-side {
+                background: var(--side-bg);
+                border-right: 1px solid var(--line);
+                padding: 30px 24px;
                 display: flex;
                 flex-direction: column;
-                gap: 28px;
+                gap: 24px;
             }
 
-            .cv-avatar-wrap {
+            .identity {
                 text-align: center;
+                padding-bottom: 4px;
             }
 
-            .cv-avatar {
-                width: 120px;
-                height: 120px;
+            .avatar {
+                width: 112px;
+                height: 112px;
                 border-radius: 50%;
                 object-fit: cover;
-                border: 4px solid #ffffff;
-                box-shadow: 0 4px 12px rgba(109, 40, 217, 0.2);
-                margin-bottom: 12px;
+                border: 3px solid #ffffff;
+                outline: 3px solid var(--accent);
+                outline-offset: -6px;
+                box-shadow: 0 10px 24px -10px rgba(124, 77, 255, 0.45);
+                margin-bottom: 14px;
             }
 
             .cv-name {
-                font-size: 20px;
+                font-family: 'Space Grotesk', 'Inter', sans-serif;
+                font-size: 21px;
                 font-weight: 700;
-                color: #0f172a;
+                letter-spacing: -0.01em;
+                color: var(--ink);
                 line-height: 1.25;
             }
 
             .cv-role {
-                font-size: 13px;
-                font-weight: 600;
-                color: var(--primary);
-                margin-top: 4px;
+                display: inline-block;
+                margin-top: 7px;
+                font: 600 11px 'JetBrains Mono', monospace;
+                letter-spacing: 0.08em;
+                text-transform: uppercase;
+                color: var(--accent-deep);
+                background: var(--accent-soft);
+                border-radius: 999px;
+                padding: 4px 12px;
             }
 
-            .sidebar-section {
+            .status-pill {
+                display: inline-flex;
+                align-items: center;
+                gap: 6px;
+                margin-top: 10px;
+                font-size: 11.5px;
+                font-weight: 500;
+                color: #15803d;
+                background: #dcfce7;
+                border-radius: 999px;
+                padding: 4px 11px;
+            }
+
+            .status-pill i {
+                width: 7px;
+                height: 7px;
+                border-radius: 50%;
+                background: #22c55e;
+            }
+
+            .side-sec {
                 display: flex;
                 flex-direction: column;
-                gap: 12px;
+                gap: 11px;
             }
 
-            .sidebar-title {
-                font-size: 12px;
-                font-weight: 700;
+            .side-title {
+                font: 700 11px 'Inter', sans-serif;
+                letter-spacing: 0.1em;
                 text-transform: uppercase;
-                letter-spacing: 0.08em;
-                color: var(--primary);
-                border-bottom: 2px solid var(--primary-light);
-                padding-bottom: 5px;
+                color: var(--accent-deep);
+                border-bottom: 2px solid var(--accent-soft);
+                padding-bottom: 6px;
             }
 
             .contact-list {
                 list-style: none;
                 display: flex;
                 flex-direction: column;
-                gap: 10px;
+                gap: 9px;
             }
 
             .contact-item {
                 display: flex;
                 align-items: center;
-                gap: 10px;
+                gap: 9px;
                 font-size: 12.5px;
-                color: var(--text-main);
+                color: var(--body-c);
                 overflow-wrap: anywhere;
             }
 
             .contact-item a {
-                color: var(--text-main);
+                color: var(--body-c);
                 text-decoration: none;
             }
 
             .contact-item a:hover {
-                color: var(--primary);
+                color: var(--accent);
                 text-decoration: underline;
             }
 
             .contact-icon {
-                color: var(--primary);
+                color: var(--accent);
                 flex-shrink: 0;
+                display: inline-flex;
             }
 
             .skill-group {
-                margin-bottom: 12px;
+                margin-bottom: 10px;
+            }
+
+            .skill-group:last-child {
+                margin-bottom: 0;
             }
 
             .skill-year {
-                font-size: 11px;
-                font-weight: 600;
-                color: var(--text-muted);
+                display: inline-block;
+                font: 600 9.5px 'JetBrains Mono', monospace;
+                letter-spacing: 0.06em;
                 text-transform: uppercase;
-                margin-bottom: 5px;
-                display: block;
-                font-family: 'JetBrains Mono', monospace;
+                color: var(--accent-deep);
+                background: var(--accent-soft);
+                border-radius: 4px;
+                padding: 2px 7px;
+                margin-bottom: 6px;
             }
 
             .skill-tags {
@@ -241,128 +288,175 @@ const cvSections = siteText.Cv.Sections;
             .skill-tag {
                 font-size: 11px;
                 background: #ffffff;
-                color: var(--text-main);
-                border: 1px solid var(--border);
-                padding: 2px 7px;
-                border-radius: 4px;
+                color: var(--body-c);
+                border: 1px solid var(--line);
+                padding: 2px 8px;
+                border-radius: 5px;
                 font-weight: 500;
             }
 
             .progress-list {
                 display: flex;
                 flex-direction: column;
-                gap: 8px;
+                gap: 9px;
             }
 
             .progress-item-head {
                 display: flex;
                 justify-content: space-between;
+                align-items: baseline;
+                gap: 8px;
                 font-size: 12px;
                 font-weight: 500;
-                margin-bottom: 3px;
+                color: var(--body-c);
+                margin-bottom: 4px;
+            }
+
+            .progress-item-head .pct {
+                font: 500 10.5px 'JetBrains Mono', monospace;
+                color: var(--faint);
             }
 
             .progress-track {
                 height: 5px;
-                background: #e2e8f0;
+                background: #e7e3f5;
                 border-radius: 999px;
                 overflow: hidden;
             }
 
             .progress-fill {
                 height: 100%;
-                background: var(--primary);
+                background: linear-gradient(90deg, var(--accent), #a78bfa);
                 border-radius: 999px;
             }
 
             .qr-connect {
                 text-align: center;
-                padding-top: 8px;
+                padding-top: 2px;
             }
 
             .qr-image {
-                width: 100px;
-                height: 100px;
+                width: 96px;
+                height: 96px;
                 background: #ffffff;
                 padding: 6px;
-                border-radius: 8px;
-                border: 1px solid var(--border);
+                border-radius: 10px;
+                border: 1px solid var(--line);
                 margin: 0 auto 6px;
             }
 
             .qr-text {
                 font-size: 11px;
-                color: var(--text-muted);
+                color: var(--muted);
             }
 
-            /* Right Main Content */
-            .cv-main {
-                padding: 36px 32px;
+            /* ---------- Main column ---------- */
+            .cv-body {
+                padding: 32px 30px;
                 display: flex;
                 flex-direction: column;
-                gap: 28px;
+                gap: 26px;
+                min-width: 0;
             }
 
-            .main-section {
+            .body-sec {
                 display: flex;
                 flex-direction: column;
                 gap: 14px;
             }
 
-            .section-header {
+            .sec-head {
                 display: flex;
                 align-items: center;
-                gap: 9px;
-                border-bottom: 2px solid #f1f5f9;
-                padding-bottom: 8px;
+                gap: 10px;
             }
 
-            .section-header h2 {
-                font-size: 16px;
+            .sec-ico {
+                display: grid;
+                place-items: center;
+                width: 32px;
+                height: 32px;
+                flex: none;
+                border-radius: 9px;
+                color: var(--accent);
+                background: var(--accent-soft);
+            }
+
+            .sec-head h2 {
+                font-family: 'Space Grotesk', 'Inter', sans-serif;
+                font-size: 15px;
                 font-weight: 700;
-                text-transform: uppercase;
                 letter-spacing: 0.05em;
-                color: #0f172a;
+                text-transform: uppercase;
+                color: var(--ink);
+                white-space: nowrap;
             }
 
-            .section-icon {
-                color: var(--primary);
+            .sec-head::after {
+                content: '';
+                flex: 1;
+                height: 2px;
+                border-radius: 2px;
+                background: linear-gradient(90deg, var(--accent-soft), transparent);
             }
 
             .objective-text {
                 font-size: 13.5px;
-                line-height: 1.6;
-                color: #334155;
+                line-height: 1.65;
+                color: var(--body-c);
                 font-style: italic;
-                background: var(--primary-light);
-                padding: 12px 16px;
-                border-left: 3px solid var(--primary);
-                border-radius: 0 6px 6px 0;
+                background: var(--accent-soft);
+                padding: 13px 16px;
+                border-left: 3px solid var(--accent);
+                border-radius: 0 10px 10px 0;
             }
 
-            /* Experience Timeline */
+            /* Experience timeline */
             .exp-list {
                 display: flex;
                 flex-direction: column;
-                gap: 20px;
+                gap: 18px;
             }
 
             .exp-item {
+                display: grid;
+                grid-template-columns: 44px 1fr;
+                gap: 14px;
                 position: relative;
-                padding-left: 18px;
-                border-left: 2px solid #e2e8f0;
             }
 
-            .exp-item::before {
+            .exp-item:not(:last-child)::before {
                 content: '';
                 position: absolute;
-                left: -6px;
-                top: 4px;
-                width: 10px;
-                height: 10px;
-                border-radius: 50%;
-                background: var(--primary);
-                box-shadow: 0 0 0 3px #ffffff, 0 0 0 4px var(--primary-light);
+                left: 21px;
+                top: 50px;
+                bottom: -14px;
+                width: 2px;
+                background: linear-gradient(var(--line), transparent);
+            }
+
+            .exp-rail {
+                display: grid;
+                place-items: center;
+                width: 44px;
+                height: 44px;
+                border-radius: 12px;
+                background: #ffffff;
+                border: 1px solid var(--line);
+                box-shadow: 0 4px 10px -4px rgba(15, 23, 42, 0.12);
+                z-index: 1;
+            }
+
+            .exp-rail img {
+                width: 28px;
+                height: 28px;
+                border-radius: 7px;
+                object-fit: contain;
+            }
+
+            .exp-rail .exp-dot {
+                color: var(--accent);
+                display: inline-flex;
             }
 
             .exp-head {
@@ -370,80 +464,93 @@ const cvSections = siteText.Cv.Sections;
                 justify-content: space-between;
                 align-items: baseline;
                 flex-wrap: wrap;
-                gap: 6px;
-                margin-bottom: 4px;
+                gap: 4px 10px;
+                margin-bottom: 2px;
             }
 
             .exp-company {
-                font-size: 15px;
+                font-family: 'Space Grotesk', 'Inter', sans-serif;
+                font-size: 16px;
                 font-weight: 700;
-                color: #0f172a;
+                color: var(--ink);
             }
 
             .exp-meta {
                 display: flex;
                 gap: 12px;
-                font-size: 12px;
-                color: var(--text-muted);
-                font-family: 'JetBrains Mono', monospace;
+                font: 500 11px 'JetBrains Mono', monospace;
+                color: var(--muted);
+                align-items: center;
             }
 
             .exp-loc {
                 font-size: 12px;
-                color: var(--text-muted);
+                color: var(--muted);
                 margin-bottom: 8px;
             }
 
-            /* Legacy Rich content styling inside CV */
-            .cv-rich {
+            /* Rich legacy content */
+            .rich {
                 font-size: 12.5px;
                 line-height: 1.65;
-                color: #334155;
+                color: var(--body-c);
             }
 
-            .cv-rich ul {
+            .rich ul,
+            .rich ol {
                 list-style: disc outside;
-                padding-left: 16px;
+                padding-left: 17px;
                 margin: 6px 0;
             }
 
-            .cv-rich li {
+            .rich ol {
+                list-style: decimal;
+            }
+
+            .rich li {
                 margin: 4px 0;
             }
 
-            .cv-rich b, .cv-rich strong {
-                color: #0f172a;
+            .rich b,
+            .rich strong {
+                color: var(--ink);
                 font-weight: 600;
             }
 
-            .cv-rich a {
-                color: var(--primary);
+            .rich a {
+                color: var(--accent-deep);
                 text-decoration: none;
             }
 
-            .cv-rich a:hover {
+            .rich a:hover {
                 text-decoration: underline;
             }
 
+            .rich ul.timeline {
+                list-style: none;
+                padding-left: 2px;
+            }
+
+            .rich ul.timeline > li {
+                margin: 6px 0;
+            }
+
             .color-datetime {
-                font-size: 11px;
-                font-family: 'JetBrains Mono', monospace;
-                background: #f1f5f9;
-                color: var(--primary);
+                font: 600 10.5px 'JetBrains Mono', monospace;
+                background: var(--accent-soft);
+                color: var(--accent-deep);
                 padding: 1px 6px;
                 border-radius: 4px;
-                font-weight: 600;
             }
 
             .badge-current {
-                font-size: 10px;
-                font-family: 'JetBrains Mono', monospace;
+                font: 600 9.5px 'JetBrains Mono', monospace;
                 background: #dcfce7;
                 color: #15803d;
-                padding: 1px 6px;
+                padding: 2px 7px;
                 border-radius: 4px;
-                font-weight: 600;
                 text-transform: uppercase;
+                letter-spacing: 0.04em;
             }
 
             .icon-inline {
@@ -451,141 +558,380 @@ const cvSections = siteText.Cv.Sections;
                 height: 12px;
                 vertical-align: -1px;
                 margin-right: 2px;
-                color: var(--primary);
+                color: var(--accent);
             }
 
-            /* Projects & Education Cards */
-            .grid-cards {
-                display: grid;
-                grid-template-columns: 1fr;
-                gap: 12px;
+            /* Project / education cards */
+            .doc-list {
+                display: flex;
+                flex-direction: column;
+                gap: 11px;
             }
 
-            .cv-card {
-                background: #f8fafc;
-                border: 1px solid var(--border);
-                border-radius: 6px;
-                padding: 12px 14px;
+            .doc-card {
+                background: var(--card-bg);
+                border: 1px solid var(--line);
+                border-radius: 10px;
+                padding: 13px 15px;
             }
 
-            .cv-card-head {
+            .doc-head {
                 display: flex;
                 justify-content: space-between;
                 align-items: baseline;
-                gap: 8px;
-                margin-bottom: 6px;
+                gap: 10px;
+                margin-bottom: 5px;
             }
 
-            .cv-card-title {
+            .doc-title {
                 font-size: 13.5px;
                 font-weight: 700;
-                color: #0f172a;
+                color: var(--ink);
+                line-height: 1.4;
             }
 
-            .cv-card-date {
-                font-size: 11px;
-                color: var(--text-muted);
-                font-family: 'JetBrains Mono', monospace;
+            .date-pill {
+                display: inline-flex;
+                align-items: center;
+                gap: 5px;
+                flex: none;
+                font: 500 10.5px 'JetBrains Mono', monospace;
+                color: var(--accent-deep);
+                background: var(--accent-soft);
+                border-radius: 999px;
+                padding: 2px 9px;
                 white-space: nowrap;
             }
 
+            /* Certificates */
             .cert-grid {
                 display: grid;
                 grid-template-columns: repeat(2, 1fr);
-                gap: 10px;
+                gap: 11px;
             }
 
-            .cert-item {
-                background: #f8fafc;
-                border: 1px solid var(--border);
-                border-radius: 6px;
-                padding: 10px 12px;
+            .cert {
+                display: flex;
+                gap: 11px;
+                align-items: flex-start;
+                background: var(--card-bg);
+                border: 1px solid var(--line);
+                border-radius: 10px;
+                padding: 12px 14px;
+            }
+
+            .cert-ico {
+                display: grid;
+                place-items: center;
+                width: 34px;
+                height: 34px;
+                flex: none;
+                border-radius: 9px;
+                color: var(--accent);
+                background: #ffffff;
+                border: 1px solid var(--line);
             }
 
             .cert-name {
                 font-size: 12.5px;
-                font-weight: 600;
-                color: #0f172a;
+                font-weight: 700;
+                color: var(--ink);
             }
 
             .cert-date {
-                font-size: 11px;
-                color: var(--primary);
-                font-family: 'JetBrains Mono', monospace;
+                display: block;
+                font: 500 10.5px 'JetBrains Mono', monospace;
+                color: var(--accent-deep);
+                margin-top: 2px;
             }
 
             .cert-detail {
                 font-size: 11.5px;
-                color: var(--text-muted);
-                margin-top: 3px;
+                color: var(--muted);
+                margin-top: 4px;
+                line-height: 1.5;
             }
 
-            /* PRINT CSS SPECIFICATION */
-            @media print {
-                @page {
-                    size: A4;
-                    margin: 10mm;
-                }
+            /* ---------- PRINT ---------- */
+            @page {
+                size: A4;
+                margin: 5mm;
+            }
 
+            @media print {
                 body {
                     background: #ffffff !important;
-                    color: #000000 !important;
-                    font-size: 11.5px !important;
-                    line-height: 1.4 !important;
+                    color: #000000;
+                    font-size: 11px;
+                    line-height: 1.45;
                 }
 
                 .cv-toolbar {
                     display: none !important;
                 }
 
-                .cv-container {
+                .cv-stage {
+                    padding: 0;
+                }
+
+                /* Sheet padding is the guaranteed inner margin: even when the
+                   print dialog's Margins = None overrides @page, content keeps
+                   this breathing room on every sheet edge. */
+                .cv-sheet {
                     max-width: 100% !important;
                     margin: 0 !important;
+                    padding: 4mm !important;
+                    border-radius: 0 !important;
                     box-shadow: none !important;
-                    border: none !important;
-                    grid-template-columns: 240px 1fr !important;
-                }
-
-                .cv-sidebar {
-                    padding: 0 16px 0 0 !important;
-                    background: transparent !important;
-                    border-right: 1px solid #cbd5e1 !important;
-                    gap: 16px !important;
-                }
-
-                .cv-main {
-                    padding: 0 0 0 16px !important;
-                    gap: 18px !important;
-                }
-
-                .cv-avatar {
-                    width: 90px !important;
-                    height: 90px !important;
-                    border: 2px solid #6d28d9 !important;
-                }
-
-                .cv-card, .cert-item {
-                    background: transparent !important;
-                    border: 1px solid #cbd5e1 !important;
-                    break-inside: avoid;
-                }
-
-                .exp-item {
-                    break-inside: avoid;
-                }
-
-                .main-section {
-                    break-inside: avoid;
-                }
-
-                .objective-text {
-                    background: #f3e8ff !important;
+                    grid-template-columns: 56mm 1fr !important;
+                    gap: 5mm !important;
                     -webkit-print-color-adjust: exact;
                     print-color-adjust: exact;
+                    orphans: 3;
+                    widows: 3;
+                }
+
+                .cv-side {
+                    background: transparent !important;
+                    border-right: 1px solid #cbd5e1 !important;
+                    padding: 0 !important;
+                    gap: 12px !important;
+                }
+
+                .cv-body {
+                    padding: 0 !important;
+                    gap: 14px !important;
+                }
+
+                .identity {
+                    text-align: left;
+                }
+
+                .avatar {
+                    width: 24mm !important;
+                    height: 24mm !important;
+                    margin-bottom: 8px !important;
+                    outline-offset: -5px !important;
+                }
+
+                .cv-name {
+                    font-size: 15px !important;
+                }
+
+                .cv-role {
+                    font-size: 8.5px !important;
+                    padding: 3px 9px !important;
+                }
+
+                .status-pill {
+                    display: none;
+                }
+
+                .side-sec {
+                    gap: 7px !important;
+                }
+
+                .side-title {
+                    font-size: 9px !important;
+                    padding-bottom: 4px !important;
+                }
+
+                .contact-list {
+                    gap: 5px !important;
+                }
+
+                .contact-item {
+                    font-size: 9.5px !important;
+                }
+
+                .skill-group {
+                    margin-bottom: 6px !important;
+                }
+
+                .skill-year {
+                    font-size: 8px !important;
                 }
 
                 .skill-tag {
+                    font-size: 8.5px !important;
+                    padding: 1px 5px !important;
                     border: 1px solid #cbd5e1 !important;
+                }
+
+                .progress-list {
+                    gap: 5px !important;
+                }
+
+                .progress-item-head {
+                    font-size: 9px !important;
+                    margin-bottom: 2px !important;
+                }
+
+                .progress-item-head .pct {
+                    font-size: 8px !important;
+                }
+
+                .progress-track {
+                    height: 3.5px !important;
+                }
+
+                .qr-connect {
+                    display: none;
+                }
+
+                .body-sec {
+                    gap: 8px !important;
+                }
+
+                .sec-head {
+                    gap: 7px !important;
+                }
+
+                .sec-ico {
+                    width: 22px !important;
+                    height: 22px !important;
+                    border-radius: 6px !important;
+                }
+
+                .sec-head h2 {
+                    font-size: 11.5px !important;
+                }
+
+                .objective-text {
+                    font-size: 10.5px !important;
+                    padding: 8px 11px !important;
+                }
+
+                .exp-list {
+                    gap: 10px !important;
+                }
+
+                .exp-item {
+                    grid-template-columns: 34px 1fr !important;
+                    gap: 9px !important;
+                    break-inside: avoid;
+                }
+
+                .exp-item:not(:last-child)::before {
+                    left: 16px !important;
+                    top: 40px !important;
+                    bottom: -10px !important;
+                }
+
+                .exp-rail {
+                    width: 34px !important;
+                    height: 34px !important;
+                    border-radius: 9px !important;
+                    border-color: #cbd5e1 !important;
+                    box-shadow: none !important;
+                }
+
+                .exp-rail img {
+                    width: 22px !important;
+                    height: 22px !important;
+                }
+
+                .exp-company {
+                    font-size: 12.5px !important;
+                }
+
+                .exp-meta {
+                    font-size: 8.5px !important;
+                }
+
+                .exp-loc {
+                    font-size: 9px !important;
+                    margin-bottom: 5px !important;
+                }
+
+                .rich {
+                    font-size: 9.5px !important;
+                    line-height: 1.5 !important;
+                }
+
+                .rich ul,
+                .rich ol {
+                    padding-left: 13px !important;
+                    margin: 3px 0 !important;
+                }
+
+                .rich li {
+                    margin: 2px 0 !important;
+                }
+
+                .color-datetime {
+                    font-size: 8px !important;
+                }
+
+                .badge-current {
+                    font-size: 7.5px !important;
+                }
+
+                .icon-inline {
+                    width: 9px !important;
+                    height: 9px !important;
+                }
+
+                .doc-list {
+                    gap: 6px !important;
+                }
+
+                .doc-card {
+                    padding: 8px 10px !important;
+                    break-inside: avoid;
+                    background: transparent !important;
+                    border: 1px solid #cbd5e1 !important;
+                }
+
+                .doc-title {
+                    font-size: 10.5px !important;
+                }
+
+                .date-pill {
+                    font-size: 8px !important;
+                    padding: 1px 6px !important;
+                }
+
+                .cert-grid {
+                    grid-template-columns: repeat(2, 1fr) !important;
+                    gap: 6px !important;
+                }
+
+                .cert {
+                    padding: 7px 9px !important;
+                    gap: 8px !important;
+                    break-inside: avoid;
+                    background: transparent !important;
+                    border: 1px solid #cbd5e1 !important;
+                }
+
+                .cert-ico {
+                    width: 24px !important;
+                    height: 24px !important;
+                }
+
+                .cert-name {
+                    font-size: 9.5px !important;
+                }
+
+                .cert-date {
+                    font-size: 8px !important;
+                }
+
+                .cert-detail {
+                    font-size: 8.5px !important;
+                }
+
+                /* Section headers stay glued to their first block; only the
+                   small cards above get break-inside: avoid, so long sections
+                   flow naturally instead of each claiming a fresh page. */
+                .sec-head {
+                    break-after: avoid;
+                }
+
+                .side-sec,
+                .identity {
+                    break-inside: avoid;
                 }
 
                 a {
@@ -594,20 +940,44 @@ const cvSections = siteText.Cv.Sections;
                 }
             }
 
-            /* Responsive for tablets / mobile */
-            @media (max-width: 768px) {
-                .cv-container {
+            /* ---------- Responsive ---------- */
+            @media (max-width: 860px) {
+                .cv-sheet {
                     grid-template-columns: 1fr;
-                    margin: 12px;
                 }
 
-                .cv-sidebar {
+                .cv-side {
                     border-right: none;
-                    border-bottom: 1px solid var(--border);
+                    border-bottom: 1px solid var(--line);
                 }
 
+                .cv-toolbar {
+                    flex-wrap: wrap;
+                    gap: 8px;
+                    padding: 10px 14px;
+                }
+
+                .cv-toolbar-title {
+                    font-size: 13px;
+                }
+
+                .btn-action {
+                    padding: 7px 12px;
+                    font-size: 12px;
+                }
+            }
+
+            @media (max-width: 560px) {
                 .cert-grid {
                     grid-template-columns: 1fr;
+                }
+
+                .cv-body {
+                    padding: 22px 18px;
+                }
+
+                .cv-side {
+                    padding: 22px 18px;
                 }
             }
         </style>
@@ -630,194 +1000,212 @@ const cvSections = siteText.Cv.Sections;
             </div>
         </header>
 
-        <!-- CV Sheet -->
-        <main class="cv-container">
-            <!-- Left Column: Personal info & Skills -->
-            <aside class="cv-sidebar">
-                <div class="cv-avatar-wrap">
-                    <img
-                        src={profile.avatarCv}
-                        alt={info.Information.FullName}
-                        class="cv-avatar"
-                        width="120"
-                        height="120"
-                    />
-                    <h1 class="cv-name">{info.Information.FullName}</h1>
-                    <p class="cv-role">{profile.role}</p>
-                </div>
+        <main class="cv-stage">
+            <div class="cv-sheet">
+                <!-- Left Column: Identity, contact, skills -->
+                <aside class="cv-side">
+                    <div class="identity">
+                        <img
+                            src={profile.avatarCv}
+                            alt={info.Information.FullName}
+                            class="avatar"
+                            width="112"
+                            height="112"
+                        />
+                        <h1 class="cv-name">{info.Information.FullName}</h1>
+                        <p class="cv-role">{profile.role}</p>
+                        <br />
+                        <span class="status-pill"><i></i>{profile.status}</span>
+                    </div>
 
-                <!-- Contact Details -->
-                <div class="sidebar-section">
-                    <h2 class="sidebar-title">{cvSections.Contact}</h2>
-                    <ul class="contact-list">
-                        {emailItem && (
-                            <li class="contact-item">
-                                <span class="contact-icon"><Icon name="mail" size={14} /></span>
-                                <a href={`mailto:${emailItem.TextRaw}`}>{emailItem.TextRaw}</a>
-                            </li>
-                        )}
-                        {phoneItem && (
-                            <li class="contact-item">
-                                <span class="contact-icon"><Icon name="phone" size={14} /></span>
-                                <a href={profile.phoneHref}>{phoneItem.TextRaw}</a>
-                            </li>
-                        )}
-                        {locationItem && (
-                            <li class="contact-item">
-                                <span class="contact-icon"><Icon name="map-pin" size={14} /></span>
-                                <span>{locationItem.TextRaw}</span>
-                            </li>
-                        )}
-                        {githubItem && (
-                            <li class="contact-item">
-                                <span class="contact-icon"><Icon name="github" size={14} /></span>
-                                <a href={githubItem.TextHref} target="_blank">{githubItem.TextRaw}</a>
-                            </li>
-                        )}
-                        {websiteItem && (
-                            <li class="contact-item">
-                                <span class="contact-icon"><Icon name="globe" size={14} /></span>
-                                <a href={websiteItem.TextHref} target="_blank">{websiteItem.TextRaw}</a>
-                            </li>
-                        )}
-                        {birthdayItem && (
-                            <li class="contact-item">
-                                <span class="contact-icon"><Icon name="calendar" size={14} /></span>
-                                <span>{birthdayItem.TextRaw}</span>
-                            </li>
-                        )}
-                    </ul>
-                </div>
+                    <!-- Contact Details -->
+                    <section class="side-sec">
+                        <h2 class="side-title">{cvSections.Contact}</h2>
+                        <ul class="contact-list">
+                            {emailItem && (
+                                <li class="contact-item">
+                                    <span class="contact-icon"><Icon name="mail" size={14} /></span>
+                                    <a href={`mailto:${emailItem.TextRaw}`}>{emailItem.TextRaw}</a>
+                                </li>
+                            )}
+                            {phoneItem && (
+                                <li class="contact-item">
+                                    <span class="contact-icon"><Icon name="phone" size={14} /></span>
+                                    <a href={profile.phoneHref}>{phoneItem.TextRaw}</a>
+                                </li>
+                            )}
+                            {locationItem && (
+                                <li class="contact-item">
+                                    <span class="contact-icon"><Icon name="map-pin" size={14} /></span>
+                                    <span>{locationItem.TextRaw}</span>
+                                </li>
+                            )}
+                            {githubItem && (
+                                <li class="contact-item">
+                                    <span class="contact-icon"><Icon name="github" size={14} /></span>
+                                    <a href={githubItem.TextHref} target="_blank" rel="noopener noreferrer">{githubItem.TextRaw}</a>
+                                </li>
+                            )}
+                            {websiteItem && (
+                                <li class="contact-item">
+                                    <span class="contact-icon"><Icon name="globe" size={14} /></span>
+                                    <a href={websiteItem.TextHref} target="_blank" rel="noopener noreferrer">{websiteItem.TextRaw}</a>
+                                </li>
+                            )}
+                            {birthdayItem && (
+                                <li class="contact-item">
+                                    <span class="contact-icon"><Icon name="calendar" size={14} /></span>
+                                    <span>{birthdayItem.TextRaw}</span>
+                                </li>
+                            )}
+                        </ul>
+                    </section>
 
-                <!-- Technical Skills -->
-                <div class="sidebar-section">
-                    <h2 class="sidebar-title">{cvSections.TechnicalSkills}</h2>
-                    {techSkillGroups.map((group) => (
-                        <div class="skill-group">
-                            <span class="skill-year">Since {group.year}</span>
-                            <div class="skill-tags">
-                                {group.items.map((item) => (
-                                    <span class="skill-tag">{item}</span>
-                                ))}
+                    <!-- Technical Skills -->
+                    <section class="side-sec">
+                        <h2 class="side-title">{cvSections.TechnicalSkills}</h2>
+                        {techSkillGroups.map((group) => (
+                            <div class="skill-group">
+                                <span class="skill-year">Since {group.year}</span>
+                                <div class="skill-tags">
+                                    {group.items.map((item) => (
+                                        <span class="skill-tag">{item}</span>
+                                    ))}
+                                </div>
                             </div>
+                        ))}
+                    </section>
+
+                    <!-- Personal / Competency Skills -->
+                    <section class="side-sec">
+                        <h2 class="side-title">{cvSections.PersonalSkills}</h2>
+                        <div class="progress-list">
+                            {otherSkills.map((skill) => (
+                                <div>
+                                    <div class="progress-item-head">
+                                        <span>{skill.label}</span>
+                                        <span class="pct">{skill.value}%</span>
+                                    </div>
+                                    <div class="progress-track">
+                                        <div class="progress-fill" style={`width: ${skill.value}%;`}></div>
+                                    </div>
+                                </div>
+                            ))}
                         </div>
-                    ))}
+                    </section>
+
+                    <!-- QR Quick Connect -->
+                    <div class="side-sec qr-connect">
+                        <img src={profile.qrCode} alt="Contact QR code" class="qr-image" />
+                        <p class="qr-text">{cvSections.QrNote}</p>
+                    </div>
+                </aside>
+
+                <!-- Right Column: Objective, Experience, Projects, Education, Certs -->
+                <div class="cv-body">
+                    <!-- Career Objective -->
+                    <section class="body-sec">
+                        <div class="sec-head">
+                            <span class="sec-ico"><Icon name="quote" size={16} /></span>
+                            <h2>{cvSections.CareerObjective}</h2>
+                        </div>
+                        <p class="objective-text">
+                            "{info.CareerObjective.Quote}"
+                        </p>
+                    </section>
+
+                    <!-- Work Experience -->
+                    <section class="body-sec">
+                        <div class="sec-head">
+                            <span class="sec-ico"><Icon name="briefcase" size={16} /></span>
+                            <h2>{cvSections.WorkExperience}</h2>
+                        </div>
+                        <div class="exp-list">
+                            {info.WorkExperience.Data.map((job) => (
+                                <article class="exp-item">
+                                    <div class="exp-rail">
+                                        {job.Icon ? (
+                                            <img src={job.Icon} alt="" width="28" height="28" loading="lazy" />
+                                        ) : (
+                                            <span class="exp-dot"><Icon name="building" size={17} /></span>
+                                        )}
+                                    </div>
+                                    <div class="exp-main">
+                                        <div class="exp-head">
+                                            <h3 class="exp-company">{job.Text}</h3>
+                                            <span class="exp-meta" set:html={normalizeRichHtml(job.Time)} />
+                                        </div>
+                                        <div class="exp-loc" set:html={normalizeRichHtml(job.Location)} />
+                                        <div class="rich" set:html={job.Value.map(normalizeRichHtml).join('\n')} />
+                                    </div>
+                                </article>
+                            ))}
+                        </div>
+                    </section>
+
+                    <!-- Individual Projects -->
+                    <section class="body-sec">
+                        <div class="sec-head">
+                            <span class="sec-ico"><Icon name="package" size={16} /></span>
+                            <h2>{cvSections.Projects}</h2>
+                        </div>
+                        <div class="doc-list">
+                            {info.IndividualProjects.Data.map((proj) => (
+                                <article class="doc-card">
+                                    <div class="doc-head">
+                                        <h3 class="doc-title">{proj.Text}</h3>
+                                        <span class="date-pill">
+                                            <Icon name="calendar" size={10} />
+                                            {proj.Date}
+                                        </span>
+                                    </div>
+                                    <div class="rich" set:html={proj.Value.map(normalizeRichHtml).join('\n')} />
+                                </article>
+                            ))}
+                        </div>
+                    </section>
+
+                    <!-- Education -->
+                    <section class="body-sec">
+                        <div class="sec-head">
+                            <span class="sec-ico"><Icon name="graduation-cap" size={16} /></span>
+                            <h2>{cvSections.Education}</h2>
+                        </div>
+                        <div class="doc-list">
+                            {info.Education.Data.map((edu) => (
+                                <article class="doc-card">
+                                    <div class="doc-head">
+                                        <h3 class="doc-title">{edu.Text}</h3>
+                                        <span class="date-pill" set:html={normalizeRichHtml(edu.Time)} />
+                                    </div>
+                                    <div class="rich" set:html={edu.Value.map(normalizeRichHtml).join('\n')} />
+                                </article>
+                            ))}
+                        </div>
+                    </section>
+
+                    <!-- Certifications -->
+                    <section class="body-sec">
+                        <div class="sec-head">
+                            <span class="sec-ico"><Icon name="award" size={16} /></span>
+                            <h2>{cvSections.Certificates}</h2>
+                        </div>
+                        <div class="cert-grid">
+                            {info.Certificate.Data.map((cert) => (
+                                <div class="cert">
+                                    <span class="cert-ico"><Icon name="award" size={15} /></span>
+                                    <div>
+                                        <div class="cert-name">{cert.Text}</div>
+                                        <span class="cert-date">{cert.Date}</span>
+                                        {cert.Value.length > 0 && (
+                                            <p class="cert-detail">{cert.Value.join(' · ')}</p>
+                                        )}
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </section>
                 </div>
-
-                <!-- Personal / Competency Skills -->
-                <div class="sidebar-section">
-                    <h2 class="sidebar-title">{cvSections.PersonalSkills}</h2>
-                    <div class="progress-list">
-                        {otherSkills.map((skill) => (
-                            <div>
-                                <div class="progress-item-head">
-                                    <span>{skill.label}</span>
-                                    <span>{skill.value}%</span>
-                                </div>
-                                <div class="progress-track">
-                                    <div class="progress-fill" style={`width: ${skill.value}%;`}></div>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-
-                <!-- QR Quick Connect -->
-                <div class="sidebar-section qr-connect">
-                    <img src={profile.qrCode} alt="Contact QR code" class="qr-image" />
-                    <p class="qr-text">{cvSections.QrNote}</p>
-                </div>
-            </aside>
-
-            <!-- Right Column: Career objective, Experience, Education, Projects, Certs -->
-            <div class="cv-main">
-                <!-- Career Objective -->
-                <section class="main-section">
-                    <div class="section-header">
-                        <span class="section-icon"><Icon name="quote" size={18} /></span>
-                        <h2>{cvSections.CareerObjective}</h2>
-                    </div>
-                    <p class="objective-text">
-                        "{info.CareerObjective.Quote}"
-                    </p>
-                </section>
-
-                <!-- Work Experience -->
-                <section class="main-section">
-                    <div class="section-header">
-                        <span class="section-icon"><Icon name="briefcase" size={18} /></span>
-                        <h2>{cvSections.WorkExperience}</h2>
-                    </div>
-                    <div class="exp-list">
-                        {info.WorkExperience.Data.map((job) => (
-                            <article class="exp-item">
-                                <div class="exp-head">
-                                    <h3 class="exp-company">{job.Text}</h3>
-                                    <div class="exp-meta" set:html={normalizeRichHtml(job.Time)} />
-                                </div>
-                                <div class="exp-loc" set:html={normalizeRichHtml(job.Location)} />
-                                <div class="cv-rich" set:html={job.Value.map(normalizeRichHtml).join('\n')} />
-                            </article>
-                        ))}
-                    </div>
-                </section>
-
-                <!-- Individual Projects -->
-                <section class="main-section">
-                    <div class="section-header">
-                        <span class="section-icon"><Icon name="package" size={18} /></span>
-                        <h2>{cvSections.Projects}</h2>
-                    </div>
-                    <div class="grid-cards">
-                        {info.IndividualProjects.Data.map((proj) => (
-                            <article class="cv-card">
-                                <div class="cv-card-head">
-                                    <h3 class="cv-card-title">{proj.Text}</h3>
-                                    <span class="cv-card-date">{proj.Date}</span>
-                                </div>
-                                <div class="cv-rich" set:html={proj.Value.map(normalizeRichHtml).join('\n')} />
-                            </article>
-                        ))}
-                    </div>
-                </section>
-
-                <!-- Education -->
-                <section class="main-section">
-                    <div class="section-header">
-                        <span class="section-icon"><Icon name="graduation-cap" size={18} /></span>
-                        <h2>{cvSections.Education}</h2>
-                    </div>
-                    <div class="grid-cards">
-                        {info.Education.Data.map((edu) => (
-                            <article class="cv-card">
-                                <div class="cv-card-head">
-                                    <h3 class="cv-card-title">{edu.Text}</h3>
-                                    <span class="cv-card-date" set:html={normalizeRichHtml(edu.Time)} />
-                                </div>
-                                <div class="cv-rich" set:html={edu.Value.map(normalizeRichHtml).join('\n')} />
-                            </article>
-                        ))}
-                    </div>
-                </section>
-
-                <!-- Certifications -->
-                <section class="main-section">
-                    <div class="section-header">
-                        <span class="section-icon"><Icon name="award" size={18} /></span>
-                        <h2>{cvSections.Certificates}</h2>
-                    </div>
-                    <div class="cert-grid">
-                        {info.Certificate.Data.map((cert) => (
-                            <div class="cert-item">
-                                <div class="cert-name">{cert.Text}</div>
-                                <span class="cert-date">{cert.Date}</span>
-                                {cert.Value.length > 0 && (
-                                    <p class="cert-detail">{cert.Value.join(' · ')}</p>
-                                )}
-                            </div>
-                        ))}
-                    </div>
-                </section>
             </div>
         </main>
     </body>
