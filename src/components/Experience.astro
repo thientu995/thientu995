@@ -93,10 +93,13 @@ import Icon from './Icon.astro';
 
     .tl-body {
         padding: 24px 26px;
-        transition: border-color 0.3s var(--ease);
+        transition: border-color 0.3s var(--ease), box-shadow 0.3s var(--ease);
+        border-left: 3px solid transparent;
 
         &:hover {
             border-color: var(--line-strong);
+            border-left-color: var(--accent);
+            box-shadow: var(--shadow-card), inset 3px 0 0 0 var(--accent);
         }
     }
 

@@ -39,6 +39,12 @@ import Icon from './Icon.astro';
 
     .edu-card {
         padding: 26px;
+        transition: border-color 0.3s var(--ease), box-shadow 0.3s var(--ease);
+
+        &:hover {
+            border-color: var(--line-strong);
+            box-shadow: var(--shadow-card), 0 8px 24px -10px var(--accent-glow);
+        }
     }
 
     header {

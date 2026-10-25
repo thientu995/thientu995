@@ -54,7 +54,8 @@ const accentMap: Record<string, { color: string; soft: string }> = {
         position: relative;
         padding: 28px 26px;
         overflow: hidden;
-        transition: transform 0.3s var(--ease), border-color 0.3s var(--ease);
+        transition: transform 0.3s var(--ease), border-color 0.3s var(--ease),
+            box-shadow 0.3s var(--ease);
 
         // Colored top hairline that fades in on hover.
         &::before {
@@ -64,14 +65,15 @@ const accentMap: Record<string, { color: string; soft: string }> = {
             left: 0;
             right: 0;
             height: 2px;
-            background: var(--grad-brand);
+            background: var(--grad-accent);
             opacity: 0;
             transition: opacity 0.3s var(--ease);
         }
 
         &:hover {
             transform: translateY(-5px);
-            border-color: var(--line-strong);
+            border-color: var(--accent);
+            box-shadow: var(--shadow-card), 0 8px 24px -8px var(--accent-glow);
 
             &::before {
                 opacity: 1;

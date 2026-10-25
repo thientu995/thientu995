@@ -85,6 +85,12 @@ import { info, techSkillGroups, otherSkills, googleSkills } from '../data';
 
     .skill-card {
         padding: 28px;
+        transition: border-color 0.3s var(--ease), box-shadow 0.3s var(--ease);
+
+        &:hover {
+            border-color: var(--line-strong);
+            box-shadow: var(--shadow-card), 0 8px 24px -10px var(--accent-glow);
+        }
 
         &.span {
             grid-column: 1 / -1;
@@ -158,16 +164,19 @@ import { info, techSkillGroups, otherSkills, googleSkills } from '../data';
 
     .chip {
         font: 500 12.5px var(--font-body);
-        color: var(--muted);
+        color: var(--text);
         background: var(--surface-2);
         border: 1px solid var(--line);
         border-radius: var(--radius-pill);
         padding: 6px 13px;
-        transition: color 0.2s var(--ease), border-color 0.2s var(--ease);
+        transition: color 0.2s var(--ease), border-color 0.2s var(--ease),
+            background 0.2s var(--ease), transform 0.2s var(--ease);
 
         &:hover {
-            color: var(--text);
-            border-color: var(--line-highlight);
+            color: #fff;
+            background: var(--accent-soft);
+            border-color: var(--accent);
+            transform: translateY(-2px);
         }
     }
 

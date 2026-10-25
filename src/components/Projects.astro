@@ -56,11 +56,13 @@ import Icon from './Icon.astro';
 
     .proj-card {
         padding: 24px 26px;
-        transition: transform 0.3s var(--ease), border-color 0.3s var(--ease);
+        transition: transform 0.3s var(--ease), border-color 0.3s var(--ease),
+            box-shadow 0.3s var(--ease);
 
         &:hover {
             transform: translateY(-4px);
-            border-color: var(--line-strong);
+            border-color: var(--accent);
+            box-shadow: var(--shadow-card), 0 8px 24px -10px var(--accent-glow);
         }
 
         h3 {

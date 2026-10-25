@@ -25,9 +25,7 @@ const emailItem = info.Information.Data.find((d) => d.Type === 'email');
                 <p>{info.CareerObjective.Quote}</p>
             </blockquote>
 
-            <p class="about-text reveal" data-delay="2">{info.CareerObjective.About}</p>
-
-            <div class="intro rich reveal" data-delay="3" set:html={normalizeRichHtml(info.CareerObjective.Introduction)} />
+            <div class="intro rich reveal" data-delay="2" set:html={normalizeRichHtml(info.CareerObjective.Introduction)} />
         </div>
 
         <aside class="about-aside card reveal" data-delay="2">
