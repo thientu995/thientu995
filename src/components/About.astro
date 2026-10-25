@@ -1,6 +1,6 @@
 ---
 import Icon from './Icon.astro';
-import { info, personalFacts, normalizeRichHtml } from '../data';
+import { info, profile, personalFacts, normalizeRichHtml } from '../data';
 
 // Map the data "Type" keys onto human labels (frontmatter = build time).
 const typeLabels: Record<string, string> = {
@@ -31,7 +31,7 @@ const emailItem = info.Information.Data.find((d) => d.Type === 'email');
         <aside class="about-aside card reveal" data-delay="2">
             <h3>{info.Information.FullName}</h3>
             <p class="degree">
-                {info.Information.Degree} degree · IT
+                {profile.degree} degree · {profile.major}
             </p>
 
             <ul class="quick">

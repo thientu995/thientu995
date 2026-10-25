@@ -2,6 +2,15 @@
     "Information": {
         "Title": "About",
         "FullName": "Nguyễn Thiên Tứ",
+        "ShortName": "Thien Tu",
+        "FirstName": "Nguyễn",
+        "LastName": "Thiên Tứ",
+        "Initials": "TT",
+        "Major": "IT",
+        "Avatar": "/assets/images/avatar-profile.jpg",
+        "AvatarCv": "/assets/images/avatar-profile.jpg",
+        "QrCode": "/assets/images/qr-code.svg",
+        "Status": "Open to opportunities",
         "Slogan": "All Beacause of The Passion",
         "Degree": "Engineer's",
         "Icon": "",
@@ -136,6 +145,14 @@
     "ProgrommingSkills": {
         "Text": "Technical Skills",
         "Icon": "code",
+        "HighlightSkills": [
+            ".NET Core",
+            "C#",
+            "TypeScript",
+            "Angular",
+            "React",
+            "Umbraco"
+        ],
         "Data": [
             {
                 "Value": "2017",
@@ -561,5 +578,27 @@
                 ]
             }
         ]
-    }
+    },
+    "Ecosystem": [
+        {
+            "Href": "https://www.t4vn.com",
+            "Label": "t4vn.com",
+            "Note": "T4VN - home base"
+        },
+        {
+            "Href": "https://utpro.dev",
+            "Label": "utpro.dev",
+            "Note": "Umbraco Turbo Pro"
+        },
+        {
+            "Href": "https://www.nuget.org/profiles/thientu",
+            "Label": "NuGet",
+            "Note": "Open-source packages"
+        },
+        {
+            "Href": "https://github.com/thientu995",
+            "Label": "GitHub",
+            "Note": "Source & projects"
+        }
+    ]
 }

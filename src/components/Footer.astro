@@ -1,6 +1,6 @@
 ---
 import Icon from './Icon.astro';
-import { info, profile } from '../data';
+import { info, profile, ecosystem } from '../data';
 
 const year = new Date().getFullYear();
 
@@ -11,13 +11,6 @@ const navigate = [
     { href: '#projects', label: 'Projects' },
     { href: '#services', label: 'Services' },
 ];
-
-const ecosystem = [
-    { href: 'https://www.t4vn.com', label: 't4vn.com', note: 'T4VN - home base' },
-    { href: 'https://utpro.dev', label: 'utpro.dev', note: 'Umbraco Turbo Pro' },
-    { href: 'https://www.nuget.org/profiles/thientu', label: 'NuGet', note: 'Open-source packages' },
-    { href: profile.github, label: 'GitHub', note: 'Source & projects' },
-];
 ---
 
 <footer class="site-footer">
@@ -25,7 +18,7 @@ const ecosystem = [
         <div class="footer-grid">
             <div class="footer-brand">
                 <a href="#hero" class="brand" aria-label="Back to top">
-                    <span class="brand-mark" aria-hidden="true">TT</span>
+                    <span class="brand-mark" aria-hidden="true">{profile.initials}</span>
                     <strong>{info.Information.FullName}</strong>
                 </a>
                 <p>
@@ -51,9 +44,9 @@ const ecosystem = [
                 <ul>
                     {ecosystem.map((l) => (
                         <li>
-                            <a href={l.href} target="_blank" rel="noopener noreferrer">
-                                {l.label}
-                                <span>{l.note}</span>
+                            <a href={l.Href} target="_blank" rel="noopener noreferrer">
+                                {l.Label}
+                                <span>{l.Note}</span>
                             </a>
                         </li>
                     ))}
@@ -70,7 +63,7 @@ const ecosystem = [
                         </a>
                     </li>
                     <li>
-                        <a href="tel:+84356530909">
+                        <a href={profile.phoneHref}>
                             <Icon name="phone" size={15} />
                             {profile.phone}
                         </a>

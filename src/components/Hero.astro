@@ -1,26 +1,6 @@
 ---
 import Icon from './Icon.astro';
-import { info, profile } from '../data';
-
-const socials = [
-    { icon: 'github', href: profile.github, label: 'GitHub' },
-    { icon: 'skype', href: 'skype:thientu995?chat', label: 'Skype' },
-    { icon: 'mail', href: `mailto:${profile.email}`, label: 'Email' },
-    { icon: 'globe', href: profile.website, label: 'Website' },
-];
-
-const chips = ['.NET Core', 'C#', 'TypeScript', 'Angular', 'React', 'Umbraco'];
-
-// Terminal lines - CSS-staggered reveal, no JS needed.
-const term = [
-    { prompt: true, text: 'whoami' },
-    { out: true, text: 'thientu995 — fullstack .net developer' },
-    { prompt: true, text: 'cat stack.txt' },
-    { out: true, text: '.NET · C# · TypeScript · Angular · React' },
-    { prompt: true, text: 'uptime --career' },
-    { out: true, text: '9+ years · 500+ projects shipped' },
-    { ok: true, text: 'open to new opportunities' },
-];
+import { info, profile, socials, terminalLines } from '../data';
 ---
 
 <section class="hero" id="hero">
@@ -28,17 +8,17 @@ const term = [
         <div class="hero-text">
             <span class="hero-badge reveal in">
                 <span class="pulse" aria-hidden="true"></span>
-                Open to opportunities
+                {profile.status}
             </span>
 
             <h1 class="reveal in" data-delay="1">
-                Nguyễn <span class="grad">Thiên Tứ</span>
+                {profile.firstName} <span class="grad">{profile.lastName}</span>
             </h1>
 
             <p class="role reveal in" data-delay="2">
                 <span class="seg">{profile.role}</span>
                 <span class="seg">{profile.location}</span>
-                <span class="seg">coding since 2017</span>
+                <span class="seg">coding since {profile.startYear}</span>
             </p>
 
             <p class="lead reveal in" data-delay="2">
@@ -74,12 +54,12 @@ const term = [
             <div class="profile-card">
                 <div class="window-bar">
                     <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
-                    <span class="wfile">~/{profile.github.split('/').pop()}/profile</span>
+                    <span class="wfile">~/{profile.github.split('/').filter(Boolean).pop()}/profile</span>
                 </div>
                 <div class="profile-body">
                     <img
-                        src="/assets/images/avatar-profile.jpg"
-                        alt=""
+                        src={profile.avatar}
+                        alt={info.Information.FullName}
                         width="96"
                         height="96"
                         loading="eager"
@@ -89,7 +69,7 @@ const term = [
                         <span>{profile.role}</span>
                     </div>
                     <div class="chips">
-                        {chips.map((c) => <span class="chip">{c}</span>)}
+                        {profile.highlightSkills.map((c) => <span class="chip">{c}</span>)}
                     </div>
                 </div>
             </div>
@@ -100,7 +80,7 @@ const term = [
                     <span class="wfile">bash — career.sh</span>
                 </div>
                 <div class="term-body">
-                    {term.map((line, i) => (
+                    {terminalLines.map((line, i) => (
                         <div class="cmd" style={`--i:${i}`}>
                             {line.prompt && <span class="prompt">$</span>}
                             {line.ok && <span class="ok">✓</span>}

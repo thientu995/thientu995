@@ -1,5 +1,5 @@
 ---
-import { info, normalizeRichHtml } from '../data';
+import { info, profile, normalizeRichHtml } from '../data';
 import Icon from './Icon.astro';
 ---
 
@@ -7,7 +7,7 @@ import Icon from './Icon.astro';
     <div class="container">
         <div class="section-head reveal">
             <span class="eyebrow">{info.WorkExperience.Text}</span>
-            <h2>Nine years of <span class="grad">shipping software</span></h2>
+            <h2>{profile.yearsOfExperience} years of <span class="grad">shipping software</span></h2>
         </div>
 
         <div class="tl">

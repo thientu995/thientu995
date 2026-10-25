@@ -2,7 +2,7 @@
 import '../styles/global.scss';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import { info, profile, site } from '../data';
+import { info, profile, site, ecosystem } from '../data';
 
 interface Props {
     title?: string;
@@ -12,17 +12,17 @@ interface Props {
 const { title = site.title, description = site.description } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site);
-const ogImage = new URL('/assets/images/avatar-cv.jpg', Astro.site);
+const ogImage = new URL(profile.avatarCv, Astro.site);
 // Person structured data - every field is sourced from the JSON data files.
 const personSchema = {
     '@context': 'https://schema.org',
     '@type': 'Person',
     name: info.Information.FullName,
-    alternateName: 'Thien Tu',
+    alternateName: profile.shortName,
     jobTitle: profile.role,
     description: info.CareerObjective.About,
     email: `mailto:${profile.email}`,
-    telephone: '+84356530909',
+    telephone: profile.phoneHref.replace('tel:', ''),
     url: site.url,
     image: ogImage.toString(),
     address: {
@@ -32,10 +32,8 @@ const personSchema = {
     },
     sameAs: [
         profile.github,
-        'https://www.t4vn.com',
-        'https://utpro.dev',
-        'https://www.nuget.org/profiles/thientu',
-    ],
+        ...ecosystem.map((e) => e.Href),
+    ].filter(Boolean),
     knowsAbout: info.ProgrommingSkills.Data.map((s) => s.Text),
 };
 

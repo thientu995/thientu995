@@ -635,7 +635,7 @@ const birthdayItem = info.Information.Data.find((d) => d.Type === 'birthday');
             <aside class="cv-sidebar">
                 <div class="cv-avatar-wrap">
                     <img
-                        src="/assets/images/avatar-profile.jpg"
+                        src={profile.avatarCv}
                         alt={info.Information.FullName}
                         class="cv-avatar"
                         width="120"
@@ -658,7 +658,7 @@ const birthdayItem = info.Information.Data.find((d) => d.Type === 'birthday');
                         {phoneItem && (
                             <li class="contact-item">
                                 <span class="contact-icon"><Icon name="phone" size={14} /></span>
-                                <a href={`tel:${phoneItem.TextRaw.replace(/\D/g, '')}`}>{phoneItem.TextRaw}</a>
+                                <a href={profile.phoneHref}>{phoneItem.TextRaw}</a>
                             </li>
                         )}
                         {locationItem && (
@@ -676,7 +676,7 @@ const birthdayItem = info.Information.Data.find((d) => d.Type === 'birthday');
                         {websiteItem && (
                             <li class="contact-item">
                                 <span class="contact-icon"><Icon name="globe" size={14} /></span>
-                                <a href={websiteItem.TextHref} target="_blank">cv.t4vn.com</a>
+                                <a href={websiteItem.TextHref} target="_blank">{websiteItem.TextRaw}</a>
                             </li>
                         )}
                         {birthdayItem && (
@@ -723,7 +723,7 @@ const birthdayItem = info.Information.Data.find((d) => d.Type === 'birthday');
 
                 <!-- QR Quick Connect -->
                 <div class="sidebar-section qr-connect">
-                    <img src="/assets/images/qr-code.svg" alt="Contact QR code" class="qr-image" />
+                    <img src={profile.qrCode} alt="Contact QR code" class="qr-image" />
                     <p class="qr-text">Scan for digital profile & links</p>
                 </div>
             </aside>
@@ -768,7 +768,7 @@ const birthdayItem = info.Information.Data.find((d) => d.Type === 'birthday');
                         <h2>Key Projects & Packages</h2>
                     </div>
                     <div class="grid-cards">
-                        {info.IndividualProjects.Data.slice(0, 4).map((proj) => (
+                        {info.IndividualProjects.Data.map((proj) => (
                             <article class="cv-card">
                                 <div class="cv-card-head">
                                     <h3 class="cv-card-title">{proj.Text}</h3>

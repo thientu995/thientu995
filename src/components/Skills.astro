@@ -1,13 +1,13 @@
 ---
 import Icon from './Icon.astro';
-import { info, techSkillGroups, otherSkills, googleSkills } from '../data';
+import { info, profile, techSkillGroups, otherSkills, googleSkills } from '../data';
 ---
 
 <section class="section" id="skills">
     <div class="container">
         <div class="section-head reveal">
             <span class="eyebrow">Skills</span>
-            <h2>A stack sharpened <span class="grad">over a decade</span></h2>
+            <h2>A stack sharpened <span class="grad">over {profile.yearsOfExperience} years</span></h2>
         </div>
 
         <div class="skills-grid">

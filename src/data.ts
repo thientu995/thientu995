@@ -43,6 +43,12 @@ export interface CertificateEntry {
     Value: string[];
 }
 
+export interface EcosystemItem {
+    Href: string;
+    Label: string;
+    Note: string;
+}
+
 export interface FactItem {
     Text: string;
     Icon: string;
@@ -68,6 +74,15 @@ export interface DataInfo {
     Information: {
         Title: string;
         FullName: string;
+        ShortName?: string;
+        FirstName?: string;
+        LastName?: string;
+        Initials?: string;
+        Major?: string;
+        Avatar?: string;
+        AvatarCv?: string;
+        QrCode?: string;
+        Status?: string;
         Slogan: string;
         Degree: string;
         Icon: string;
@@ -75,7 +90,12 @@ export interface DataInfo {
     };
     PersonalSkills: { Text: string; Icon: string; Data: SkillItem[] };
     GoogleSkills: { Text: string; Icon: string; Data: SkillItem[] };
-    ProgrommingSkills: { Text: string; Icon: string; Data: SkillItem[] };
+    ProgrommingSkills: {
+        Text: string;
+        Icon: string;
+        HighlightSkills?: string[];
+        Data: SkillItem[];
+    };
     CareerObjective: {
         Text: string;
         Icon: string;
@@ -87,6 +107,7 @@ export interface DataInfo {
     WorkExperience: { Text: string; Icon: string; Data: TimelineEntry[] };
     IndividualProjects: { Text: string; Icon: string; Data: ProjectEntry[] };
     Certificate: { Text: string; Icon: string; Data: CertificateEntry[] };
+    Ecosystem?: EcosystemItem[];
 }
 
 // Map-pin SVG injected where the legacy strings embed
@@ -120,16 +141,96 @@ export const testimonialsData = testimonials as unknown as {
     Data: TestimonialItem[];
 };
 
+const rawFullName = info.Information.FullName || '';
+const nameParts = rawFullName.trim().split(/\s+/);
+const defaultFirstName = nameParts[0] || '';
+const defaultLastName = nameParts.slice(1).join(' ') || '';
+const defaultInitials = nameParts.length > 1
+    ? (nameParts[nameParts.length - 2][0] + nameParts[nameParts.length - 1][0]).toUpperCase()
+    : defaultFirstName.slice(0, 2).toUpperCase() || 'TT';
+
+const techSkillYears = info.ProgrommingSkills.Data
+    .map((s) => Number(s.Value))
+    .filter((y) => !isNaN(y) && y > 1990 && y < 2100);
+const startYear = techSkillYears.length > 0 ? Math.min(...techSkillYears) : 2017;
+const yearsOfExperience = Math.max(1, new Date().getFullYear() - startYear);
+
+const phoneItem = info.Information.Data.find((d) => d.Type === 'phone');
+const phoneRaw = phoneItem?.TextRaw ?? '';
+const phoneHref = 'tel:+' + phoneRaw.replace(/\D/g, '');
+
+const githubItem = info.Information.Data.find((d) => d.Type === 'github');
+const websiteItem = info.Information.Data.find((d) => d.Type === 'website');
+
 export const profile = {
-    name: info.Information.FullName,
+    name: rawFullName,
+    firstName: info.Information.FirstName || defaultFirstName,
+    lastName: info.Information.LastName || defaultLastName,
+    shortName: info.Information.ShortName || `${defaultFirstName} ${defaultLastName}`.trim(),
+    initials: info.Information.Initials || defaultInitials,
     slogan: info.Information.Slogan,
+    degree: info.Information.Degree,
+    major: info.Information.Major || 'IT',
+    avatar: info.Information.Avatar || '/assets/images/avatar-profile.jpg',
+    avatarCv: info.Information.AvatarCv || '/assets/images/avatar-profile.jpg',
+    qrCode: info.Information.QrCode || '/assets/images/qr-code.svg',
+    status: info.Information.Status || 'Open to opportunities',
     role: info.Information.Data.find((d) => d.Type === 'title')?.TextRaw ?? 'Developer',
     location: info.Information.Data.find((d) => d.Type === 'location')?.TextRaw ?? '',
     email: info.Information.Data.find((d) => d.Type === 'email')?.TextRaw ?? '',
-    phone: info.Information.Data.find((d) => d.Type === 'phone')?.TextRaw ?? '',
-    github: info.Information.Data.find((d) => d.Type === 'github')?.TextHref ?? '',
-    website: info.Information.Data.find((d) => d.Type === 'website')?.TextHref ?? '',
+    phone: phoneRaw,
+    phoneHref: phoneHref,
+    github: githubItem?.TextHref ?? '',
+    website: websiteItem?.TextHref ?? '',
+    websiteRaw: websiteItem?.TextRaw ?? '',
+    startYear,
+    yearsOfExperience,
+    highlightSkills: info.ProgrommingSkills.HighlightSkills ?? [
+        '.NET Core',
+        'C#',
+        'TypeScript',
+        'Angular',
+        'React',
+        'Umbraco',
+    ],
 };
+
+// Social media links for Hero / navigation
+export const socials = [
+    { icon: 'github', href: profile.github, label: 'GitHub' },
+    {
+        icon: 'skype',
+        href: info.Information.Data.find((d) => d.Type === 'skype')?.TextHref ?? '',
+        label: 'Skype',
+    },
+    { icon: 'mail', href: profile.email ? `mailto:${profile.email}` : '', label: 'Email' },
+    { icon: 'globe', href: profile.website, label: 'Website' },
+].filter((s) => Boolean(s.href));
+
+// Ecosystem items for Footer
+export const ecosystem: EcosystemItem[] = info.Ecosystem ?? [
+    { Href: 'https://www.t4vn.com', Label: 't4vn.com', Note: 'T4VN - home base' },
+    { Href: 'https://utpro.dev', Label: 'utpro.dev', Note: 'Umbraco Turbo Pro' },
+    { Href: 'https://www.nuget.org/profiles/thientu', Label: 'NuGet', Note: 'Open-source packages' },
+    { Href: profile.github, Label: 'GitHub', Note: 'Source & projects' },
+];
+
+// Terminal lines for Hero interactive visual
+export const terminalLines = [
+    { prompt: true, text: 'whoami' },
+    {
+        out: true,
+        text: `${profile.github.split('/').filter(Boolean).pop() || 'thientu995'} — ${profile.role.toLowerCase()}`,
+    },
+    { prompt: true, text: 'cat stack.txt' },
+    { out: true, text: profile.highlightSkills.join(' · ') },
+    { prompt: true, text: 'uptime --career' },
+    {
+        out: true,
+        text: `${profile.yearsOfExperience}+ years · ${factsData.Data.find((f) => f.Text.toLowerCase().includes('project'))?.Value ?? 500}+ projects shipped`,
+    },
+    { ok: true, text: profile.status.toLowerCase() },
+];
 
 // Contact channels rendered as cards in the Contact section. The tel: href
 // is rebuilt from the digits of TextRaw - the data ships "tel:(+84)35 653
@@ -173,10 +274,7 @@ export const googleSkills = info.GoogleSkills.Data.map((s) => ({
 }));
 
 export const site = {
-    url: 'https://cv.t4vn.com',
+    url: profile.website || 'https://cv.t4vn.com',
     title: `${info.Information.FullName} — ${profile.role}`,
-    // The career-objective paragraph is 257 chars - too long for a meta
-    // description (search engines truncate ~160). The Quote line is the
-    // data's own one-line summary and fits comfortably.
     description: info.CareerObjective.Quote,
 };

@@ -1,6 +1,6 @@
 ---
 import Icon from './Icon.astro';
-import { contactChannels } from '../data';
+import { profile, contactChannels } from '../data';
 
 const labels: Record<string, string> = {
     email: 'Email',
@@ -43,7 +43,7 @@ const labels: Record<string, string> = {
             </div>
 
             <aside class="qr-card card reveal" data-delay="1">
-                <img src="/assets/images/qr-code.svg" alt="Contact QR code" loading="lazy" />
+                <img src={profile.qrCode} alt="Contact QR code" loading="lazy" />
                 <h3>Quick connect</h3>
                 <p>Scan the code to pull up my contact details on your phone.</p>
                 <div class="qr-actions">
