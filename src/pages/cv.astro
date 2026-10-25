@@ -653,9 +653,13 @@ const cvSections = siteText.Cv.Sections;
             }
 
             /* ---------- PRINT ---------- */
+            /* Vertical margins live ONLY in @page so every page - including
+               pages after a break - gets the same top/bottom spacing. The
+               sheet's horizontal padding survives even when the print dialog's
+               Margins = None overrides @page. */
             @page {
                 size: A4;
-                margin: 5mm;
+                margin: 8mm 5mm;
             }
 
             @media print {
@@ -674,13 +678,15 @@ const cvSections = siteText.Cv.Sections;
                     padding: 0;
                 }
 
-                /* Sheet padding is the guaranteed inner margin: even when the
-                   print dialog's Margins = None overrides @page, content keeps
-                   this breathing room on every sheet edge. */
+                /* Horizontal padding is the guaranteed inner margin: even when
+                   the print dialog's Margins = None overrides @page, content
+                   keeps this breathing room from the left/right paper edge.
+                   Vertical padding stays 0 so page 1 matches the @page-driven
+                   top spacing of every later page. */
                 .cv-sheet {
                     max-width: 100% !important;
                     margin: 0 !important;
-                    padding: 4mm !important;
+                    padding: 0 4mm !important;
                     border-radius: 0 !important;
                     box-shadow: none !important;
                     grid-template-columns: 56mm 1fr !important;
@@ -694,7 +700,7 @@ const cvSections = siteText.Cv.Sections;
                 .cv-side {
                     background: transparent !important;
                     border-right: 1px solid #cbd5e1 !important;
-                    padding: 0 !important;
+                    padding: 0 4mm 0 0 !important;
                     gap: 12px !important;
                 }
 
