@@ -1,0 +1,15 @@
+---
+// Renders a site.json Heading template inside the caller's <h2>:
+// plain segments pass through, [[...]] segments get the gradient span
+// (styled by the global ".section-head h2 .grad" rule).
+import { renderHeading } from '../data';
+
+interface Props {
+    template: string;
+    vars?: Record<string, string | number>;
+}
+
+const { template, vars } = Astro.props;
+const segments = renderHeading(template, vars);
+---
+{segments.map((s) => (s.grad ? <span class="grad">{s.text}</span> : s.text))}

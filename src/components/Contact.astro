@@ -1,25 +1,15 @@
 ---
 import Icon from './Icon.astro';
-import { profile, contactChannels } from '../data';
-
-const labels: Record<string, string> = {
-    email: 'Email',
-    phone: 'Phone',
-    skype: 'Skype',
-    github: 'GitHub',
-    website: 'Website',
-};
+import SectionHeading from './SectionHeading.astro';
+import { profile, contactChannels, siteText } from '../data';
 ---
 
 <section class="section" id="contact">
     <div class="container">
         <div class="section-head center reveal">
-            <span class="eyebrow">Contact</span>
-            <h2>Let's build something <span class="grad">together</span></h2>
-            <p>
-                Have a project in mind, a role to fill, or just want to talk tech?
-                Any channel below reaches me directly.
-            </p>
+            <span class="eyebrow">{siteText.Sections.Contact.Eyebrow}</span>
+            <h2><SectionHeading template={siteText.Sections.Contact.Heading} /></h2>
+            <p>{siteText.Sections.Contact.Description}</p>
         </div>
 
         <div class="contact-grid">
@@ -34,7 +24,7 @@ const labels: Record<string, string> = {
                     >
                         <span class="cc-icon"><Icon name={channel.Icon} size={19} /></span>
                         <span class="cc-body">
-                            <span class="cc-label">{labels[channel.Type] ?? channel.Type}</span>
+                            <span class="cc-label">{channel.Label ?? channel.Type}</span>
                             <span class="cc-value">{channel.TextRaw}</span>
                         </span>
                         <Icon name="arrow-right" size={16} class="cc-arrow" />
@@ -44,12 +34,12 @@ const labels: Record<string, string> = {
 
             <aside class="qr-card card reveal" data-delay="1">
                 <img src={profile.qrCode} alt="Contact QR code" loading="lazy" />
-                <h3>Quick connect</h3>
-                <p>Scan the code to pull up my contact details on your phone.</p>
+                <h3>{siteText.Sections.Contact.QrTitle}</h3>
+                <p>{siteText.Sections.Contact.QrDescription}</p>
                 <div class="qr-actions">
                     <a href="/cv" class="btn btn-primary" target="_blank">
                         <Icon name="external" size={15} />
-                        View / Print CV
+                        {siteText.Sections.Contact.QrButton}
                     </a>
                 </div>
             </aside>

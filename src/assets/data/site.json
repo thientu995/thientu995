@@ -1,0 +1,90 @@
+{
+    "Nav": [
+        { "Href": "#about", "Label": "About" },
+        { "Href": "#skills", "Label": "Skills" },
+        { "Href": "#experience", "Label": "Experience" },
+        { "Href": "#projects", "Label": "Projects" },
+        { "Href": "#services", "Label": "Services" },
+        { "Href": "#testimonials", "Label": "Testimonials" },
+        { "Href": "#contact", "Label": "Contact" }
+    ],
+    "FooterNav": [
+        { "Href": "#about", "Label": "About" },
+        { "Href": "#skills", "Label": "Skills" },
+        { "Href": "#experience", "Label": "Experience" },
+        { "Href": "#projects", "Label": "Projects" },
+        { "Href": "#services", "Label": "Services" }
+    ],
+    "Sections": {
+        "About": {
+            "Eyebrow": "About",
+            "Heading": "Driven by [[passion]], built on experience"
+        },
+        "Skills": {
+            "Eyebrow": "Skills",
+            "Heading": "A stack sharpened [[over {years} years]]"
+        },
+        "Experience": {
+            "Eyebrow": "Work Experience",
+            "Heading": "{years} years of [[shipping software]]"
+        },
+        "Education": {
+            "Eyebrow": "Education",
+            "Heading": "Foundations & [[milestones]]"
+        },
+        "Projects": {
+            "Eyebrow": "Individual Projects",
+            "Heading": "Things I've built [[on my own]]"
+        },
+        "Certificate": {
+            "Eyebrow": "Certificate",
+            "Heading": "Credentials that [[back it up]]"
+        },
+        "Services": {
+            "Eyebrow": "Services",
+            "Heading": "What I can [[do for you]]"
+        },
+        "Testimonials": {
+            "Eyebrow": "Testimonials",
+            "Heading": "Kind words from [[great clients]]"
+        },
+        "Contact": {
+            "Eyebrow": "Contact",
+            "Heading": "Let's build something [[together]]",
+            "Description": "Have a project in mind, a role to fill, or just want to talk tech? Any channel below reaches me directly.",
+            "QrTitle": "Quick connect",
+            "QrDescription": "Scan the code to pull up my contact details on your phone.",
+            "QrButton": "View / Print CV"
+        }
+    },
+    "Footer": {
+        "NavigateTitle": "Navigate",
+        "EcosystemTitle": "Ecosystem",
+        "ContactTitle": "Say hello",
+        "PoweredByLabel": "powered by",
+        "PoweredByName": "T4VN",
+        "PoweredByHref": "https://www.t4vn.com"
+    },
+    "Actions": {
+        "ViewCv": "View CV",
+        "ContactMe": "Contact me",
+        "Cv": "CV",
+        "BackToProfile": "Back to Profile",
+        "PrintPdf": "Print / Save as PDF"
+    },
+    "Cv": {
+        "TitleSuffix": "CV / Resume",
+        "MetaDescription": "Curriculum Vitae of {name} - {role}",
+        "Sections": {
+            "Contact": "Contact",
+            "TechnicalSkills": "Technical Skills",
+            "PersonalSkills": "Personal Skills",
+            "QrNote": "Scan for digital profile & links",
+            "CareerObjective": "Career Objective",
+            "WorkExperience": "Work Experience",
+            "Projects": "Key Projects & Packages",
+            "Education": "Education",
+            "Certificates": "Certificates"
+        }
+    }
+}

@@ -1,5 +1,5 @@
 ---
-import { info, profile, techSkillGroups, otherSkills, normalizeRichHtml } from '../data';
+import { info, profile, techSkillGroups, otherSkills, normalizeRichHtml, siteText, cvTitle, cvMetaDescription } from '../data';
 import Icon from '../components/Icon.astro';
 
 const emailItem = info.Information.Data.find((d) => d.Type === 'email');
@@ -8,6 +8,7 @@ const githubItem = info.Information.Data.find((d) => d.Type === 'github');
 const websiteItem = info.Information.Data.find((d) => d.Type === 'website');
 const locationItem = info.Information.Data.find((d) => d.Type === 'location');
 const birthdayItem = info.Information.Data.find((d) => d.Type === 'birthday');
+const cvSections = siteText.Cv.Sections;
 ---
 
 <!doctype html>
@@ -15,8 +16,8 @@ const birthdayItem = info.Information.Data.find((d) => d.Type === 'birthday');
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>{info.Information.FullName} - CV / Resume</title>
-        <meta name="description" content={`Curriculum Vitae of ${info.Information.FullName} - ${profile.role}`} />
+        <title>{cvTitle}</title>
+        <meta name="description" content={cvMetaDescription} />
         <meta name="robots" content="noindex, nofollow" />
         
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -617,14 +618,14 @@ const birthdayItem = info.Information.Data.find((d) => d.Type === 'birthday');
             <div class="cv-toolbar-info">
                 <a href="/" class="btn-action btn-back">
                     <Icon name="arrow-left" size={15} />
-                    Back to Profile
+                    {siteText.Actions.BackToProfile}
                 </a>
-                <span class="cv-toolbar-title">{info.Information.FullName} - CV / Resume</span>
+                <span class="cv-toolbar-title">{cvTitle}</span>
             </div>
             <div class="cv-toolbar-actions">
                 <button type="button" class="btn-action btn-print" onclick="window.print()">
                     <Icon name="download" size={15} />
-                    Print / Save as PDF
+                    {siteText.Actions.PrintPdf}
                 </button>
             </div>
         </header>
@@ -647,7 +648,7 @@ const birthdayItem = info.Information.Data.find((d) => d.Type === 'birthday');
 
                 <!-- Contact Details -->
                 <div class="sidebar-section">
-                    <h2 class="sidebar-title">Contact</h2>
+                    <h2 class="sidebar-title">{cvSections.Contact}</h2>
                     <ul class="contact-list">
                         {emailItem && (
                             <li class="contact-item">
@@ -690,7 +691,7 @@ const birthdayItem = info.Information.Data.find((d) => d.Type === 'birthday');
 
                 <!-- Technical Skills -->
                 <div class="sidebar-section">
-                    <h2 class="sidebar-title">Technical Skills</h2>
+                    <h2 class="sidebar-title">{cvSections.TechnicalSkills}</h2>
                     {techSkillGroups.map((group) => (
                         <div class="skill-group">
                             <span class="skill-year">Since {group.year}</span>
@@ -705,7 +706,7 @@ const birthdayItem = info.Information.Data.find((d) => d.Type === 'birthday');
 
                 <!-- Personal / Competency Skills -->
                 <div class="sidebar-section">
-                    <h2 class="sidebar-title">Personal Skills</h2>
+                    <h2 class="sidebar-title">{cvSections.PersonalSkills}</h2>
                     <div class="progress-list">
                         {otherSkills.map((skill) => (
                             <div>
@@ -724,7 +725,7 @@ const birthdayItem = info.Information.Data.find((d) => d.Type === 'birthday');
                 <!-- QR Quick Connect -->
                 <div class="sidebar-section qr-connect">
                     <img src={profile.qrCode} alt="Contact QR code" class="qr-image" />
-                    <p class="qr-text">Scan for digital profile & links</p>
+                    <p class="qr-text">{cvSections.QrNote}</p>
                 </div>
             </aside>
 
@@ -734,7 +735,7 @@ const birthdayItem = info.Information.Data.find((d) => d.Type === 'birthday');
                 <section class="main-section">
                     <div class="section-header">
                         <span class="section-icon"><Icon name="quote" size={18} /></span>
-                        <h2>Career Objective</h2>
+                        <h2>{cvSections.CareerObjective}</h2>
                     </div>
                     <p class="objective-text">
                         "{info.CareerObjective.Quote}"
@@ -745,7 +746,7 @@ const birthdayItem = info.Information.Data.find((d) => d.Type === 'birthday');
                 <section class="main-section">
                     <div class="section-header">
                         <span class="section-icon"><Icon name="briefcase" size={18} /></span>
-                        <h2>Work Experience</h2>
+                        <h2>{cvSections.WorkExperience}</h2>
                     </div>
                     <div class="exp-list">
                         {info.WorkExperience.Data.map((job) => (
@@ -765,7 +766,7 @@ const birthdayItem = info.Information.Data.find((d) => d.Type === 'birthday');
                 <section class="main-section">
                     <div class="section-header">
                         <span class="section-icon"><Icon name="package" size={18} /></span>
-                        <h2>Key Projects & Packages</h2>
+                        <h2>{cvSections.Projects}</h2>
                     </div>
                     <div class="grid-cards">
                         {info.IndividualProjects.Data.map((proj) => (
@@ -784,7 +785,7 @@ const birthdayItem = info.Information.Data.find((d) => d.Type === 'birthday');
                 <section class="main-section">
                     <div class="section-header">
                         <span class="section-icon"><Icon name="graduation-cap" size={18} /></span>
-                        <h2>Education</h2>
+                        <h2>{cvSections.Education}</h2>
                     </div>
                     <div class="grid-cards">
                         {info.Education.Data.map((edu) => (
@@ -803,7 +804,7 @@ const birthdayItem = info.Information.Data.find((d) => d.Type === 'birthday');
                 <section class="main-section">
                     <div class="section-header">
                         <span class="section-icon"><Icon name="award" size={18} /></span>
-                        <h2>Certificates</h2>
+                        <h2>{cvSections.Certificates}</h2>
                     </div>
                     <div class="cert-grid">
                         {info.Certificate.Data.map((cert) => (

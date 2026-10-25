@@ -8,9 +8,11 @@ import dataInfo from './assets/data/dataInfo.json';
 import facts from './assets/data/facts.json';
 import services from './assets/data/services.json';
 import testimonials from './assets/data/testimonials.json';
+import siteTextJson from './assets/data/site.json';
 
 export interface InfoItem {
     Icon: string;
+    Label?: string;
     Text: string;
     TextHref: string;
     TextRaw: string;
@@ -70,6 +72,70 @@ export interface TestimonialItem {
     Quote: string;
 }
 
+export interface NavLink {
+    Href: string;
+    Label: string;
+}
+
+// Section presentation copy from site.json. Heading is a template where
+// "[[...]]" marks the gradient span and "{token}" is filled from vars
+// (e.g. "{years} years of [[shipping software]]").
+export type SectionKey =
+    | 'About'
+    | 'Skills'
+    | 'Experience'
+    | 'Education'
+    | 'Projects'
+    | 'Certificate'
+    | 'Services'
+    | 'Testimonials'
+    | 'Contact';
+
+export interface SectionHead {
+    Eyebrow: string;
+    Heading: string;
+    Description?: string;
+    QrTitle?: string;
+    QrDescription?: string;
+    QrButton?: string;
+}
+
+export interface SiteText {
+    Nav: NavLink[];
+    FooterNav: NavLink[];
+    Sections: Record<SectionKey, SectionHead>;
+    Footer: {
+        NavigateTitle: string;
+        EcosystemTitle: string;
+        ContactTitle: string;
+        PoweredByLabel: string;
+        PoweredByName: string;
+        PoweredByHref: string;
+    };
+    Actions: {
+        ViewCv: string;
+        ContactMe: string;
+        Cv: string;
+        BackToProfile: string;
+        PrintPdf: string;
+    };
+    Cv: {
+        TitleSuffix: string;
+        MetaDescription: string;
+        Sections: {
+            Contact: string;
+            TechnicalSkills: string;
+            PersonalSkills: string;
+            QrNote: string;
+            CareerObjective: string;
+            WorkExperience: string;
+            Projects: string;
+            Education: string;
+            Certificates: string;
+        };
+    };
+}
+
 export interface DataInfo {
     Information: {
         Title: string;
@@ -127,6 +193,36 @@ export function normalizeRichHtml(html: string): string {
         .replace(/class='w3-tag color-bkg w3-round'/g, "class='badge-current'")
         .replace(/target='_blank'/g, "target='_blank' rel='noopener noreferrer'");
 }
+
+// Fill "{token}" placeholders; unknown tokens are left verbatim so a typo in
+// the JSON stays visible instead of silently deleting content.
+export function fillTemplate(
+    tpl: string,
+    vars?: Record<string, string | number>,
+): string {
+    return tpl.replace(/\{(\w+)\}/g, (m, k: string) =>
+        vars && k in vars ? String(vars[k]) : m,
+    );
+}
+
+export interface HeadingSegment {
+    text: string;
+    grad: boolean;
+}
+
+// Split a Heading template into plain/gradient segments:
+// "Driven by [[passion]], built on experience" ->
+//   [{ text: 'Driven by ' }, { text: 'passion', grad: true }, ...]
+export function renderHeading(
+    tpl: string,
+    vars?: Record<string, string | number>,
+): HeadingSegment[] {
+    return fillTemplate(tpl, vars)
+        .split(/\[\[|\]\]/)
+        .map((text, i) => ({ text, grad: i % 2 === 1 }));
+}
+
+export const siteText = siteTextJson as unknown as SiteText;
 
 export const info = dataInfo as unknown as DataInfo;
 export const factsData = facts as unknown as { Title: string; Description: string; Data: FactItem[] };
@@ -215,6 +311,11 @@ export const ecosystem: EcosystemItem[] = info.Ecosystem ?? [
     { Href: profile.github, Label: 'GitHub', Note: 'Source & projects' },
 ];
 
+// Shared placeholders for site.json Heading templates.
+export const headingVars = {
+    years: profile.yearsOfExperience,
+};
+
 // Terminal lines for Hero interactive visual
 export const terminalLines = [
     { prompt: true, text: 'whoami' },
@@ -278,3 +379,10 @@ export const site = {
     title: `${info.Information.FullName} — ${profile.role}`,
     description: info.CareerObjective.Quote,
 };
+
+// CV page title/meta, filled from the site.json templates.
+export const cvTitle = `${info.Information.FullName} - ${siteText.Cv.TitleSuffix}`;
+export const cvMetaDescription = fillTemplate(siteText.Cv.MetaDescription, {
+    name: info.Information.FullName,
+    role: profile.role,
+});

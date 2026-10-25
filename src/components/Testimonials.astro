@@ -1,6 +1,7 @@
 ---
 import Icon from './Icon.astro';
-import { testimonialsData } from '../data';
+import SectionHeading from './SectionHeading.astro';
+import { testimonialsData, siteText } from '../data';
 
 // 96px WebP thumbs are generated next to the full-size PNGs by
 // scripts/optimize-images.mjs; fall back to the data's original if one
@@ -11,8 +12,8 @@ const thumb = (img) => img.replace(/\.(png|jpe?g)$/i, '.webp');
 <section class="section" id="testimonials">
     <div class="container">
         <div class="section-head center reveal">
-            <span class="eyebrow">{testimonialsData.Title}</span>
-            <h2>Kind words from <span class="grad">great clients</span></h2>
+            <span class="eyebrow">{siteText.Sections.Testimonials.Eyebrow}</span>
+            <h2><SectionHeading template={siteText.Sections.Testimonials.Heading} /></h2>
         </div>
 
         <div class="ts-wrap reveal" data-slider>

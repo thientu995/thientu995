@@ -1,6 +1,7 @@
 ---
 import Icon from './Icon.astro';
-import { servicesData } from '../data';
+import SectionHeading from './SectionHeading.astro';
+import { servicesData, siteText } from '../data';
 
 // Map the data's IconBoxColor names onto the four T4VN brand accents.
 const accentMap: Record<string, { color: string; soft: string }> = {
@@ -16,8 +17,8 @@ const accentMap: Record<string, { color: string; soft: string }> = {
 <section class="section" id="services">
     <div class="container">
         <div class="section-head center reveal">
-            <span class="eyebrow">{servicesData.Title}</span>
-            <h2>What I can <span class="grad">do for you</span></h2>
+            <span class="eyebrow">{siteText.Sections.Services.Eyebrow}</span>
+            <h2><SectionHeading template={siteText.Sections.Services.Heading} /></h2>
             <p>{servicesData.Description}</p>
         </div>
 

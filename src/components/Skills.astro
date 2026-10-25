@@ -1,13 +1,14 @@
 ---
 import Icon from './Icon.astro';
-import { info, profile, techSkillGroups, otherSkills, googleSkills } from '../data';
+import SectionHeading from './SectionHeading.astro';
+import { info, techSkillGroups, otherSkills, googleSkills, siteText, headingVars } from '../data';
 ---
 
 <section class="section" id="skills">
     <div class="container">
         <div class="section-head reveal">
-            <span class="eyebrow">Skills</span>
-            <h2>A stack sharpened <span class="grad">over {profile.yearsOfExperience} years</span></h2>
+            <span class="eyebrow">{siteText.Sections.Skills.Eyebrow}</span>
+            <h2><SectionHeading template={siteText.Sections.Skills.Heading} vars={headingVars} /></h2>
         </div>
 
         <div class="skills-grid">

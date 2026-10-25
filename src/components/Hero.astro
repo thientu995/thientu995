@@ -1,6 +1,6 @@
 ---
 import Icon from './Icon.astro';
-import { info, profile, socials, terminalLines } from '../data';
+import { info, profile, socials, terminalLines, siteText } from '../data';
 ---
 
 <section class="hero" id="hero">
@@ -28,11 +28,11 @@ import { info, profile, socials, terminalLines } from '../data';
             <div class="hero-actions reveal in" data-delay="3">
                 <a href="/cv" class="btn btn-primary">
                     <Icon name="external" size={16} />
-                    View CV
+                    {siteText.Actions.ViewCv}
                 </a>
                 <a href="#contact" class="btn btn-ghost">
                     <Icon name="send" size={16} />
-                    Contact me
+                    {siteText.Actions.ContactMe}
                 </a>
             </div>
 
@@ -87,7 +87,7 @@ import { info, profile, socials, terminalLines } from '../data';
                             {line.text}
                         </div>
                     ))}
-                    <div class="cmd caret" style={`--i:${term.length}`}>
+                    <div class="cmd caret" style={`--i:${terminalLines.length}`}>
                         <span class="prompt">$</span><span class="cursor"></span>
                     </div>
                 </div>

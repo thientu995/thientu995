@@ -1,16 +1,8 @@
 ---
 import Icon from './Icon.astro';
-import { profile } from '../data';
+import { profile, siteText } from '../data';
 
-const navLinks = [
-    { href: '#about', label: 'About' },
-    { href: '#skills', label: 'Skills' },
-    { href: '#experience', label: 'Experience' },
-    { href: '#projects', label: 'Projects' },
-    { href: '#services', label: 'Services' },
-    { href: '#testimonials', label: 'Testimonials' },
-    { href: '#contact', label: 'Contact' },
-];
+const navLinks = siteText.Nav;
 ---
 
 <header class="site-header">
@@ -25,7 +17,7 @@ const navLinks = [
 
         <nav class="header-nav" id="header-nav" aria-label="Primary">
             <span class="nav-menu" id="nav-menu">
-                {navLinks.map((link) => <a href={link.href} class="nav-spy">{link.label}</a>)}
+                {navLinks.map((link) => <a href={link.Href} class="nav-spy">{link.Label}</a>)}
             </span>
             <span class="nav-actions">
                 <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch theme">
@@ -34,7 +26,7 @@ const navLinks = [
                 </button>
                 <a href="/cv" class="btn btn-primary btn-cv">
                     <Icon name="external" size={14} />
-                    CV
+                    {siteText.Actions.Cv}
                 </a>
                 <a
                     href={profile.github}

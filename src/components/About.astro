@@ -1,13 +1,7 @@
 ---
 import Icon from './Icon.astro';
-import { info, profile, personalFacts, normalizeRichHtml } from '../data';
-
-// Map the data "Type" keys onto human labels (frontmatter = build time).
-const typeLabels: Record<string, string> = {
-    title: 'Role',
-    birthday: 'Birthday',
-    location: 'Location',
-};
+import SectionHeading from './SectionHeading.astro';
+import { info, profile, personalFacts, normalizeRichHtml, siteText } from '../data';
 
 const emailItem = info.Information.Data.find((d) => d.Type === 'email');
 ---
@@ -16,8 +10,8 @@ const emailItem = info.Information.Data.find((d) => d.Type === 'email');
     <div class="container about-grid">
         <div class="about-main">
             <div class="section-head reveal">
-                <span class="eyebrow">{info.Information.Title}</span>
-                <h2>Driven by <span class="grad">passion</span>, built on experience</h2>
+                <span class="eyebrow">{siteText.Sections.About.Eyebrow}</span>
+                <h2><SectionHeading template={siteText.Sections.About.Heading} /></h2>
             </div>
 
             <blockquote class="quote reveal" data-delay="1">
@@ -40,7 +34,7 @@ const emailItem = info.Information.Data.find((d) => d.Type === 'email');
                         <span class="q-icon-box">
                             <Icon name={item.Icon} size={15} />
                         </span>
-                        <span class="q-label">{typeLabels[item.Type] ?? item.Type}</span>
+                        <span class="q-label">{item.Label ?? item.Type}</span>
                         <span class="q-value">
                             {item.TextRaw}
                         </span>
@@ -48,14 +42,14 @@ const emailItem = info.Information.Data.find((d) => d.Type === 'email');
                 ))}
                 <li>
                     <span class="q-icon-box"><Icon name="envelope" size={15} /></span>
-                    <span class="q-label">Email</span>
+                    <span class="q-label">{emailItem?.Label ?? 'Email'}</span>
                     <a class="q-value" href={emailItem?.TextHref}>{emailItem?.TextRaw}</a>
                 </li>
             </ul>
 
             <a href="/cv" class="btn btn-primary cv-btn">
                 <Icon name="external" size={15} />
-                View CV
+                {siteText.Actions.ViewCv}
             </a>
         </aside>
     </div>

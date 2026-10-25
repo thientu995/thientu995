@@ -1,13 +1,14 @@
 ---
-import { info, profile, normalizeRichHtml } from '../data';
+import { info, normalizeRichHtml, siteText, headingVars } from '../data';
 import Icon from './Icon.astro';
+import SectionHeading from './SectionHeading.astro';
 ---
 
 <section class="section" id="experience">
     <div class="container">
         <div class="section-head reveal">
-            <span class="eyebrow">{info.WorkExperience.Text}</span>
-            <h2>{profile.yearsOfExperience} years of <span class="grad">shipping software</span></h2>
+            <span class="eyebrow">{siteText.Sections.Experience.Eyebrow}</span>
+            <h2><SectionHeading template={siteText.Sections.Experience.Heading} vars={headingVars} /></h2>
         </div>
 
         <div class="tl">

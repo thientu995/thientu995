@@ -1,13 +1,14 @@
 ---
-import { info, normalizeRichHtml } from '../data';
+import { info, normalizeRichHtml, siteText } from '../data';
 import Icon from './Icon.astro';
+import SectionHeading from './SectionHeading.astro';
 ---
 
 <section class="section" id="projects">
     <div class="container">
         <div class="section-head reveal">
-            <span class="eyebrow">{info.IndividualProjects.Text}</span>
-            <h2>Things I've built <span class="grad">on my own</span></h2>
+            <span class="eyebrow">{siteText.Sections.Projects.Eyebrow}</span>
+            <h2><SectionHeading template={siteText.Sections.Projects.Heading} /></h2>
         </div>
 
         <div class="proj-grid">
@@ -26,8 +27,8 @@ import Icon from './Icon.astro';
 
     <div class="container certs">
         <div class="section-head reveal">
-            <span class="eyebrow">{info.Certificate.Text}</span>
-            <h2>Credentials that <span class="grad">back it up</span></h2>
+            <span class="eyebrow">{siteText.Sections.Certificate.Eyebrow}</span>
+            <h2><SectionHeading template={siteText.Sections.Certificate.Heading} /></h2>
         </div>
 
         <div class="cert-grid">

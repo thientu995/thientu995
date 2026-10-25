@@ -1,13 +1,14 @@
 ---
-import { info, normalizeRichHtml } from '../data';
+import { info, normalizeRichHtml, siteText } from '../data';
 import Icon from './Icon.astro';
+import SectionHeading from './SectionHeading.astro';
 ---
 
 <section class="section" id="education">
     <div class="container">
         <div class="section-head reveal">
-            <span class="eyebrow">{info.Education.Text}</span>
-            <h2>Foundations & <span class="grad">milestones</span></h2>
+            <span class="eyebrow">{siteText.Sections.Education.Eyebrow}</span>
+            <h2><SectionHeading template={siteText.Sections.Education.Heading} /></h2>
         </div>
 
         <div class="edu-grid">
