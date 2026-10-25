@@ -1,11 +1,6 @@
 ---
 import { info, normalizeRichHtml } from '../data';
 import Icon from './Icon.astro';
-
-// Only the short notes pair up in one row; entries with real content
-// (the degree's long nested list) take the full width instead.
-const PAIR_MAX_CHARS = 100;
-const isShort = (value: string[]) => value.join('').length < PAIR_MAX_CHARS;
 ---
 
 <section class="section" id="education">
@@ -17,10 +12,7 @@ const isShort = (value: string[]) => value.join('').length < PAIR_MAX_CHARS;
 
         <div class="edu-grid">
             {info.Education.Data.map((entry, i) => (
-                <article
-                    class:list={["edu-card", "card", "reveal", { "edu-pair": isShort(entry.Value) }]}
-                    data-delay={String(i % 2)}
-                >
+                <article class="edu-card card reveal" data-delay={String(i % 2)}>
                     <header>
                         <span class="edu-icon"><Icon name="graduation-cap" size={19} /></span>
                         <div>
@@ -39,23 +31,14 @@ const isShort = (value: string[]) => value.join('').length < PAIR_MAX_CHARS;
 <style lang="scss">
     @use '../styles/tokens';
 
+    // One full-width card per row, matching the Experience timeline above.
     .edu-grid {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
         gap: 18px;
-        align-items: start;
     }
 
     .edu-card {
         padding: 26px;
-
-        // Default to full-width so long entries don't strand an empty column;
-        // short notes opt out and share a row side by side.
-        grid-column: 1 / -1;
-
-        &.edu-pair {
-            grid-column: auto;
-        }
     }
 
     header {
@@ -92,11 +75,5 @@ const isShort = (value: string[]) => value.join('').length < PAIR_MAX_CHARS;
 
     .tl-loc {
         margin-bottom: 12px;
-    }
-
-    @media (max-width: 860px) {
-        .edu-grid {
-            grid-template-columns: 1fr;
-        }
     }
 </style>
