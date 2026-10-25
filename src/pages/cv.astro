@@ -2,12 +2,24 @@
 import { info, profile, techSkillGroups, otherSkills, normalizeRichHtml, siteText, cvTitle, cvMetaDescription } from '../data';
 import Icon from '../components/Icon.astro';
 
-const emailItem = info.Information.Data.find((d) => d.Type === 'email');
-const phoneItem = info.Information.Data.find((d) => d.Type === 'phone');
-const githubItem = info.Information.Data.find((d) => d.Type === 'github');
-const websiteItem = info.Information.Data.find((d) => d.Type === 'website');
-const locationItem = info.Information.Data.find((d) => d.Type === 'location');
-const birthdayItem = info.Information.Data.find((d) => d.Type === 'birthday');
+// Header-band contact items in display order; hrefs rebuilt for email/phone.
+const contactOrder = ['email', 'phone', 'location', 'github', 'website', 'birthday'];
+const contactItems = contactOrder
+    .map((type) => info.Information.Data.find((d) => d.Type === type))
+    .filter((d) => Boolean(d))
+    .map((d) => ({
+        icon: d!.Icon,
+        text: d!.TextRaw,
+        href:
+            d!.Type === 'email'
+                ? `mailto:${d!.TextRaw}`
+                : d!.Type === 'phone'
+                    ? profile.phoneHref
+                    : d!.Type === 'github' || d!.Type === 'website'
+                        ? d!.TextHref
+                        : '',
+    }));
+
 const cvSections = siteText.Cv.Sections;
 ---
 
@@ -38,7 +50,7 @@ const cvSections = siteText.Cv.Sections;
                 --accent: #7c4dff;
                 --accent-deep: #5b21b6;
                 --accent-soft: #f1ebff;
-                --side-bg: #faf9fe;
+                --band-bg: #faf9fe;
                 --card-bg: #f8fafc;
             }
 
@@ -139,50 +151,50 @@ const cvSections = siteText.Cv.Sections;
                 box-shadow:
                     0 24px 48px -20px rgba(15, 23, 42, 0.25),
                     0 8px 20px -12px rgba(91, 33, 182, 0.18);
-                display: grid;
-                grid-template-columns: 292px 1fr;
                 overflow: hidden;
             }
 
-            /* ---------- Sidebar ---------- */
-            .cv-side {
-                background: var(--side-bg);
-                border-right: 1px solid var(--line);
-                padding: 30px 24px;
-                display: flex;
-                flex-direction: column;
-                gap: 24px;
-            }
-
-            .identity {
-                text-align: center;
-                padding-bottom: 4px;
+            /* ---------- Header band ---------- */
+            .cv-header {
+                display: grid;
+                grid-template-columns: auto 1fr auto;
+                gap: 20px;
+                align-items: center;
+                padding: 26px 28px;
+                background: var(--band-bg);
+                border-bottom: 1px solid var(--line);
             }
 
             .avatar {
-                width: 112px;
-                height: 112px;
+                width: 92px;
+                height: 92px;
                 border-radius: 50%;
                 object-fit: cover;
                 border: 3px solid #ffffff;
                 outline: 3px solid var(--accent);
                 outline-offset: -6px;
                 box-shadow: 0 10px 24px -10px rgba(124, 77, 255, 0.45);
-                margin-bottom: 14px;
             }
 
             .cv-name {
                 font-family: 'Space Grotesk', 'Inter', sans-serif;
-                font-size: 21px;
+                font-size: 22px;
                 font-weight: 700;
                 letter-spacing: -0.01em;
                 color: var(--ink);
-                line-height: 1.25;
+                line-height: 1.2;
+            }
+
+            .identity-pills {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                gap: 8px;
+                margin-top: 8px;
             }
 
             .cv-role {
                 display: inline-block;
-                margin-top: 7px;
                 font: 600 11px 'JetBrains Mono', monospace;
                 letter-spacing: 0.08em;
                 text-transform: uppercase;
@@ -196,7 +208,6 @@ const cvSections = siteText.Cv.Sections;
                 display: inline-flex;
                 align-items: center;
                 gap: 6px;
-                margin-top: 10px;
                 font-size: 11.5px;
                 font-weight: 500;
                 color: #15803d;
@@ -212,59 +223,97 @@ const cvSections = siteText.Cv.Sections;
                 background: #22c55e;
             }
 
-            .side-sec {
-                display: flex;
-                flex-direction: column;
-                gap: 11px;
-            }
-
-            .side-title {
-                font: 700 11px 'Inter', sans-serif;
-                letter-spacing: 0.1em;
-                text-transform: uppercase;
-                color: var(--accent-deep);
-                border-bottom: 2px solid var(--accent-soft);
-                padding-bottom: 6px;
-            }
-
-            .contact-list {
+            .header-contact {
                 list-style: none;
                 display: flex;
-                flex-direction: column;
-                gap: 9px;
+                flex-wrap: wrap;
+                gap: 7px 18px;
+                margin-top: 13px;
             }
 
-            .contact-item {
+            .header-contact li {
                 display: flex;
                 align-items: center;
-                gap: 9px;
+                gap: 6px;
                 font-size: 12.5px;
                 color: var(--body-c);
                 overflow-wrap: anywhere;
             }
 
-            .contact-item a {
+            .hc-icon {
+                color: var(--accent);
+                display: inline-flex;
+                flex-shrink: 0;
+            }
+
+            .header-contact a {
                 color: var(--body-c);
                 text-decoration: none;
             }
 
-            .contact-item a:hover {
+            .header-contact a:hover {
                 color: var(--accent);
                 text-decoration: underline;
             }
 
-            .contact-icon {
-                color: var(--accent);
-                flex-shrink: 0;
-                display: inline-flex;
+            .header-qr {
+                text-align: center;
             }
 
-            .skill-group {
-                margin-bottom: 10px;
+            .header-qr img {
+                width: 84px;
+                height: 84px;
+                background: #ffffff;
+                padding: 5px;
+                border-radius: 10px;
+                border: 1px solid var(--line);
             }
 
-            .skill-group:last-child {
-                margin-bottom: 0;
+            .header-qr p {
+                margin-top: 5px;
+                font-size: 9.5px;
+                color: var(--muted);
+                max-width: 96px;
+            }
+
+            /* ---------- Full-width bands ---------- */
+            .cv-objective {
+                padding: 20px 28px;
+                border-bottom: 1px solid var(--line);
+            }
+
+            .cv-skills {
+                padding: 22px 28px 24px;
+                border-bottom: 1px solid var(--line);
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .objective-text {
+                margin-top: 12px;
+                font-size: 13.5px;
+                line-height: 1.65;
+                color: var(--body-c);
+                font-style: italic;
+                background: var(--accent-soft);
+                padding: 13px 16px;
+                border-left: 3px solid var(--accent);
+                border-radius: 0 10px 10px 0;
+            }
+
+            .sk-groups {
+                margin-top: 13px;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 12px 26px;
+            }
+
+            .sk-group {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 7px;
             }
 
             .skill-year {
@@ -276,7 +325,6 @@ const cvSections = siteText.Cv.Sections;
                 background: var(--accent-soft);
                 border-radius: 4px;
                 padding: 2px 7px;
-                margin-bottom: 6px;
             }
 
             .skill-tags {
@@ -295,10 +343,11 @@ const cvSections = siteText.Cv.Sections;
                 font-weight: 500;
             }
 
-            .progress-list {
-                display: flex;
-                flex-direction: column;
-                gap: 9px;
+            .progress-grid {
+                margin-top: 13px;
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 12px 30px;
             }
 
             .progress-item-head {
@@ -330,33 +379,26 @@ const cvSections = siteText.Cv.Sections;
                 border-radius: 999px;
             }
 
-            .qr-connect {
-                text-align: center;
-                padding-top: 2px;
-            }
-
-            .qr-image {
-                width: 96px;
-                height: 96px;
-                background: #ffffff;
-                padding: 6px;
-                border-radius: 10px;
-                border: 1px solid var(--line);
-                margin: 0 auto 6px;
-            }
-
-            .qr-text {
-                font-size: 11px;
-                color: var(--muted);
-            }
-
-            /* ---------- Main column ---------- */
+            /* ---------- Main body ---------- */
             .cv-body {
-                padding: 32px 30px;
+                padding: 26px 28px 30px;
                 display: flex;
                 flex-direction: column;
-                gap: 26px;
-                min-width: 0;
+                gap: 28px;
+            }
+
+            .cv-duo {
+                display: grid;
+                grid-template-columns: 58fr 42fr;
+            }
+
+            .duo-a {
+                padding-right: 26px;
+            }
+
+            .duo-b {
+                border-left: 1px solid var(--line);
+                padding-left: 26px;
             }
 
             .body-sec {
@@ -398,17 +440,6 @@ const cvSections = siteText.Cv.Sections;
                 height: 2px;
                 border-radius: 2px;
                 background: linear-gradient(90deg, var(--accent-soft), transparent);
-            }
-
-            .objective-text {
-                font-size: 13.5px;
-                line-height: 1.65;
-                color: var(--body-c);
-                font-style: italic;
-                background: var(--accent-soft);
-                padding: 13px 16px;
-                border-left: 3px solid var(--accent);
-                border-radius: 0 10px 10px 0;
             }
 
             /* Experience timeline */
@@ -520,6 +551,7 @@ const cvSections = siteText.Cv.Sections;
             .rich a {
                 color: var(--accent-deep);
                 text-decoration: none;
+                overflow-wrap: anywhere;
             }
 
             .rich a:hover {
@@ -606,7 +638,7 @@ const cvSections = siteText.Cv.Sections;
             /* Certificates */
             .cert-grid {
                 display: grid;
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: repeat(3, 1fr);
                 gap: 11px;
             }
 
@@ -689,73 +721,107 @@ const cvSections = siteText.Cv.Sections;
                     padding: 0 4mm !important;
                     border-radius: 0 !important;
                     box-shadow: none !important;
-                    grid-template-columns: 56mm 1fr !important;
-                    gap: 5mm !important;
                     -webkit-print-color-adjust: exact;
                     print-color-adjust: exact;
                     orphans: 3;
                     widows: 3;
                 }
 
-                .cv-side {
+                .cv-header {
+                    padding: 0 0 3mm !important;
+                    gap: 4mm !important;
                     background: transparent !important;
-                    border-right: 1px solid #cbd5e1 !important;
-                    padding: 0 4mm 0 0 !important;
-                    gap: 12px !important;
-                }
-
-                .cv-body {
-                    padding: 0 !important;
-                    gap: 14px !important;
-                }
-
-                .identity {
-                    text-align: left;
+                    border-bottom: 1px solid #cbd5e1 !important;
+                    break-inside: avoid;
                 }
 
                 .avatar {
-                    width: 24mm !important;
-                    height: 24mm !important;
-                    margin-bottom: 8px !important;
+                    width: 20mm !important;
+                    height: 20mm !important;
                     outline-offset: -5px !important;
+                    box-shadow: none !important;
                 }
 
                 .cv-name {
-                    font-size: 15px !important;
+                    font-size: 14px !important;
+                }
+
+                .identity-pills {
+                    gap: 4px !important;
+                    margin-top: 3px !important;
                 }
 
                 .cv-role {
-                    font-size: 8.5px !important;
-                    padding: 3px 9px !important;
+                    font-size: 8px !important;
+                    padding: 2px 8px !important;
                 }
 
                 .status-pill {
-                    display: none;
+                    font-size: 8px !important;
+                    padding: 2px 7px !important;
                 }
 
-                .side-sec {
-                    gap: 7px !important;
+                .status-pill i {
+                    width: 5px !important;
+                    height: 5px !important;
                 }
 
-                .side-title {
+                .header-contact {
+                    gap: 2px 13px !important;
+                    margin-top: 4px !important;
+                }
+
+                .header-contact li {
                     font-size: 9px !important;
-                    padding-bottom: 4px !important;
                 }
 
-                .contact-list {
-                    gap: 5px !important;
+                .hc-icon svg {
+                    width: 10px !important;
+                    height: 10px !important;
                 }
 
-                .contact-item {
-                    font-size: 9.5px !important;
+                .header-qr img {
+                    width: 17mm !important;
+                    height: 17mm !important;
+                    padding: 2px !important;
+                    border-color: #cbd5e1 !important;
                 }
 
-                .skill-group {
-                    margin-bottom: 6px !important;
+                .header-qr p {
+                    font-size: 7px !important;
+                    margin-top: 2px !important;
+                }
+
+                .cv-objective {
+                    padding: 3mm 0 !important;
+                    border-bottom: 1px solid #cbd5e1 !important;
+                    break-inside: avoid;
+                }
+
+                .objective-text {
+                    margin-top: 8px !important;
+                    font-size: 10px !important;
+                    padding: 8px 11px !important;
+                }
+
+                .cv-skills {
+                    padding: 3mm 0 !important;
+                    border-bottom: 1px solid #cbd5e1 !important;
+                    gap: 2.5mm !important;
+                    break-inside: avoid;
+                }
+
+                .sk-groups {
+                    margin-top: 8px !important;
+                    gap: 2mm 5mm !important;
+                }
+
+                .sk-group {
+                    gap: 4px !important;
                 }
 
                 .skill-year {
-                    font-size: 8px !important;
+                    font-size: 7.5px !important;
                 }
 
                 .skill-tag {
@@ -764,8 +830,10 @@ const cvSections = siteText.Cv.Sections;
                     border: 1px solid #cbd5e1 !important;
                 }
 
-                .progress-list {
-                    gap: 5px !important;
+                .progress-grid {
+                    margin-top: 8px !important;
+                    grid-template-columns: repeat(3, 1fr) !important;
+                    gap: 2mm 6mm !important;
                 }
 
                 .progress-item-head {
@@ -781,8 +849,22 @@ const cvSections = siteText.Cv.Sections;
                     height: 3.5px !important;
                 }
 
-                .qr-connect {
-                    display: none;
+                .cv-body {
+                    padding: 4mm 0 0 !important;
+                    gap: 5mm !important;
+                }
+
+                .cv-duo {
+                    grid-template-columns: 58fr 42fr !important;
+                }
+
+                .duo-a {
+                    padding-right: 5mm !important;
+                }
+
+                .duo-b {
+                    border-left: 1px solid #cbd5e1 !important;
+                    padding-left: 5mm !important;
                 }
 
                 .body-sec {
@@ -801,11 +883,6 @@ const cvSections = siteText.Cv.Sections;
 
                 .sec-head h2 {
                     font-size: 11.5px !important;
-                }
-
-                .objective-text {
-                    font-size: 10.5px !important;
-                    padding: 8px 11px !important;
                 }
 
                 .exp-list {
@@ -929,15 +1006,10 @@ const cvSections = siteText.Cv.Sections;
                 }
 
                 /* Section headers stay glued to their first block; only the
-                   small cards above get break-inside: avoid, so long sections
+                   small blocks above get break-inside: avoid, so long columns
                    flow naturally instead of each claiming a fresh page. */
                 .sec-head {
                     break-after: avoid;
-                }
-
-                .side-sec,
-                .identity {
-                    break-inside: avoid;
                 }
 
                 a {
@@ -947,14 +1019,61 @@ const cvSections = siteText.Cv.Sections;
             }
 
             /* ---------- Responsive ---------- */
-            @media (max-width: 860px) {
-                .cv-sheet {
+            @media (max-width: 920px) {
+                .cv-duo {
                     grid-template-columns: 1fr;
+                    gap: 24px;
                 }
 
-                .cv-side {
-                    border-right: none;
-                    border-bottom: 1px solid var(--line);
+                .duo-a {
+                    padding-right: 0;
+                }
+
+                .duo-b {
+                    border-left: none;
+                    padding-left: 0;
+                    border-top: 1px solid var(--line);
+                    padding-top: 22px;
+                }
+
+                .progress-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+
+                .cert-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+            }
+
+            @media (max-width: 620px) {
+                .cv-header {
+                    grid-template-columns: 1fr;
+                    justify-items: center;
+                    text-align: center;
+                    padding: 24px 20px;
+                }
+
+                .header-qr {
+                    display: none;
+                }
+
+                .identity-pills,
+                .header-contact {
+                    justify-content: center;
+                }
+
+                .cv-objective,
+                .cv-skills {
+                    padding-inline: 20px;
+                }
+
+                .cv-body {
+                    padding: 22px 20px 26px;
+                }
+
+                .progress-grid,
+                .cert-grid {
+                    grid-template-columns: 1fr;
                 }
 
                 .cv-toolbar {
@@ -970,20 +1089,6 @@ const cvSections = siteText.Cv.Sections;
                 .btn-action {
                     padding: 7px 12px;
                     font-size: 12px;
-                }
-            }
-
-            @media (max-width: 560px) {
-                .cert-grid {
-                    grid-template-columns: 1fr;
-                }
-
-                .cv-body {
-                    padding: 22px 18px;
-                }
-
-                .cv-side {
-                    padding: 22px 18px;
                 }
             }
         </style>
@@ -1008,84 +1113,83 @@ const cvSections = siteText.Cv.Sections;
 
         <main class="cv-stage">
             <div class="cv-sheet">
-                <!-- Left Column: Identity, contact, skills -->
-                <aside class="cv-side">
+                <!-- Summary band: identity + contact + QR -->
+                <header class="cv-header">
+                    <img
+                        src={profile.avatarCv}
+                        alt={info.Information.FullName}
+                        class="avatar"
+                        width="92"
+                        height="92"
+                    />
                     <div class="identity">
-                        <img
-                            src={profile.avatarCv}
-                            alt={info.Information.FullName}
-                            class="avatar"
-                            width="112"
-                            height="112"
-                        />
                         <h1 class="cv-name">{info.Information.FullName}</h1>
-                        <p class="cv-role">{profile.role}</p>
-                        <br />
-                        <span class="status-pill"><i></i>{profile.status}</span>
-                    </div>
-
-                    <!-- Contact Details -->
-                    <section class="side-sec">
-                        <h2 class="side-title">{cvSections.Contact}</h2>
-                        <ul class="contact-list">
-                            {emailItem && (
-                                <li class="contact-item">
-                                    <span class="contact-icon"><Icon name="mail" size={14} /></span>
-                                    <a href={`mailto:${emailItem.TextRaw}`}>{emailItem.TextRaw}</a>
+                        <div class="identity-pills">
+                            <span class="cv-role">{profile.role}</span>
+                            <span class="status-pill"><i></i>{profile.status}</span>
+                        </div>
+                        <ul class="header-contact">
+                            {contactItems.map((c) => (
+                                <li>
+                                    <span class="hc-icon"><Icon name={c.icon} size={13} /></span>
+                                    {c.href ? (
+                                        <a
+                                            href={c.href}
+                                            target={c.href.startsWith('http') ? '_blank' : undefined}
+                                            rel={c.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                                        >
+                                            {c.text}
+                                        </a>
+                                    ) : (
+                                        <span>{c.text}</span>
+                                    )}
                                 </li>
-                            )}
-                            {phoneItem && (
-                                <li class="contact-item">
-                                    <span class="contact-icon"><Icon name="phone" size={14} /></span>
-                                    <a href={profile.phoneHref}>{phoneItem.TextRaw}</a>
-                                </li>
-                            )}
-                            {locationItem && (
-                                <li class="contact-item">
-                                    <span class="contact-icon"><Icon name="map-pin" size={14} /></span>
-                                    <span>{locationItem.TextRaw}</span>
-                                </li>
-                            )}
-                            {githubItem && (
-                                <li class="contact-item">
-                                    <span class="contact-icon"><Icon name="github" size={14} /></span>
-                                    <a href={githubItem.TextHref} target="_blank" rel="noopener noreferrer">{githubItem.TextRaw}</a>
-                                </li>
-                            )}
-                            {websiteItem && (
-                                <li class="contact-item">
-                                    <span class="contact-icon"><Icon name="globe" size={14} /></span>
-                                    <a href={websiteItem.TextHref} target="_blank" rel="noopener noreferrer">{websiteItem.TextRaw}</a>
-                                </li>
-                            )}
-                            {birthdayItem && (
-                                <li class="contact-item">
-                                    <span class="contact-icon"><Icon name="calendar" size={14} /></span>
-                                    <span>{birthdayItem.TextRaw}</span>
-                                </li>
-                            )}
+                            ))}
                         </ul>
-                    </section>
+                    </div>
+                    <div class="header-qr">
+                        <img src={profile.qrCode} alt="Contact QR code" width="84" height="84" loading="lazy" />
+                        <p>{cvSections.QrNote}</p>
+                    </div>
+                </header>
 
-                    <!-- Technical Skills -->
-                    <section class="side-sec">
-                        <h2 class="side-title">{cvSections.TechnicalSkills}</h2>
-                        {techSkillGroups.map((group) => (
-                            <div class="skill-group">
-                                <span class="skill-year">Since {group.year}</span>
-                                <div class="skill-tags">
-                                    {group.items.map((item) => (
-                                        <span class="skill-tag">{item}</span>
-                                    ))}
+                <!-- Career Objective band -->
+                <section class="cv-objective">
+                    <div class="sec-head">
+                        <span class="sec-ico"><Icon name="quote" size={16} /></span>
+                        <h2>{cvSections.CareerObjective}</h2>
+                    </div>
+                    <p class="objective-text">
+                        "{info.CareerObjective.Quote}"
+                    </p>
+                </section>
+
+                <!-- Skills band -->
+                <section class="cv-skills">
+                    <div class="sk-block">
+                        <div class="sec-head">
+                            <span class="sec-ico"><Icon name={info.ProgrommingSkills.Icon} size={16} /></span>
+                            <h2>{cvSections.TechnicalSkills}</h2>
+                        </div>
+                        <div class="sk-groups">
+                            {techSkillGroups.map((group) => (
+                                <div class="sk-group">
+                                    <span class="skill-year">Since {group.year}</span>
+                                    <div class="skill-tags">
+                                        {group.items.map((item) => (
+                                            <span class="skill-tag">{item}</span>
+                                        ))}
+                                    </div>
                                 </div>
-                            </div>
-                        ))}
-                    </section>
-
-                    <!-- Personal / Competency Skills -->
-                    <section class="side-sec">
-                        <h2 class="side-title">{cvSections.PersonalSkills}</h2>
-                        <div class="progress-list">
+                            ))}
+                        </div>
+                    </div>
+                    <div class="sk-block">
+                        <div class="sec-head">
+                            <span class="sec-ico"><Icon name={info.PersonalSkills.Icon} size={16} /></span>
+                            <h2>{cvSections.PersonalSkills}</h2>
+                        </div>
+                        <div class="progress-grid">
                             {otherSkills.map((skill) => (
                                 <div>
                                     <div class="progress-item-head">
@@ -1098,78 +1202,61 @@ const cvSections = siteText.Cv.Sections;
                                 </div>
                             ))}
                         </div>
-                    </section>
-
-                    <!-- QR Quick Connect -->
-                    <div class="side-sec qr-connect">
-                        <img src={profile.qrCode} alt="Contact QR code" class="qr-image" />
-                        <p class="qr-text">{cvSections.QrNote}</p>
                     </div>
-                </aside>
+                </section>
 
-                <!-- Right Column: Objective, Experience, Projects, Education, Certs -->
+                <!-- Two-column body: Experience timeline | Key Projects -->
                 <div class="cv-body">
-                    <!-- Career Objective -->
-                    <section class="body-sec">
-                        <div class="sec-head">
-                            <span class="sec-ico"><Icon name="quote" size={16} /></span>
-                            <h2>{cvSections.CareerObjective}</h2>
-                        </div>
-                        <p class="objective-text">
-                            "{info.CareerObjective.Quote}"
-                        </p>
-                    </section>
-
-                    <!-- Work Experience -->
-                    <section class="body-sec">
-                        <div class="sec-head">
-                            <span class="sec-ico"><Icon name="briefcase" size={16} /></span>
-                            <h2>{cvSections.WorkExperience}</h2>
-                        </div>
-                        <div class="exp-list">
-                            {info.WorkExperience.Data.map((job) => (
-                                <article class="exp-item">
-                                    <div class="exp-rail">
-                                        {job.Icon ? (
-                                            <img src={job.Icon} alt="" width="28" height="28" loading="lazy" />
-                                        ) : (
-                                            <span class="exp-dot"><Icon name="building" size={17} /></span>
-                                        )}
-                                    </div>
-                                    <div class="exp-main">
-                                        <div class="exp-head">
-                                            <h3 class="exp-company">{job.Text}</h3>
-                                            <span class="exp-meta" set:html={normalizeRichHtml(job.Time)} />
+                    <div class="cv-duo">
+                        <section class="body-sec duo-a">
+                            <div class="sec-head">
+                                <span class="sec-ico"><Icon name="briefcase" size={16} /></span>
+                                <h2>{cvSections.WorkExperience}</h2>
+                            </div>
+                            <div class="exp-list">
+                                {info.WorkExperience.Data.map((job) => (
+                                    <article class="exp-item">
+                                        <div class="exp-rail">
+                                            {job.Icon ? (
+                                                <img src={job.Icon} alt="" width="28" height="28" loading="lazy" />
+                                            ) : (
+                                                <span class="exp-dot"><Icon name="building" size={17} /></span>
+                                            )}
                                         </div>
-                                        <div class="exp-loc" set:html={normalizeRichHtml(job.Location)} />
-                                        <div class="rich" set:html={job.Value.map(normalizeRichHtml).join('\n')} />
-                                    </div>
-                                </article>
-                            ))}
-                        </div>
-                    </section>
+                                        <div class="exp-main">
+                                            <div class="exp-head">
+                                                <h3 class="exp-company">{job.Text}</h3>
+                                                <span class="exp-meta" set:html={normalizeRichHtml(job.Time)} />
+                                            </div>
+                                            <div class="exp-loc" set:html={normalizeRichHtml(job.Location)} />
+                                            <div class="rich" set:html={job.Value.map(normalizeRichHtml).join('\n')} />
+                                        </div>
+                                    </article>
+                                ))}
+                            </div>
+                        </section>
 
-                    <!-- Individual Projects -->
-                    <section class="body-sec">
-                        <div class="sec-head">
-                            <span class="sec-ico"><Icon name="package" size={16} /></span>
-                            <h2>{cvSections.Projects}</h2>
-                        </div>
-                        <div class="doc-list">
-                            {info.IndividualProjects.Data.map((proj) => (
-                                <article class="doc-card">
-                                    <div class="doc-head">
-                                        <h3 class="doc-title">{proj.Text}</h3>
-                                        <span class="date-pill">
-                                            <Icon name="calendar" size={10} />
-                                            {proj.Date}
-                                        </span>
-                                    </div>
-                                    <div class="rich" set:html={proj.Value.map(normalizeRichHtml).join('\n')} />
-                                </article>
-                            ))}
-                        </div>
-                    </section>
+                        <section class="body-sec duo-b">
+                            <div class="sec-head">
+                                <span class="sec-ico"><Icon name="package" size={16} /></span>
+                                <h2>{cvSections.Projects}</h2>
+                            </div>
+                            <div class="doc-list">
+                                {info.IndividualProjects.Data.map((proj) => (
+                                    <article class="doc-card">
+                                        <div class="doc-head">
+                                            <h3 class="doc-title">{proj.Text}</h3>
+                                            <span class="date-pill">
+                                                <Icon name="calendar" size={10} />
+                                                {proj.Date}
+                                            </span>
+                                        </div>
+                                        <div class="rich" set:html={proj.Value.map(normalizeRichHtml).join('\n')} />
+                                    </article>
+                                ))}
+                            </div>
+                        </section>
+                    </div>
 
                     <!-- Education -->
                     <section class="body-sec">
