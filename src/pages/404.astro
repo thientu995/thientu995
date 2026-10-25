@@ -29,7 +29,9 @@ import { site } from '../data';
 
     .nf {
         max-width: 640px;
-        padding: calc(var(--nav-h) + 60px) 0 80px;
+        // padding-block only - a shorthand here would wipe .container's
+        // padding-inline (higher specificity) and glue content to the edges.
+        padding-block: calc(var(--nav-h) + 60px) 80px;
         text-align: center;
 
         h1 {

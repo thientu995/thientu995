@@ -48,15 +48,18 @@ import Icon from './Icon.astro';
 <style lang="scss">
     @use '../styles/tokens';
 
+    // Card lengths vary widely, so a fixed 2-col grid leaves ragged row gaps.
+    // CSS columns flow each card into the shorter column instead - the browser
+    // balances both sides and reading order runs down-then-across.
     .proj-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 18px;
-        align-items: start;
+        columns: 2;
+        column-gap: 18px;
     }
 
     .proj-card {
         padding: 24px 26px;
+        margin-bottom: 18px;
+        break-inside: avoid;
         transition: transform 0.3s var(--ease), border-color 0.3s var(--ease);
 
         &:hover {
@@ -133,7 +136,10 @@ import Icon from './Icon.astro';
     }
 
     @media (max-width: 900px) {
-        .proj-grid,
+        .proj-grid {
+            columns: 1;
+        }
+
         .cert-grid {
             grid-template-columns: 1fr;
         }

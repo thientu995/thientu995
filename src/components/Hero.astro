@@ -116,7 +116,7 @@ const term = [
     </div>
 
     <a class="scroll-hint" href="#facts" aria-label="Scroll to facts">
-        <Icon name="chevron-left" size={16} class="down" />
+        <Icon name="chevron-down" size={16} />
     </a>
 </section>
 
@@ -430,8 +430,9 @@ const term = [
         border: 1px solid var(--line);
         transition: color 0.2s var(--ease), border-color 0.2s var(--ease);
 
-        .down {
-            transform: rotate(-90deg);
+        // The chevron renders inside the child <Icon> component, which does not
+        // carry this component's scope attribute — target it unscoped.
+        :global(svg) {
             animation: bob 2s var(--ease) infinite;
         }
 
@@ -444,11 +445,11 @@ const term = [
     @keyframes bob {
         0%,
         100% {
-            transform: rotate(-90deg) translateX(0);
+            transform: translateY(0);
         }
 
         50% {
-            transform: rotate(-90deg) translateX(4px);
+            transform: translateY(4px);
         }
     }
 

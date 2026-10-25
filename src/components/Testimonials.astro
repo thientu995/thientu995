@@ -76,14 +76,17 @@ const thumb = (img) => img.replace(/\.(png|jpe?g)$/i, '.webp');
 
     .ts-stage {
         position: relative;
+        display: grid;
         padding: clamp(30px, 5vw, 48px);
         min-height: 300px;
         overflow: hidden;
     }
 
+    // Slides stack in the same grid cell, so the stage sizes to the tallest
+    // quote - absolute positioning would clip longer ones at min-height.
     .ts-slide {
-        position: absolute;
-        inset: clamp(30px, 5vw, 48px);
+        grid-area: 1 / 1;
+        min-width: 0;
         margin: 0;
         display: flex;
         flex-direction: column;

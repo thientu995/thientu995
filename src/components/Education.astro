@@ -1,6 +1,11 @@
 ---
 import { info, normalizeRichHtml } from '../data';
 import Icon from './Icon.astro';
+
+// Only the short notes pair up in one row; entries with real content
+// (the degree's long nested list) take the full width instead.
+const PAIR_MAX_CHARS = 100;
+const isShort = (value: string[]) => value.join('').length < PAIR_MAX_CHARS;
 ---
 
 <section class="section" id="education">
@@ -12,7 +17,10 @@ import Icon from './Icon.astro';
 
         <div class="edu-grid">
             {info.Education.Data.map((entry, i) => (
-                <article class="edu-card card reveal" data-delay={String(i % 2)}>
+                <article
+                    class:list={["edu-card", "card", "reveal", { "edu-pair": isShort(entry.Value) }]}
+                    data-delay={String(i % 2)}
+                >
                     <header>
                         <span class="edu-icon"><Icon name="graduation-cap" size={19} /></span>
                         <div>
@@ -41,9 +49,12 @@ import Icon from './Icon.astro';
     .edu-card {
         padding: 26px;
 
-        // The degree entry carries a long nested list - let it span full width.
-        &:first-child {
-            grid-column: 1 / -1;
+        // Default to full-width so long entries don't strand an empty column;
+        // short notes opt out and share a row side by side.
+        grid-column: 1 / -1;
+
+        &.edu-pair {
+            grid-column: auto;
         }
     }
 

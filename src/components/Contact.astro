@@ -88,7 +88,7 @@ const labels: Record<string, string> = {
             transform: translateY(-3px);
             border-color: var(--accent);
 
-            .cc-arrow {
+            :global(.cc-arrow) {
                 color: var(--accent);
                 transform: translateX(3px);
             }
@@ -128,7 +128,9 @@ const labels: Record<string, string> = {
         overflow-wrap: anywhere;
     }
 
-    .cc-arrow {
+    // The arrow renders inside the child <Icon> component, which does not carry
+    // this component's scope attribute — target it unscoped.
+    :global(.cc-arrow) {
         margin-left: auto;
         color: var(--faint);
         transition: color 0.25s var(--ease), transform 0.25s var(--ease);
