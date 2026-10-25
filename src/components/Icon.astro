@@ -6,9 +6,11 @@ interface Props {
     size?: number;
     stroke?: number;
     class?: string;
+    style?: string;
+    [key: string]: any;
 }
 
-const { name, size = 18, stroke = 2, class: cls } = Astro.props;
+const { name, size = 18, stroke = 2, class: cls, style: inlineStyle, ...rest } = Astro.props;
 
 const icons: Record<string, string> = {
     briefcase:
@@ -53,6 +55,7 @@ const icons: Record<string, string> = {
     skype: '<circle cx="12" cy="12" r="10"/><path d="M8.5 10.5c0 1.5 1.5 2 3.5 2.5s3 .8 3 2c0 1.2-1.2 2-3 2-1.3 0-2.3-.4-2.8-1.2M9 8.8c.4-.8 1.4-1.3 2.8-1.3 1.6 0 2.8.7 2.8 1.7 0 .9-.7 1.4-2 1.8"/>',
     download:
         '<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>',
+    'arrow-left': '<path d="m12 19-7-7 7-7"/><path d="M19 12H5"/>',
     'arrow-right': '<path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>',
     external:
         '<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>',
@@ -113,5 +116,7 @@ const isFill = key === 'google';
     stroke-linejoin="round"
     aria-hidden="true"
     class={cls}
+    style={inlineStyle}
     set:html={path}
+    {...rest}
 />
