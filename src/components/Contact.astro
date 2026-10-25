@@ -47,13 +47,17 @@ const labels: Record<string, string> = {
                 <h3>Quick connect</h3>
                 <p>Scan the code to pull up my contact details on your phone.</p>
                 <div class="qr-actions">
-                    <a href="/assets/data/cv.pdf" class="btn btn-primary" download>
+                    <a href="/cv" class="btn btn-primary" target="_blank">
+                        <Icon name="external" size={15} />
+                        View / Print CV
+                    </a>
+                    <a href="/assets/data/cv.pdf" class="btn btn-ghost" download>
                         <Icon name="download" size={15} />
-                        CV (PDF)
+                        PDF
                     </a>
                     <a href="/assets/data/cv.png" class="btn btn-ghost" download>
                         <Icon name="download" size={15} />
-                        CV (PNG)
+                        PNG
                     </a>
                 </div>
             </aside>

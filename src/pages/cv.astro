@@ -1,0 +1,823 @@
+---
+import { info, profile, techSkillGroups, otherSkills, normalizeRichHtml } from '../data';
+import Icon from '../components/Icon.astro';
+
+const emailItem = info.Information.Data.find((d) => d.Type === 'email');
+const phoneItem = info.Information.Data.find((d) => d.Type === 'phone');
+const githubItem = info.Information.Data.find((d) => d.Type === 'github');
+const websiteItem = info.Information.Data.find((d) => d.Type === 'website');
+const locationItem = info.Information.Data.find((d) => d.Type === 'location');
+const birthdayItem = info.Information.Data.find((d) => d.Type === 'birthday');
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{info.Information.FullName} - CV / Resume</title>
+        <meta name="description" content={`Curriculum Vitae of ${info.Information.FullName} - ${profile.role}`} />
+        <meta name="robots" content="noindex, nofollow" />
+        
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+            rel="stylesheet"
+        />
+
+        <style is:global>
+            :root {
+                --primary: #6d28d9;
+                --primary-dark: #5b21b6;
+                --primary-light: #ede9fe;
+                --accent: #7c4dff;
+                --text-main: #1e293b;
+                --text-muted: #64748b;
+                --text-light: #94a3b8;
+                --border: #e2e8f0;
+                --sidebar-bg: #f8fafc;
+                --card-bg: #ffffff;
+            }
+
+            * {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+
+            body {
+                font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+                color: var(--text-main);
+                background-color: #cbd5e1;
+                font-size: 13.5px;
+                line-height: 1.5;
+                -webkit-font-smoothing: antialiased;
+            }
+
+            /* Toolbar atop for screen view */
+            .cv-toolbar {
+                position: sticky;
+                top: 0;
+                z-index: 100;
+                background: #0f172a;
+                color: #ffffff;
+                padding: 12px 24px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            }
+
+            .cv-toolbar-info {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+            }
+
+            .cv-toolbar-title {
+                font-size: 15px;
+                font-weight: 600;
+            }
+
+            .cv-toolbar-actions {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .btn-action {
+                display: inline-flex;
+                align-items: center;
+                gap: 7px;
+                padding: 8px 16px;
+                border-radius: 999px;
+                font-size: 13px;
+                font-weight: 600;
+                cursor: pointer;
+                text-decoration: none;
+                transition: all 0.2s ease;
+                border: none;
+            }
+
+            .btn-print {
+                background: #7c4dff;
+                color: #ffffff;
+            }
+
+            .btn-print:hover {
+                background: #6839e8;
+                transform: translateY(-1px);
+            }
+
+            .btn-back {
+                background: rgba(255,255,255,0.12);
+                color: #ffffff;
+            }
+
+            .btn-back:hover {
+                background: rgba(255,255,255,0.2);
+            }
+
+            /* CV Container sheet */
+            .cv-container {
+                max-width: 960px;
+                margin: 28px auto;
+                background: #ffffff;
+                box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+                border-radius: 4px;
+                overflow: hidden;
+                display: grid;
+                grid-template-columns: 290px 1fr;
+            }
+
+            /* Left Sidebar */
+            .cv-sidebar {
+                background: var(--sidebar-bg);
+                border-right: 1px solid var(--border);
+                padding: 32px 24px;
+                display: flex;
+                flex-direction: column;
+                gap: 28px;
+            }
+
+            .cv-avatar-wrap {
+                text-align: center;
+            }
+
+            .cv-avatar {
+                width: 120px;
+                height: 120px;
+                border-radius: 50%;
+                object-fit: cover;
+                border: 4px solid #ffffff;
+                box-shadow: 0 4px 12px rgba(109, 40, 217, 0.2);
+                margin-bottom: 12px;
+            }
+
+            .cv-name {
+                font-size: 20px;
+                font-weight: 700;
+                color: #0f172a;
+                line-height: 1.25;
+            }
+
+            .cv-role {
+                font-size: 13px;
+                font-weight: 600;
+                color: var(--primary);
+                margin-top: 4px;
+            }
+
+            .sidebar-section {
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .sidebar-title {
+                font-size: 12px;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.08em;
+                color: var(--primary);
+                border-bottom: 2px solid var(--primary-light);
+                padding-bottom: 5px;
+            }
+
+            .contact-list {
+                list-style: none;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .contact-item {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                font-size: 12.5px;
+                color: var(--text-main);
+                overflow-wrap: anywhere;
+            }
+
+            .contact-item a {
+                color: var(--text-main);
+                text-decoration: none;
+            }
+
+            .contact-item a:hover {
+                color: var(--primary);
+                text-decoration: underline;
+            }
+
+            .contact-icon {
+                color: var(--primary);
+                flex-shrink: 0;
+            }
+
+            .skill-group {
+                margin-bottom: 12px;
+            }
+
+            .skill-year {
+                font-size: 11px;
+                font-weight: 600;
+                color: var(--text-muted);
+                text-transform: uppercase;
+                margin-bottom: 5px;
+                display: block;
+                font-family: 'JetBrains Mono', monospace;
+            }
+
+            .skill-tags {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 5px;
+            }
+
+            .skill-tag {
+                font-size: 11px;
+                background: #ffffff;
+                color: var(--text-main);
+                border: 1px solid var(--border);
+                padding: 2px 7px;
+                border-radius: 4px;
+                font-weight: 500;
+            }
+
+            .progress-list {
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .progress-item-head {
+                display: flex;
+                justify-content: space-between;
+                font-size: 12px;
+                font-weight: 500;
+                margin-bottom: 3px;
+            }
+
+            .progress-track {
+                height: 5px;
+                background: #e2e8f0;
+                border-radius: 999px;
+                overflow: hidden;
+            }
+
+            .progress-fill {
+                height: 100%;
+                background: var(--primary);
+                border-radius: 999px;
+            }
+
+            .qr-connect {
+                text-align: center;
+                padding-top: 8px;
+            }
+
+            .qr-image {
+                width: 100px;
+                height: 100px;
+                background: #ffffff;
+                padding: 6px;
+                border-radius: 8px;
+                border: 1px solid var(--border);
+                margin: 0 auto 6px;
+            }
+
+            .qr-text {
+                font-size: 11px;
+                color: var(--text-muted);
+            }
+
+            /* Right Main Content */
+            .cv-main {
+                padding: 36px 32px;
+                display: flex;
+                flex-direction: column;
+                gap: 28px;
+            }
+
+            .main-section {
+                display: flex;
+                flex-direction: column;
+                gap: 14px;
+            }
+
+            .section-header {
+                display: flex;
+                align-items: center;
+                gap: 9px;
+                border-bottom: 2px solid #f1f5f9;
+                padding-bottom: 8px;
+            }
+
+            .section-header h2 {
+                font-size: 16px;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+                color: #0f172a;
+            }
+
+            .section-icon {
+                color: var(--primary);
+            }
+
+            .objective-text {
+                font-size: 13.5px;
+                line-height: 1.6;
+                color: #334155;
+                font-style: italic;
+                background: var(--primary-light);
+                padding: 12px 16px;
+                border-left: 3px solid var(--primary);
+                border-radius: 0 6px 6px 0;
+            }
+
+            /* Experience Timeline */
+            .exp-list {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .exp-item {
+                position: relative;
+                padding-left: 18px;
+                border-left: 2px solid #e2e8f0;
+            }
+
+            .exp-item::before {
+                content: '';
+                position: absolute;
+                left: -6px;
+                top: 4px;
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                background: var(--primary);
+                box-shadow: 0 0 0 3px #ffffff, 0 0 0 4px var(--primary-light);
+            }
+
+            .exp-head {
+                display: flex;
+                justify-content: space-between;
+                align-items: baseline;
+                flex-wrap: wrap;
+                gap: 6px;
+                margin-bottom: 4px;
+            }
+
+            .exp-company {
+                font-size: 15px;
+                font-weight: 700;
+                color: #0f172a;
+            }
+
+            .exp-meta {
+                display: flex;
+                gap: 12px;
+                font-size: 12px;
+                color: var(--text-muted);
+                font-family: 'JetBrains Mono', monospace;
+            }
+
+            .exp-loc {
+                font-size: 12px;
+                color: var(--text-muted);
+                margin-bottom: 8px;
+            }
+
+            /* Legacy Rich content styling inside CV */
+            .cv-rich {
+                font-size: 12.5px;
+                line-height: 1.65;
+                color: #334155;
+            }
+
+            .cv-rich ul {
+                list-style: disc outside;
+                padding-left: 16px;
+                margin: 6px 0;
+            }
+
+            .cv-rich li {
+                margin: 4px 0;
+            }
+
+            .cv-rich b, .cv-rich strong {
+                color: #0f172a;
+                font-weight: 600;
+            }
+
+            .cv-rich a {
+                color: var(--primary);
+                text-decoration: none;
+            }
+
+            .cv-rich a:hover {
+                text-decoration: underline;
+            }
+
+            .color-datetime {
+                font-size: 11px;
+                font-family: 'JetBrains Mono', monospace;
+                background: #f1f5f9;
+                color: var(--primary);
+                padding: 1px 6px;
+                border-radius: 4px;
+                font-weight: 600;
+            }
+
+            .badge-current {
+                font-size: 10px;
+                font-family: 'JetBrains Mono', monospace;
+                background: #dcfce7;
+                color: #15803d;
+                padding: 1px 6px;
+                border-radius: 4px;
+                font-weight: 600;
+                text-transform: uppercase;
+            }
+
+            .icon-inline {
+                width: 12px;
+                height: 12px;
+                vertical-align: -1px;
+                margin-right: 2px;
+                color: var(--primary);
+            }
+
+            /* Projects & Education Cards */
+            .grid-cards {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .cv-card {
+                background: #f8fafc;
+                border: 1px solid var(--border);
+                border-radius: 6px;
+                padding: 12px 14px;
+            }
+
+            .cv-card-head {
+                display: flex;
+                justify-content: space-between;
+                align-items: baseline;
+                gap: 8px;
+                margin-bottom: 6px;
+            }
+
+            .cv-card-title {
+                font-size: 13.5px;
+                font-weight: 700;
+                color: #0f172a;
+            }
+
+            .cv-card-date {
+                font-size: 11px;
+                color: var(--text-muted);
+                font-family: 'JetBrains Mono', monospace;
+                white-space: nowrap;
+            }
+
+            .cert-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+
+            .cert-item {
+                background: #f8fafc;
+                border: 1px solid var(--border);
+                border-radius: 6px;
+                padding: 10px 12px;
+            }
+
+            .cert-name {
+                font-size: 12.5px;
+                font-weight: 600;
+                color: #0f172a;
+            }
+
+            .cert-date {
+                font-size: 11px;
+                color: var(--primary);
+                font-family: 'JetBrains Mono', monospace;
+            }
+
+            .cert-detail {
+                font-size: 11.5px;
+                color: var(--text-muted);
+                margin-top: 3px;
+            }
+
+            /* PRINT CSS SPECIFICATION */
+            @media print {
+                @page {
+                    size: A4;
+                    margin: 10mm;
+                }
+
+                body {
+                    background: #ffffff !important;
+                    color: #000000 !important;
+                    font-size: 11.5px !important;
+                    line-height: 1.4 !important;
+                }
+
+                .cv-toolbar {
+                    display: none !important;
+                }
+
+                .cv-container {
+                    max-width: 100% !important;
+                    margin: 0 !important;
+                    box-shadow: none !important;
+                    border: none !important;
+                    grid-template-columns: 240px 1fr !important;
+                }
+
+                .cv-sidebar {
+                    padding: 0 16px 0 0 !important;
+                    background: transparent !important;
+                    border-right: 1px solid #cbd5e1 !important;
+                    gap: 16px !important;
+                }
+
+                .cv-main {
+                    padding: 0 0 0 16px !important;
+                    gap: 18px !important;
+                }
+
+                .cv-avatar {
+                    width: 90px !important;
+                    height: 90px !important;
+                    border: 2px solid #6d28d9 !important;
+                }
+
+                .cv-card, .cert-item {
+                    background: transparent !important;
+                    border: 1px solid #cbd5e1 !important;
+                    break-inside: avoid;
+                }
+
+                .exp-item {
+                    break-inside: avoid;
+                }
+
+                .main-section {
+                    break-inside: avoid;
+                }
+
+                .objective-text {
+                    background: #f3e8ff !important;
+                    -webkit-print-color-adjust: exact;
+                    print-color-adjust: exact;
+                }
+
+                .skill-tag {
+                    border: 1px solid #cbd5e1 !important;
+                }
+
+                a {
+                    color: #000000 !important;
+                    text-decoration: none !important;
+                }
+            }
+
+            /* Responsive for tablets / mobile */
+            @media (max-width: 768px) {
+                .cv-container {
+                    grid-template-columns: 1fr;
+                    margin: 12px;
+                }
+
+                .cv-sidebar {
+                    border-right: none;
+                    border-bottom: 1px solid var(--border);
+                }
+
+                .cert-grid {
+                    grid-template-columns: 1fr;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Top Toolbar for Screen Users -->
+        <header class="cv-toolbar">
+            <div class="cv-toolbar-info">
+                <a href="/" class="btn-action btn-back">
+                    <Icon name="arrow-right" size={15} style="transform: rotate(180deg);" />
+                    Back to Profile
+                </a>
+                <span class="cv-toolbar-title">{info.Information.FullName} - CV / Resume</span>
+            </div>
+            <div class="cv-toolbar-actions">
+                <button type="button" class="btn-action btn-print" onclick="window.print()">
+                    <Icon name="download" size={15} />
+                    Print / Save as PDF
+                </button>
+            </div>
+        </header>
+
+        <!-- CV Sheet -->
+        <main class="cv-container">
+            <!-- Left Column: Personal info & Skills -->
+            <aside class="cv-sidebar">
+                <div class="cv-avatar-wrap">
+                    <img
+                        src="/assets/images/avatar-profile.jpg"
+                        alt={info.Information.FullName}
+                        class="cv-avatar"
+                        width="120"
+                        height="120"
+                    />
+                    <h1 class="cv-name">{info.Information.FullName}</h1>
+                    <p class="cv-role">{profile.role}</p>
+                </div>
+
+                <!-- Contact Details -->
+                <div class="sidebar-section">
+                    <h2 class="sidebar-title">Contact</h2>
+                    <ul class="contact-list">
+                        {emailItem && (
+                            <li class="contact-item">
+                                <span class="contact-icon"><Icon name="mail" size={14} /></span>
+                                <a href={`mailto:${emailItem.TextRaw}`}>{emailItem.TextRaw}</a>
+                            </li>
+                        )}
+                        {phoneItem && (
+                            <li class="contact-item">
+                                <span class="contact-icon"><Icon name="phone" size={14} /></span>
+                                <a href={`tel:${phoneItem.TextRaw.replace(/\D/g, '')}`}>{phoneItem.TextRaw}</a>
+                            </li>
+                        )}
+                        {locationItem && (
+                            <li class="contact-item">
+                                <span class="contact-icon"><Icon name="map-pin" size={14} /></span>
+                                <span>{locationItem.TextRaw}</span>
+                            </li>
+                        )}
+                        {githubItem && (
+                            <li class="contact-item">
+                                <span class="contact-icon"><Icon name="github" size={14} /></span>
+                                <a href={githubItem.TextHref} target="_blank">{githubItem.TextRaw}</a>
+                            </li>
+                        )}
+                        {websiteItem && (
+                            <li class="contact-item">
+                                <span class="contact-icon"><Icon name="globe" size={14} /></span>
+                                <a href={websiteItem.TextHref} target="_blank">cv.t4vn.com</a>
+                            </li>
+                        )}
+                        {birthdayItem && (
+                            <li class="contact-item">
+                                <span class="contact-icon"><Icon name="calendar" size={14} /></span>
+                                <span>{birthdayItem.TextRaw}</span>
+                            </li>
+                        )}
+                    </ul>
+                </div>
+
+                <!-- Technical Skills -->
+                <div class="sidebar-section">
+                    <h2 class="sidebar-title">Technical Skills</h2>
+                    {techSkillGroups.map((group) => (
+                        <div class="skill-group">
+                            <span class="skill-year">Since {group.year}</span>
+                            <div class="skill-tags">
+                                {group.items.map((item) => (
+                                    <span class="skill-tag">{item}</span>
+                                ))}
+                            </div>
+                        </div>
+                    ))}
+                </div>
+
+                <!-- Personal / Competency Skills -->
+                <div class="sidebar-section">
+                    <h2 class="sidebar-title">Personal Skills</h2>
+                    <div class="progress-list">
+                        {otherSkills.map((skill) => (
+                            <div>
+                                <div class="progress-item-head">
+                                    <span>{skill.label}</span>
+                                    <span>{skill.value}%</span>
+                                </div>
+                                <div class="progress-track">
+                                    <div class="progress-fill" style={`width: ${skill.value}%;`}></div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+                <!-- QR Quick Connect -->
+                <div class="sidebar-section qr-connect">
+                    <img src="/assets/images/qr-code.svg" alt="Contact QR code" class="qr-image" />
+                    <p class="qr-text">Scan for digital profile & links</p>
+                </div>
+            </aside>
+
+            <!-- Right Column: Career objective, Experience, Education, Projects, Certs -->
+            <div class="cv-main">
+                <!-- Career Objective -->
+                <section class="main-section">
+                    <div class="section-header">
+                        <span class="section-icon"><Icon name="quote" size={18} /></span>
+                        <h2>Career Objective</h2>
+                    </div>
+                    <p class="objective-text">
+                        "{info.CareerObjective.Quote}"
+                    </p>
+                </section>
+
+                <!-- Work Experience -->
+                <section class="main-section">
+                    <div class="section-header">
+                        <span class="section-icon"><Icon name="briefcase" size={18} /></span>
+                        <h2>Work Experience</h2>
+                    </div>
+                    <div class="exp-list">
+                        {info.WorkExperience.Data.map((job) => (
+                            <article class="exp-item">
+                                <div class="exp-head">
+                                    <h3 class="exp-company">{job.Text}</h3>
+                                    <div class="exp-meta" set:html={normalizeRichHtml(job.Time)} />
+                                </div>
+                                <div class="exp-loc" set:html={normalizeRichHtml(job.Location)} />
+                                <div class="cv-rich" set:html={job.Value.map(normalizeRichHtml).join('\n')} />
+                            </article>
+                        ))}
+                    </div>
+                </section>
+
+                <!-- Individual Projects -->
+                <section class="main-section">
+                    <div class="section-header">
+                        <span class="section-icon"><Icon name="package" size={18} /></span>
+                        <h2>Key Projects & Packages</h2>
+                    </div>
+                    <div class="grid-cards">
+                        {info.IndividualProjects.Data.slice(0, 4).map((proj) => (
+                            <article class="cv-card">
+                                <div class="cv-card-head">
+                                    <h3 class="cv-card-title">{proj.Text}</h3>
+                                    <span class="cv-card-date">{proj.Date}</span>
+                                </div>
+                                <div class="cv-rich" set:html={proj.Value.map(normalizeRichHtml).join('\n')} />
+                            </article>
+                        ))}
+                    </div>
+                </section>
+
+                <!-- Education -->
+                <section class="main-section">
+                    <div class="section-header">
+                        <span class="section-icon"><Icon name="graduation-cap" size={18} /></span>
+                        <h2>Education</h2>
+                    </div>
+                    <div class="grid-cards">
+                        {info.Education.Data.map((edu) => (
+                            <article class="cv-card">
+                                <div class="cv-card-head">
+                                    <h3 class="cv-card-title">{edu.Text}</h3>
+                                    <span class="cv-card-date" set:html={normalizeRichHtml(edu.Time)} />
+                                </div>
+                                <div class="cv-rich" set:html={edu.Value.map(normalizeRichHtml).join('\n')} />
+                            </article>
+                        ))}
+                    </div>
+                </section>
+
+                <!-- Certifications -->
+                <section class="main-section">
+                    <div class="section-header">
+                        <span class="section-icon"><Icon name="award" size={18} /></span>
+                        <h2>Certificates</h2>
+                    </div>
+                    <div class="cert-grid">
+                        {info.Certificate.Data.map((cert) => (
+                            <div class="cert-item">
+                                <div class="cert-name">{cert.Text}</div>
+                                <span class="cert-date">{cert.Date}</span>
+                                {cert.Value.length > 0 && (
+                                    <p class="cert-detail">{cert.Value.join(' · ')}</p>
+                                )}
+                            </div>
+                        ))}
+                    </div>
+                </section>
+            </div>
+        </main>
+    </body>
+</html>
