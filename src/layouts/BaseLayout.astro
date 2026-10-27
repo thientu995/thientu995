@@ -12,7 +12,7 @@ interface Props {
 const { title = site.title, description = site.description } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site);
-const ogImage = new URL(profile.avatarCv, Astro.site);
+const ogImage = new URL(profile.avatar, Astro.site);
 // Person structured data - every field is sourced from the JSON data files.
 const personSchema = {
     '@context': 'https://schema.org',
@@ -64,7 +64,7 @@ const fontsHref =
         <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f8f9fc" />
 
         <!-- Icons -->
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="icon" type="image/svg+xml" href="https://cdn.tunt.net/logo.svg" />
         <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="32x32" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
